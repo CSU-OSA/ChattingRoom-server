@@ -41,8 +41,7 @@ public class ChannelInfo
         }
         return false;
     }
-
-
+  
     public String getName() {return name;}
 
     public String getTicket() {return ticket;}
