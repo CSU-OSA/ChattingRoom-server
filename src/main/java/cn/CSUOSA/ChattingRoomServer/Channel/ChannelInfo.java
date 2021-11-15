@@ -1,13 +1,16 @@
 package cn.CSUOSA.ChattingRoomServer.Channel;
 
+import cn.CSUOSA.ChattingRoomServer.Message.MessageInfo;
 import cn.CSUOSA.ChattingRoomServer.User.UserInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ChannelInfo
 {
     private final List<UserInfo> members;
+    private final ConcurrentHashMap<Integer, MessageInfo> messageList;
     private final String name;
     private final String ticket;
 
@@ -16,6 +19,7 @@ public class ChannelInfo
         this.name = name;
         this.ticket = ticket;
         members = new ArrayList<>();
+        messageList = new ConcurrentHashMap<>();
     }
 
     public boolean addMember(UserInfo member)
@@ -37,6 +41,7 @@ public class ChannelInfo
         }
         return false;
     }
+
 
     public String getName() {return name;}
 
