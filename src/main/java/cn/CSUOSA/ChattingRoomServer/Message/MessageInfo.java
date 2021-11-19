@@ -1,20 +1,30 @@
 package cn.CSUOSA.ChattingRoomServer.Message;
 
+import cn.CSUOSA.ChattingRoomServer.Main;
+
+import java.util.ArrayList;
+
 public class MessageInfo
 {
-    private final long id;
+    private final long msgID;
     private final String recTime;
     private final String channelName;
     private final String senderNick;
-    private final String msg;
+    private final ArrayList<String> msg;
 
-    public MessageInfo(long id, String recTime, String channelName, String senderNick, String msg)
+    public MessageInfo(String recTime, String channelName, String senderNick, ArrayList<String> msg)
     {
-        this.id = id;
+        Main.msgCount++;
+        this.msgID = Main.msgCount;
         this.recTime = recTime;
         this.channelName = channelName;
         this.senderNick = senderNick;
         this.msg = msg;
+    }
+
+    public long getMsgID()
+    {
+        return msgID;
     }
 
     public String getRecTime()
@@ -32,7 +42,7 @@ public class MessageInfo
         return senderNick;
     }
 
-    public String getMsg()
+    public ArrayList<String> getMsg()
     {
         return msg;
     }
