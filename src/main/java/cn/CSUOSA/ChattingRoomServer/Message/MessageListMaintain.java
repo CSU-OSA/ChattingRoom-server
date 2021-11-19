@@ -2,7 +2,7 @@ package cn.CSUOSA.ChattingRoomServer.Message;
 
 import cn.CSUOSA.ChattingRoomServer.Main;
 
-public class MessageListThread implements Runnable
+public class MessageListMaintain implements Runnable
 {
     @Override
     public void run()
