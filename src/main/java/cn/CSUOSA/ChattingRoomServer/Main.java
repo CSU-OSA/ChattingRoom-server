@@ -20,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @SpringBootApplication
 public class Main
 {
+
     public final static ConcurrentHashMap<String, UserInfo> UserList = new ConcurrentHashMap<>();   //用户列表
     public final static ConcurrentHashMap<String, ChannelInfo> ChannelList = new ConcurrentHashMap<>();   //频道列表
     public final static ConcurrentHashMap<Long, MessageListEntry> MsgList = new ConcurrentHashMap<>();    //消息队列
@@ -28,6 +29,7 @@ public class Main
     public static Terminal terminal;
     public static LineReader lineReader;
     public static long msgCount = 0;
+  
     private static ConfigurableApplicationContext CAC;
     @Autowired
     Environment environment;
@@ -50,6 +52,7 @@ public class Main
         }
 
         Out.Info("Channel [PublicChannel] Opened");
+
         Main.ChannelList.put("PublicChannel", new ChannelInfo("PublicChannel", "", false));
     }
 }

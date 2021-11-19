@@ -19,6 +19,7 @@ public class ChannelActions
     {
         if (ticket == null)
             ticket = "";
+
         if (name.length() < 4 || name.length() > 64 || (!ticket.isEmpty() && ticket.length() != 6))
             return false;
         else
@@ -73,6 +74,7 @@ public class ChannelActions
                 return new BoolMsgWithObj(false, "Channel already opened.");
 
             Out.Info("Channel [" + name + "] Created");
+
             Main.ChannelList.put(name, new ChannelInfo(name, (ticket == null) ? "" : ticket));
             Out.Info("User [" + usrNick + "] joined channel [" + name + "]");
             Main.ChannelList.get(name).addMember(Main.UserList.get(usrNick));
