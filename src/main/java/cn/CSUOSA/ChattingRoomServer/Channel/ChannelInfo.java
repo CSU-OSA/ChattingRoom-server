@@ -68,7 +68,7 @@ public class ChannelInfo
             return null;
         return this.messageList.get(msgId);
     }
-
+  
     public String getName() {return name;}
 
     public String getTicket() {return ticket;}
