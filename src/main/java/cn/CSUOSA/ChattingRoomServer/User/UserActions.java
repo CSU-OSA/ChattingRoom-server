@@ -15,7 +15,7 @@ public class UserActions
     //验证用户
     public static boolean verifyUser(String nick, String ticket)
     {
-        if (nick.length() > 32 || ticket.length() != 6)
+        if (nick.length() < 4 || nick.length() > 32 || ticket.length() != 6)
             return false;
         else
         {
@@ -45,8 +45,8 @@ public class UserActions
     @PostMapping("/login")
     public BoolMsgWithObj userLogin(@RequestParam(value = "nick") String nick, String ticket)
     {
-        if (nick.length() > 32 || ticket.length() != 6)
-            return new BoolMsgWithObj(false, "Nick or Ticket too long.");
+        if (nick.length() < 4 || nick.length() > 32 || ticket.length() != 6)
+            return new BoolMsgWithObj(false, "Invalid nick or ticket length.");
         else
         {
             //查找是否含有非法字符

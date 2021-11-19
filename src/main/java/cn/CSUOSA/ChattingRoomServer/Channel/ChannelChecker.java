@@ -23,7 +23,7 @@ public class ChannelChecker implements Runnable
                         if (channelInfo.getMembers().isEmpty())
                             break;
                     }
-                if (channelInfo.getMembers().isEmpty())
+                if (channelInfo.getMembers().isEmpty() && channelInfo.getAutoClose())
                 {
                     Main.ChannelList.remove(nowKey);
                     Out.Info("Channel [" + nowKey + "] Closed");
