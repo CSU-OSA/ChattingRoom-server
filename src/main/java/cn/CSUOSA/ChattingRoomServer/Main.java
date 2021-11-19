@@ -26,6 +26,7 @@ public class Main
     public static Terminal terminal;
     public static LineReader lineReader;
     public static long msgCount = 0;
+
     private static ConfigurableApplicationContext CAC;
     @Autowired
     Environment environment;
@@ -50,6 +51,13 @@ public class Main
         }
 
         Out.Info("Channel [PublicChannel] Opened");
-        Main.ChannelList.put("PublicChannel", new ChannelInfo("PublicChannel", "", false));
+        Main.ChannelList.put("PublicChannel", new ChannelInfo("PublicChannel", "", false));=======
+        UserList = new ConcurrentHashMap<>();
+        ChannelList = new HashMap<>();
+
+        CAC = SpringApplication.run(Main.class, args);
+        new Thread(userMapTimer).start();
+
+        new Thread(new CmdProcessor()).start();
     }
 }

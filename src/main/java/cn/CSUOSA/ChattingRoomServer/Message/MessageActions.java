@@ -1,5 +1,6 @@
 package cn.CSUOSA.ChattingRoomServer.Message;
 
+
 import cn.CSUOSA.ChattingRoomServer.Main;
 import cn.CSUOSA.ChattingRoomServer.ReturnParams.BoolMsgWithObj;
 import cn.CSUOSA.ChattingRoomServer.User.UserInfo;
