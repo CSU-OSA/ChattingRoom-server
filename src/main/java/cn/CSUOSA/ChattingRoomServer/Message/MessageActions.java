@@ -1,13 +1,17 @@
 package cn.CSUOSA.ChattingRoomServer.Message;
 
+import cn.CSUOSA.ChattingRoomServer.Main;
 import cn.CSUOSA.ChattingRoomServer.ReturnParams.BoolMsgWithObj;
+import cn.CSUOSA.ChattingRoomServer.User.UserInfo;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static cn.CSUOSA.ChattingRoomServer.Channel.ChannelActions.verifyChannel;
 import static cn.CSUOSA.ChattingRoomServer.User.UserActions.verifyUser;
@@ -25,6 +29,21 @@ public class MessageActions
         if (!verifyChannel(name, ticket))
             return new BoolMsgWithObj(false, "Un Known Channel.");
 
+        if (!Main.ChannelList.get(name).getMembers().contains(Main.UserList.get(usrNick)))
+            return new BoolMsgWithObj(false, "You are not a member of that channel.");
+
+        MessageInfo newMsg = new MessageInfo(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), name, usrNick, msg);
+        long mid = newMsg.getMsgID();
+        MessageListEntry msgListEntry = new MessageListEntry(newMsg);
+
+        Main.MsgList.put(mid, msgListEntry);
+
+        for (UserInfo it : Main.ChannelList.get(name).getMembers())
+        {
+            it.addMsg(mid);
+            msgListEntry.addQuoteCount();
+        }
+
         return new BoolMsgWithObj(true, "").setReturnObj(msg);
     }
 
@@ -34,6 +53,14 @@ public class MessageActions
         if (!verifyUser(nick, ticket))
             return new BoolMsgWithObj(false, "Authentication failed.");
 
-        return new BoolMsgWithObj(true, "").setReturnObj(new MessageInfo(0, "1970-1-1 00:00:00", "Test", "Test", "TestMSG"));
+        ArrayList<MessageInfo> msgList = new ArrayList<>();
+
+        for (long mid : Main.UserList.get(nick).getMsgList())
+        {
+            msgList.add(Main.MsgList.get(mid).messageInfo);
+            Main.MsgList.get(mid).minusQuoteCount();
+        }
+
+        return new BoolMsgWithObj(true, "").setReturnObj(msgList);
     }
 }
