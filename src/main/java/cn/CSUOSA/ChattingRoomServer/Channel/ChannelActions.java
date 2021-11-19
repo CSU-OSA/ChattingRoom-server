@@ -43,7 +43,6 @@ public class ChannelActions
         }
     }
 
-
     //频道创建相关
     @PostMapping("/create")
     public BoolMsgWithObj channelCreation(@RequestParam(value = "usrNick") String usrNick, @RequestParam(value = "name") String name, String usrTicket, @Nullable String ticket)
@@ -88,7 +87,6 @@ public class ChannelActions
     {
         if (!verifyUser(usrNick, usrTicket))
             return new BoolMsgWithObj(false, "Authentication failed.");
-
 
         if (name.length() < 4 || name.length() > 64 || (ticket != null && ticket.length() != 6))
             return new BoolMsgWithObj(false, "Invalid name or ticket length.");

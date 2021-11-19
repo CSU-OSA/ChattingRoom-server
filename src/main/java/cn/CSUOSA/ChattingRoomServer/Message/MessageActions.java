@@ -1,6 +1,5 @@
 package cn.CSUOSA.ChattingRoomServer.Message;
 
-
 import cn.CSUOSA.ChattingRoomServer.Main;
 import cn.CSUOSA.ChattingRoomServer.ReturnParams.BoolMsgWithObj;
 import cn.CSUOSA.ChattingRoomServer.User.UserInfo;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 import static cn.CSUOSA.ChattingRoomServer.Channel.ChannelActions.verifyChannel;
@@ -22,7 +22,7 @@ import static cn.CSUOSA.ChattingRoomServer.User.UserActions.verifyUser;
 public class MessageActions
 {
     @PostMapping("/send")
-    public BoolMsgWithObj sendMsg(@RequestParam(value = "usrNick") String usrNick, @RequestParam(value = "name") String name, String usrTicket, @Nullable String ticket, ArrayList<String> msg)
+    public BoolMsgWithObj sendMsg(@RequestParam(value = "usrNick") String usrNick, @RequestParam(value = "name") String name, String usrTicket, @Nullable String ticket, String msg)
     {
         if (!verifyUser(usrNick, usrTicket))
             return new BoolMsgWithObj(false, "Authentication failed.");
@@ -33,7 +33,7 @@ public class MessageActions
         if (!Main.ChannelList.get(name).getMembers().contains(Main.UserList.get(usrNick)))
             return new BoolMsgWithObj(false, "You are not a member of that channel.");
 
-        MessageInfo newMsg = new MessageInfo(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), name, usrNick, msg);
+        MessageInfo newMsg = new MessageInfo(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), name, usrNick, new ArrayList<>(Collections.singletonList(msg)));
         long mid = newMsg.getMsgID();
         MessageListEntry msgListEntry = new MessageListEntry(newMsg);
 
