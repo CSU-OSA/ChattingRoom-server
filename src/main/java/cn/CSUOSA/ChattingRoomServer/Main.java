@@ -23,6 +23,7 @@ public class Main
     public static ConcurrentHashMap<String, ChannelInfo> ChannelList;
     public static ConcurrentHashMap<Long, MessageListEntry> MsgList;
     public static UserMapTimer userMapTimer = new UserMapTimer();
+    public static MessageListThread msgListCleaner = new MessageListThread();
     public static Terminal terminal;
     public static LineReader lineReader;
     public static long msgCount = 0;
@@ -41,6 +42,7 @@ public class Main
         CAC = SpringApplication.run(Main.class, args);  //启动SpringBoot
 
         new Thread(userMapTimer).start();       //启动昵称占用计时器
+        new Thread(msgListCleaner).start();     //启动主消息队列维护线程
 
         try
         {
