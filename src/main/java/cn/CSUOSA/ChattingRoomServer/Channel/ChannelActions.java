@@ -19,7 +19,8 @@ public class ChannelActions
     {
         if (ticket == null)
             ticket = "";
-        if (name.length() > 64 || (!ticket.isEmpty() && ticket.length() != 6))
+
+        if (name.length() < 4 || name.length() > 64 || (!ticket.isEmpty() && ticket.length() != 6))
             return false;
         else
         {
@@ -42,15 +43,16 @@ public class ChannelActions
         }
     }
 
-    //用户登录相关
-    @PostMapping("/reg")
-    public BoolMsgWithObj channelRegistry(@RequestParam(value = "usrNick") String usrNick, @RequestParam(value = "name") String name, String usrTicket, @Nullable String ticket)
+
+    //频道创建相关
+    @PostMapping("/create")
+    public BoolMsgWithObj channelCreation(@RequestParam(value = "usrNick") String usrNick, @RequestParam(value = "name") String name, String usrTicket, @Nullable String ticket)
     {
         if (!verifyUser(usrNick, usrTicket))
             return new BoolMsgWithObj(false, "Authentication failed.");
 
-        if (name.length() > 64 || (ticket != null && ticket.length() != 6))
-            return new BoolMsgWithObj(false, "Name or Ticket too long.");
+        if (name.length() < 4 || name.length() > 64 || (ticket != null && ticket.length() != 6))
+            return new BoolMsgWithObj(false, "Invalid name or ticket length.");
         else
         {
             //查找是否含有非法字符
@@ -72,7 +74,8 @@ public class ChannelActions
             if (Main.ChannelList.containsKey(name))
                 return new BoolMsgWithObj(false, "Channel already opened.");
 
-            Out.Info("Channel [" + name + "] Opened");
+            Out.Info("Channel [" + name + "] Created");
+
             Main.ChannelList.put(name, new ChannelInfo(name, (ticket == null) ? "" : ticket));
             Out.Info("User [" + usrNick + "] joined channel [" + name + "]");
             Main.ChannelList.get(name).addMember(Main.UserList.get(usrNick));
@@ -86,8 +89,9 @@ public class ChannelActions
         if (!verifyUser(usrNick, usrTicket))
             return new BoolMsgWithObj(false, "Authentication failed.");
 
-        if (name.length() > 64 || (ticket != null && ticket.length() != 6))
-            return new BoolMsgWithObj(false, "Nick or Ticket too long.");
+
+        if (name.length() < 4 || name.length() > 64 || (ticket != null && ticket.length() != 6))
+            return new BoolMsgWithObj(false, "Invalid name or ticket length.");
         else
         {
             //查找是否含有非法字符
