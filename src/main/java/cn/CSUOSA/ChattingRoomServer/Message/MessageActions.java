@@ -3,10 +3,8 @@ package cn.CSUOSA.ChattingRoomServer.Message;
 import cn.CSUOSA.ChattingRoomServer.Main;
 import cn.CSUOSA.ChattingRoomServer.ReturnParams.BoolMsgWithObj;
 import cn.CSUOSA.ChattingRoomServer.User.UserInfo;
-import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
@@ -22,12 +20,12 @@ import static cn.CSUOSA.ChattingRoomServer.User.UserActions.verifyUser;
 public class MessageActions
 {
     @PostMapping("/send")
-    public BoolMsgWithObj sendMsg(@RequestParam(value = "usrNick") String usrNick, @RequestParam(value = "name") String name, String usrTicket, @Nullable String ticket, String msg)
+    public BoolMsgWithObj sendMsg(String usrNick, String usrTicket, String name, String msg)
     {
         if (!verifyUser(usrNick, usrTicket))
             return new BoolMsgWithObj(false, "Authentication failed.");
 
-        if (!verifyChannel(name, ticket))
+        if (!verifyChannel(name))
             return new BoolMsgWithObj(false, "Un Known Channel.");
 
         if (!Main.ChannelList.get(name).getMembers().contains(Main.UserList.get(usrNick)))
@@ -49,7 +47,7 @@ public class MessageActions
     }
 
     @PostMapping("/get")
-    public BoolMsgWithObj getMsg(@RequestParam(value = "nick") String nick, String ticket)
+    public BoolMsgWithObj getMsg(String nick, String ticket)
     {
         if (!verifyUser(nick, ticket))
             return new BoolMsgWithObj(false, "Authentication failed.");
