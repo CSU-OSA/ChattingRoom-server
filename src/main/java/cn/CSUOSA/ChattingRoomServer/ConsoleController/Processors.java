@@ -7,11 +7,12 @@ import cn.CSUOSA.ChattingRoomServer.User.UserInfo;
 
 public class Processors
 {
+    //列出用户、频道
     public static void listObject(String[] args)
     {
         switch (args[1])
         {
-            case "-u", "--user" -> {
+            case "user" -> {
                 if (Main.UserList.isEmpty())
                     Out.Warn("No User Online.");
                 else
@@ -32,7 +33,7 @@ public class Processors
                     Out.Info(strBuilder.toString());
                 }
             }
-            case "-g", "--group" -> {
+            case "channel" -> {
                 if (Main.ChannelList.isEmpty())
                     Out.Warn("No Channel Opened.");
                 else
