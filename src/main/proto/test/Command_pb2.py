@@ -11,12 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 
 _sym_db = _symbol_database.Default()
 
-
-
-
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rCommand.proto\x12\x16\x63n.csuosa.pojo.command\"\xc4\x02\n\x0b\x43ommandPOJO\x12@\n\toperation\x18\x01 \x01(\x0e\x32-.cn.csuosa.pojo.command.CommandPOJO.Operation\x12\x35\n\x07message\x18\x02 \x01(\x0b\x32\x1f.cn.csuosa.pojo.command.MessageH\x00\x88\x01\x01\x12\x35\n\x07\x63hannel\x18\x03 \x01(\x0b\x32\x1f.cn.csuosa.pojo.command.ChannelH\x01\x88\x01\x01\"m\n\tOperation\x12\n\n\x06RETAIN\x10\x00\x12\n\n\x06LOGOUT\x10\x01\x12\x10\n\x0cJOIN_CHANNEL\x10\x02\x12\x10\n\x0cQUIT_CHANNEL\x10\x03\x12\x08\n\x04SEND\x10\x04\x12\x0b\n\x07RECEIVE\x10\x05\x12\r\n\tHEARTBEAT\x10\x06\x42\n\n\x08_messageB\n\n\x08_channel\"6\n\x07\x43hannel\x12\x0f\n\x07\x63hannel\x18\x01 \x01(\t\x12\x11\n\x04nick\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x07\n\x05_nick\"+\n\x07Message\x12\x0f\n\x07\x63hannel\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x03 \x01(\tB\x1b\n\x0e\x63n.csuosa.pojoB\x07\x43ommandH\x01\x62\x06proto3')
-
-
 
 _COMMANDPOJO = DESCRIPTOR.message_types_by_name['CommandPOJO']
 _CHANNEL = DESCRIPTOR.message_types_by_name['Channel']

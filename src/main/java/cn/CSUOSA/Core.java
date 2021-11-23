@@ -28,5 +28,4 @@ public class Core {
             return;
         sources.get(channel).remove(nick);
     }
-
 }

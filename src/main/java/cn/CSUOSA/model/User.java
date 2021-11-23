@@ -18,7 +18,6 @@ public class User {
     public User() {
         uuid = Generators.timeBasedGenerator().generate().toString();
     }
-
     public void join(String channel, String nick) throws Exception {
         Map<String, Map<String, User>> sources = Core.getSources();
         if (!sources.containsKey(channel))
