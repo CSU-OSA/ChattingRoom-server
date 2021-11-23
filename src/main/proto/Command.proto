@@ -7,7 +7,7 @@ option java_outer_classname = "Command";
 message CommandPOJO
 {
   enum Operation {
-    LOGIN = 0;
+    RETAIN = 0;
     LOGOUT = 1;
     JOIN_CHANNEL = 2;
     QUIT_CHANNEL = 3;
@@ -17,13 +17,8 @@ message CommandPOJO
   }
 
   Operation operation = 1;
-  optional User user = 2;
-  optional Message message = 3;
-  optional Channel channel = 4;
-}
-
-message User {
-  string uuid = 1;
+  optional Message message = 2;
+  optional Channel channel = 3;
 }
 
 message Channel {

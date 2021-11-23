@@ -9,13 +9,16 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.timeout.IdleStateHandler;
+
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
     private static final String host = "127.0.0.1";
     private static final int port = 8080;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         startServer();
     }
 
@@ -30,6 +33,7 @@ public class Main {
                     protected void initChannel(SocketChannel socketChannel) {
                         socketChannel.pipeline().addLast("encoder", new ProtobufEncoder());
                         socketChannel.pipeline().addLast("decoder", new ProtobufDecoder(Command.CommandPOJO.getDefaultInstance()));
+                        socketChannel.pipeline().addLast("idle", new IdleStateHandler(3, 3, 3, TimeUnit.SECONDS));
                         socketChannel.pipeline().addLast(new CommandHandler());
                     }
                 })
