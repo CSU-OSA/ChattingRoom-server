@@ -30,47 +30,32 @@ public final class Command {
     cn.csuosa.pojo.Command.CommandPOJO.Operation getOperation();
 
     /**
-     * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-     * @return Whether the user field is set.
-     */
-    boolean hasUser();
-    /**
-     * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-     * @return The user.
-     */
-    cn.csuosa.pojo.Command.User getUser();
-    /**
-     * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-     */
-    cn.csuosa.pojo.Command.UserOrBuilder getUserOrBuilder();
-
-    /**
-     * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+     * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
      * @return Whether the message field is set.
      */
     boolean hasMessage();
     /**
-     * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+     * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
      * @return The message.
      */
     cn.csuosa.pojo.Command.Message getMessage();
     /**
-     * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+     * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
      */
     cn.csuosa.pojo.Command.MessageOrBuilder getMessageOrBuilder();
 
     /**
-     * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+     * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
      * @return Whether the channel field is set.
      */
     boolean hasChannel();
     /**
-     * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+     * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
      * @return The channel.
      */
     cn.csuosa.pojo.Command.Channel getChannel();
     /**
-     * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+     * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
      */
     cn.csuosa.pojo.Command.ChannelOrBuilder getChannelOrBuilder();
   }
@@ -128,21 +113,8 @@ public final class Command {
               break;
             }
             case 18: {
-              cn.csuosa.pojo.Command.User.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = user_.toBuilder();
-              }
-              user_ = input.readMessage(cn.csuosa.pojo.Command.User.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(user_);
-                user_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 26: {
               cn.csuosa.pojo.Command.Message.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) != 0)) {
+              if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = message_.toBuilder();
               }
               message_ = input.readMessage(cn.csuosa.pojo.Command.Message.parser(), extensionRegistry);
@@ -150,12 +122,12 @@ public final class Command {
                 subBuilder.mergeFrom(message_);
                 message_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             }
-            case 34: {
+            case 26: {
               cn.csuosa.pojo.Command.Channel.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) != 0)) {
+              if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = channel_.toBuilder();
               }
               channel_ = input.readMessage(cn.csuosa.pojo.Command.Channel.parser(), extensionRegistry);
@@ -163,7 +135,7 @@ public final class Command {
                 subBuilder.mergeFrom(channel_);
                 channel_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             }
             default: {
@@ -204,9 +176,9 @@ public final class Command {
     public enum Operation
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>LOGIN = 0;</code>
+       * <code>RETAIN = 0;</code>
        */
-      LOGIN(0),
+      RETAIN(0),
       /**
        * <code>LOGOUT = 1;</code>
        */
@@ -235,9 +207,9 @@ public final class Command {
       ;
 
       /**
-       * <code>LOGIN = 0;</code>
+       * <code>RETAIN = 0;</code>
        */
-      public static final int LOGIN_VALUE = 0;
+      public static final int RETAIN_VALUE = 0;
       /**
        * <code>LOGOUT = 1;</code>
        */
@@ -288,7 +260,7 @@ public final class Command {
        */
       public static Operation forNumber(int value) {
         switch (value) {
-          case 0: return LOGIN;
+          case 0: return RETAIN;
           case 1: return LOGOUT;
           case 2: return JOIN_CHANNEL;
           case 3: return QUIT_CHANNEL;
@@ -371,44 +343,18 @@ public final class Command {
       return result == null ? cn.csuosa.pojo.Command.CommandPOJO.Operation.UNRECOGNIZED : result;
     }
 
-    public static final int USER_FIELD_NUMBER = 2;
-    private cn.csuosa.pojo.Command.User user_;
-    /**
-     * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-     * @return Whether the user field is set.
-     */
-    @java.lang.Override
-    public boolean hasUser() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-     * @return The user.
-     */
-    @java.lang.Override
-    public cn.csuosa.pojo.Command.User getUser() {
-      return user_ == null ? cn.csuosa.pojo.Command.User.getDefaultInstance() : user_;
-    }
-    /**
-     * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-     */
-    @java.lang.Override
-    public cn.csuosa.pojo.Command.UserOrBuilder getUserOrBuilder() {
-      return user_ == null ? cn.csuosa.pojo.Command.User.getDefaultInstance() : user_;
-    }
-
-    public static final int MESSAGE_FIELD_NUMBER = 3;
+    public static final int MESSAGE_FIELD_NUMBER = 2;
     private cn.csuosa.pojo.Command.Message message_;
     /**
-     * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+     * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
      * @return Whether the message field is set.
      */
     @java.lang.Override
     public boolean hasMessage() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+     * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
      * @return The message.
      */
     @java.lang.Override
@@ -416,25 +362,25 @@ public final class Command {
       return message_ == null ? cn.csuosa.pojo.Command.Message.getDefaultInstance() : message_;
     }
     /**
-     * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+     * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
      */
     @java.lang.Override
     public cn.csuosa.pojo.Command.MessageOrBuilder getMessageOrBuilder() {
       return message_ == null ? cn.csuosa.pojo.Command.Message.getDefaultInstance() : message_;
     }
 
-    public static final int CHANNEL_FIELD_NUMBER = 4;
+    public static final int CHANNEL_FIELD_NUMBER = 3;
     private cn.csuosa.pojo.Command.Channel channel_;
     /**
-     * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+     * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
      * @return Whether the channel field is set.
      */
     @java.lang.Override
     public boolean hasChannel() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+     * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
      * @return The channel.
      */
     @java.lang.Override
@@ -442,7 +388,7 @@ public final class Command {
       return channel_ == null ? cn.csuosa.pojo.Command.Channel.getDefaultInstance() : channel_;
     }
     /**
-     * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+     * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
      */
     @java.lang.Override
     public cn.csuosa.pojo.Command.ChannelOrBuilder getChannelOrBuilder() {
@@ -463,17 +409,14 @@ public final class Command {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (operation_ != cn.csuosa.pojo.Command.CommandPOJO.Operation.LOGIN.getNumber()) {
+      if (operation_ != cn.csuosa.pojo.Command.CommandPOJO.Operation.RETAIN.getNumber()) {
         output.writeEnum(1, operation_);
       }
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeMessage(2, getUser());
+        output.writeMessage(2, getMessage());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeMessage(3, getMessage());
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeMessage(4, getChannel());
+        output.writeMessage(3, getChannel());
       }
       unknownFields.writeTo(output);
     }
@@ -484,21 +427,17 @@ public final class Command {
       if (size != -1) return size;
 
       size = 0;
-      if (operation_ != cn.csuosa.pojo.Command.CommandPOJO.Operation.LOGIN.getNumber()) {
+      if (operation_ != cn.csuosa.pojo.Command.CommandPOJO.Operation.RETAIN.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, operation_);
       }
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getUser());
+          .computeMessageSize(2, getMessage());
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getMessage());
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getChannel());
+          .computeMessageSize(3, getChannel());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -516,11 +455,6 @@ public final class Command {
       cn.csuosa.pojo.Command.CommandPOJO other = (cn.csuosa.pojo.Command.CommandPOJO) obj;
 
       if (operation_ != other.operation_) return false;
-      if (hasUser() != other.hasUser()) return false;
-      if (hasUser()) {
-        if (!getUser()
-            .equals(other.getUser())) return false;
-      }
       if (hasMessage() != other.hasMessage()) return false;
       if (hasMessage()) {
         if (!getMessage()
@@ -544,10 +478,6 @@ public final class Command {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + OPERATION_FIELD_NUMBER;
       hash = (53 * hash) + operation_;
-      if (hasUser()) {
-        hash = (37 * hash) + USER_FIELD_NUMBER;
-        hash = (53 * hash) + getUser().hashCode();
-      }
       if (hasMessage()) {
         hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + getMessage().hashCode();
@@ -684,7 +614,6 @@ public final class Command {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getUserFieldBuilder();
           getMessageFieldBuilder();
           getChannelFieldBuilder();
         }
@@ -694,24 +623,18 @@ public final class Command {
         super.clear();
         operation_ = 0;
 
-        if (userBuilder_ == null) {
-          user_ = null;
-        } else {
-          userBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (messageBuilder_ == null) {
           message_ = null;
         } else {
           messageBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (channelBuilder_ == null) {
           channel_ = null;
         } else {
           channelBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -742,28 +665,20 @@ public final class Command {
         int to_bitField0_ = 0;
         result.operation_ = operation_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (userBuilder_ == null) {
-            result.user_ = user_;
-          } else {
-            result.user_ = userBuilder_.build();
-          }
-          to_bitField0_ |= 0x00000001;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
           if (messageBuilder_ == null) {
             result.message_ = message_;
           } else {
             result.message_ = messageBuilder_.build();
           }
-          to_bitField0_ |= 0x00000002;
+          to_bitField0_ |= 0x00000001;
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
           if (channelBuilder_ == null) {
             result.channel_ = channel_;
           } else {
             result.channel_ = channelBuilder_.build();
           }
-          to_bitField0_ |= 0x00000004;
+          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -816,9 +731,6 @@ public final class Command {
         if (other == cn.csuosa.pojo.Command.CommandPOJO.getDefaultInstance()) return this;
         if (other.operation_ != 0) {
           setOperationValue(other.getOperationValue());
-        }
-        if (other.hasUser()) {
-          mergeUser(other.getUser());
         }
         if (other.hasMessage()) {
           mergeMessage(other.getMessage());
@@ -910,138 +822,18 @@ public final class Command {
         return this;
       }
 
-      private cn.csuosa.pojo.Command.User user_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          cn.csuosa.pojo.Command.User, cn.csuosa.pojo.Command.User.Builder, cn.csuosa.pojo.Command.UserOrBuilder> userBuilder_;
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       * @return Whether the user field is set.
-       */
-      public boolean hasUser() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       * @return The user.
-       */
-      public cn.csuosa.pojo.Command.User getUser() {
-        if (userBuilder_ == null) {
-          return user_ == null ? cn.csuosa.pojo.Command.User.getDefaultInstance() : user_;
-        } else {
-          return userBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       */
-      public Builder setUser(cn.csuosa.pojo.Command.User value) {
-        if (userBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          user_ = value;
-          onChanged();
-        } else {
-          userBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       */
-      public Builder setUser(
-          cn.csuosa.pojo.Command.User.Builder builderForValue) {
-        if (userBuilder_ == null) {
-          user_ = builderForValue.build();
-          onChanged();
-        } else {
-          userBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       */
-      public Builder mergeUser(cn.csuosa.pojo.Command.User value) {
-        if (userBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-              user_ != null &&
-              user_ != cn.csuosa.pojo.Command.User.getDefaultInstance()) {
-            user_ =
-              cn.csuosa.pojo.Command.User.newBuilder(user_).mergeFrom(value).buildPartial();
-          } else {
-            user_ = value;
-          }
-          onChanged();
-        } else {
-          userBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       */
-      public Builder clearUser() {
-        if (userBuilder_ == null) {
-          user_ = null;
-          onChanged();
-        } else {
-          userBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       */
-      public cn.csuosa.pojo.Command.User.Builder getUserBuilder() {
-        bitField0_ |= 0x00000001;
-        onChanged();
-        return getUserFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       */
-      public cn.csuosa.pojo.Command.UserOrBuilder getUserOrBuilder() {
-        if (userBuilder_ != null) {
-          return userBuilder_.getMessageOrBuilder();
-        } else {
-          return user_ == null ?
-              cn.csuosa.pojo.Command.User.getDefaultInstance() : user_;
-        }
-      }
-      /**
-       * <code>optional .cn.csuosa.pojo.command.User user = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          cn.csuosa.pojo.Command.User, cn.csuosa.pojo.Command.User.Builder, cn.csuosa.pojo.Command.UserOrBuilder> 
-          getUserFieldBuilder() {
-        if (userBuilder_ == null) {
-          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              cn.csuosa.pojo.Command.User, cn.csuosa.pojo.Command.User.Builder, cn.csuosa.pojo.Command.UserOrBuilder>(
-                  getUser(),
-                  getParentForChildren(),
-                  isClean());
-          user_ = null;
-        }
-        return userBuilder_;
-      }
-
       private cn.csuosa.pojo.Command.Message message_;
       private com.google.protobuf.SingleFieldBuilderV3<
           cn.csuosa.pojo.Command.Message, cn.csuosa.pojo.Command.Message.Builder, cn.csuosa.pojo.Command.MessageOrBuilder> messageBuilder_;
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        * @return Whether the message field is set.
        */
       public boolean hasMessage() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        * @return The message.
        */
       public cn.csuosa.pojo.Command.Message getMessage() {
@@ -1052,7 +844,7 @@ public final class Command {
         }
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        */
       public Builder setMessage(cn.csuosa.pojo.Command.Message value) {
         if (messageBuilder_ == null) {
@@ -1064,11 +856,11 @@ public final class Command {
         } else {
           messageBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        */
       public Builder setMessage(
           cn.csuosa.pojo.Command.Message.Builder builderForValue) {
@@ -1078,15 +870,15 @@ public final class Command {
         } else {
           messageBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        */
       public Builder mergeMessage(cn.csuosa.pojo.Command.Message value) {
         if (messageBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
+          if (((bitField0_ & 0x00000001) != 0) &&
               message_ != null &&
               message_ != cn.csuosa.pojo.Command.Message.getDefaultInstance()) {
             message_ =
@@ -1098,11 +890,11 @@ public final class Command {
         } else {
           messageBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        */
       public Builder clearMessage() {
         if (messageBuilder_ == null) {
@@ -1111,19 +903,19 @@ public final class Command {
         } else {
           messageBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        */
       public cn.csuosa.pojo.Command.Message.Builder getMessageBuilder() {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         onChanged();
         return getMessageFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        */
       public cn.csuosa.pojo.Command.MessageOrBuilder getMessageOrBuilder() {
         if (messageBuilder_ != null) {
@@ -1134,7 +926,7 @@ public final class Command {
         }
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Message message = 3;</code>
+       * <code>optional .cn.csuosa.pojo.command.Message message = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           cn.csuosa.pojo.Command.Message, cn.csuosa.pojo.Command.Message.Builder, cn.csuosa.pojo.Command.MessageOrBuilder> 
@@ -1154,14 +946,14 @@ public final class Command {
       private com.google.protobuf.SingleFieldBuilderV3<
           cn.csuosa.pojo.Command.Channel, cn.csuosa.pojo.Command.Channel.Builder, cn.csuosa.pojo.Command.ChannelOrBuilder> channelBuilder_;
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        * @return Whether the channel field is set.
        */
       public boolean hasChannel() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        * @return The channel.
        */
       public cn.csuosa.pojo.Command.Channel getChannel() {
@@ -1172,7 +964,7 @@ public final class Command {
         }
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        */
       public Builder setChannel(cn.csuosa.pojo.Command.Channel value) {
         if (channelBuilder_ == null) {
@@ -1184,11 +976,11 @@ public final class Command {
         } else {
           channelBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        */
       public Builder setChannel(
           cn.csuosa.pojo.Command.Channel.Builder builderForValue) {
@@ -1198,15 +990,15 @@ public final class Command {
         } else {
           channelBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        */
       public Builder mergeChannel(cn.csuosa.pojo.Command.Channel value) {
         if (channelBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
+          if (((bitField0_ & 0x00000002) != 0) &&
               channel_ != null &&
               channel_ != cn.csuosa.pojo.Command.Channel.getDefaultInstance()) {
             channel_ =
@@ -1218,11 +1010,11 @@ public final class Command {
         } else {
           channelBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        */
       public Builder clearChannel() {
         if (channelBuilder_ == null) {
@@ -1231,19 +1023,19 @@ public final class Command {
         } else {
           channelBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        */
       public cn.csuosa.pojo.Command.Channel.Builder getChannelBuilder() {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         onChanged();
         return getChannelFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        */
       public cn.csuosa.pojo.Command.ChannelOrBuilder getChannelOrBuilder() {
         if (channelBuilder_ != null) {
@@ -1254,7 +1046,7 @@ public final class Command {
         }
       }
       /**
-       * <code>optional .cn.csuosa.pojo.command.Channel channel = 4;</code>
+       * <code>optional .cn.csuosa.pojo.command.Channel channel = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           cn.csuosa.pojo.Command.Channel, cn.csuosa.pojo.Command.Channel.Builder, cn.csuosa.pojo.Command.ChannelOrBuilder> 
@@ -1317,574 +1109,6 @@ public final class Command {
 
     @java.lang.Override
     public cn.csuosa.pojo.Command.CommandPOJO getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface UserOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:cn.csuosa.pojo.command.User)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string uuid = 1;</code>
-     * @return The uuid.
-     */
-    java.lang.String getUuid();
-    /**
-     * <code>string uuid = 1;</code>
-     * @return The bytes for uuid.
-     */
-    com.google.protobuf.ByteString
-        getUuidBytes();
-  }
-  /**
-   * Protobuf type {@code cn.csuosa.pojo.command.User}
-   */
-  public static final class User extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:cn.csuosa.pojo.command.User)
-      UserOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use User.newBuilder() to construct.
-    private User(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private User() {
-      uuid_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new User();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private User(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              uuid_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return cn.csuosa.pojo.Command.internal_static_cn_csuosa_pojo_command_User_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return cn.csuosa.pojo.Command.internal_static_cn_csuosa_pojo_command_User_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              cn.csuosa.pojo.Command.User.class, cn.csuosa.pojo.Command.User.Builder.class);
-    }
-
-    public static final int UUID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object uuid_;
-    /**
-     * <code>string uuid = 1;</code>
-     * @return The uuid.
-     */
-    @java.lang.Override
-    public java.lang.String getUuid() {
-      java.lang.Object ref = uuid_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        uuid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string uuid = 1;</code>
-     * @return The bytes for uuid.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getUuidBytes() {
-      java.lang.Object ref = uuid_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        uuid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof cn.csuosa.pojo.Command.User)) {
-        return super.equals(obj);
-      }
-      cn.csuosa.pojo.Command.User other = (cn.csuosa.pojo.Command.User) obj;
-
-      if (!getUuid()
-          .equals(other.getUuid())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + UUID_FIELD_NUMBER;
-      hash = (53 * hash) + getUuid().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static cn.csuosa.pojo.Command.User parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cn.csuosa.pojo.Command.User parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static cn.csuosa.pojo.Command.User parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cn.csuosa.pojo.Command.User parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(cn.csuosa.pojo.Command.User prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code cn.csuosa.pojo.command.User}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:cn.csuosa.pojo.command.User)
-        cn.csuosa.pojo.Command.UserOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return cn.csuosa.pojo.Command.internal_static_cn_csuosa_pojo_command_User_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return cn.csuosa.pojo.Command.internal_static_cn_csuosa_pojo_command_User_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                cn.csuosa.pojo.Command.User.class, cn.csuosa.pojo.Command.User.Builder.class);
-      }
-
-      // Construct using cn.csuosa.pojo.Command.User.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        uuid_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return cn.csuosa.pojo.Command.internal_static_cn_csuosa_pojo_command_User_descriptor;
-      }
-
-      @java.lang.Override
-      public cn.csuosa.pojo.Command.User getDefaultInstanceForType() {
-        return cn.csuosa.pojo.Command.User.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public cn.csuosa.pojo.Command.User build() {
-        cn.csuosa.pojo.Command.User result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public cn.csuosa.pojo.Command.User buildPartial() {
-        cn.csuosa.pojo.Command.User result = new cn.csuosa.pojo.Command.User(this);
-        result.uuid_ = uuid_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof cn.csuosa.pojo.Command.User) {
-          return mergeFrom((cn.csuosa.pojo.Command.User)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(cn.csuosa.pojo.Command.User other) {
-        if (other == cn.csuosa.pojo.Command.User.getDefaultInstance()) return this;
-        if (!other.getUuid().isEmpty()) {
-          uuid_ = other.uuid_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        cn.csuosa.pojo.Command.User parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cn.csuosa.pojo.Command.User) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object uuid_ = "";
-      /**
-       * <code>string uuid = 1;</code>
-       * @return The uuid.
-       */
-      public java.lang.String getUuid() {
-        java.lang.Object ref = uuid_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          uuid_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string uuid = 1;</code>
-       * @return The bytes for uuid.
-       */
-      public com.google.protobuf.ByteString
-          getUuidBytes() {
-        java.lang.Object ref = uuid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          uuid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string uuid = 1;</code>
-       * @param value The uuid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUuid(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        uuid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string uuid = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUuid() {
-        
-        uuid_ = getDefaultInstance().getUuid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string uuid = 1;</code>
-       * @param value The bytes for uuid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUuidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        uuid_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:cn.csuosa.pojo.command.User)
-    }
-
-    // @@protoc_insertion_point(class_scope:cn.csuosa.pojo.command.User)
-    private static final cn.csuosa.pojo.Command.User DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new cn.csuosa.pojo.Command.User();
-    }
-
-    public static cn.csuosa.pojo.Command.User getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<User>
-        PARSER = new com.google.protobuf.AbstractParser<User>() {
-      @java.lang.Override
-      public User parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new User(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<User> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<User> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public cn.csuosa.pojo.Command.User getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3367,11 +2591,6 @@ public final class Command {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_cn_csuosa_pojo_command_CommandPOJO_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_cn_csuosa_pojo_command_User_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_cn_csuosa_pojo_command_User_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_cn_csuosa_pojo_command_Channel_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -3391,20 +2610,18 @@ public final class Command {
   static {
     java.lang.String[] descriptorData = {
       "\n\rCommand.proto\022\026cn.csuosa.pojo.command\"" +
-      "\375\002\n\013CommandPOJO\022@\n\toperation\030\001 \001(\0162-.cn." +
+      "\304\002\n\013CommandPOJO\022@\n\toperation\030\001 \001(\0162-.cn." +
       "csuosa.pojo.command.CommandPOJO.Operatio" +
-      "n\022/\n\004user\030\002 \001(\0132\034.cn.csuosa.pojo.command" +
-      ".UserH\000\210\001\001\0225\n\007message\030\003 \001(\0132\037.cn.csuosa." +
-      "pojo.command.MessageH\001\210\001\001\0225\n\007channel\030\004 \001" +
-      "(\0132\037.cn.csuosa.pojo.command.ChannelH\002\210\001\001" +
-      "\"l\n\tOperation\022\t\n\005LOGIN\020\000\022\n\n\006LOGOUT\020\001\022\020\n\014" +
-      "JOIN_CHANNEL\020\002\022\020\n\014QUIT_CHANNEL\020\003\022\010\n\004SEND" +
-      "\020\004\022\013\n\007RECEIVE\020\005\022\r\n\tHEARTBEAT\020\006B\007\n\005_userB" +
-      "\n\n\010_messageB\n\n\010_channel\"\024\n\004User\022\014\n\004uuid\030" +
-      "\001 \001(\t\"6\n\007Channel\022\017\n\007channel\030\001 \001(\t\022\021\n\004nic" +
-      "k\030\002 \001(\tH\000\210\001\001B\007\n\005_nick\"+\n\007Message\022\017\n\007chan" +
-      "nel\030\001 \001(\t\022\017\n\007content\030\003 \001(\tB\033\n\016cn.csuosa." +
-      "pojoB\007CommandH\001b\006proto3"
+      "n\0225\n\007message\030\002 \001(\0132\037.cn.csuosa.pojo.comm" +
+      "and.MessageH\000\210\001\001\0225\n\007channel\030\003 \001(\0132\037.cn.c" +
+      "suosa.pojo.command.ChannelH\001\210\001\001\"m\n\tOpera" +
+      "tion\022\n\n\006RETAIN\020\000\022\n\n\006LOGOUT\020\001\022\020\n\014JOIN_CHA" +
+      "NNEL\020\002\022\020\n\014QUIT_CHANNEL\020\003\022\010\n\004SEND\020\004\022\013\n\007RE" +
+      "CEIVE\020\005\022\r\n\tHEARTBEAT\020\006B\n\n\010_messageB\n\n\010_c" +
+      "hannel\"6\n\007Channel\022\017\n\007channel\030\001 \001(\t\022\021\n\004ni" +
+      "ck\030\002 \001(\tH\000\210\001\001B\007\n\005_nick\"+\n\007Message\022\017\n\007cha" +
+      "nnel\030\001 \001(\t\022\017\n\007content\030\003 \001(\tB\033\n\016cn.csuosa" +
+      ".pojoB\007CommandH\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3415,21 +2632,15 @@ public final class Command {
     internal_static_cn_csuosa_pojo_command_CommandPOJO_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cn_csuosa_pojo_command_CommandPOJO_descriptor,
-        new java.lang.String[] { "Operation", "User", "Message", "Channel", "User", "Message", "Channel", });
-    internal_static_cn_csuosa_pojo_command_User_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_cn_csuosa_pojo_command_User_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_cn_csuosa_pojo_command_User_descriptor,
-        new java.lang.String[] { "Uuid", });
+        new java.lang.String[] { "Operation", "Message", "Channel", "Message", "Channel", });
     internal_static_cn_csuosa_pojo_command_Channel_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_cn_csuosa_pojo_command_Channel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cn_csuosa_pojo_command_Channel_descriptor,
         new java.lang.String[] { "Channel", "Nick", "Nick", });
     internal_static_cn_csuosa_pojo_command_Message_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_cn_csuosa_pojo_command_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cn_csuosa_pojo_command_Message_descriptor,
