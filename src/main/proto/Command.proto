@@ -1,0 +1,32 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+package cn.csuosa.pojo.command;
+option java_package = "cn.csuosa.pojo";
+option java_outer_classname = "Command";
+
+message CommandPOJO
+{
+  enum Operation {
+    RETAIN = 0;
+    LOGOUT = 1;
+    JOIN_CHANNEL = 2;
+    QUIT_CHANNEL = 3;
+    SEND = 4;
+    RECEIVE = 5;
+    HEARTBEAT = 6;
+  }
+
+  Operation operation = 1;
+  optional Message message = 2;
+  optional Channel channel = 3;
+}
+
+message Channel {
+  string channel = 1;
+  optional string nick = 2;
+}
+
+message Message {
+  string channel = 1;
+  string content = 3;
+}

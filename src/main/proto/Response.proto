@@ -1,0 +1,28 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+package cn.csuosa.pojo.response;
+option java_package = "cn.csuosa.pojo";
+option java_outer_classname = "Response";
+
+message ResponsePOJO
+{
+  enum Type {
+    RESULT = 0;
+    MESSAGE = 1;
+  }
+
+  Type type = 1;
+  repeated Message message = 2;
+  optional Result result = 3;
+}
+
+message Result {
+  bool result = 1;
+  string reason = 2;
+}
+
+message Message {
+  string channel = 1;
+  string fromNick = 2;
+  string content = 3;
+}
