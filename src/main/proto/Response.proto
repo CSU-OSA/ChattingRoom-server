@@ -1,7 +1,7 @@
 syntax = "proto3";
 option optimize_for = SPEED;
 package cn.csuosa.pojo.response;
-option java_package = "cn.csuosa.pojo";
+option java_package = "cn.csuosa.chatroom.proto";
 option java_outer_classname = "Response";
 
 message ResponsePOJO
@@ -9,20 +9,31 @@ message ResponsePOJO
   enum Type {
     RESULT = 0;
     MESSAGE = 1;
+    ChannelList = 2;
+    ChannelMemberList = 3;
   }
 
   Type type = 1;
   repeated Message message = 2;
   optional Result result = 3;
+  repeated ChannelInfo channelInfo = 4;
+  repeated string memberNick = 5;
 }
 
 message Result {
   bool result = 1;
-  string reason = 2;
+  string msg = 2;
 }
 
 message Message {
-  string channel = 1;
-  string fromNick = 2;
-  string content = 3;
+  string recTime = 1;
+  string channel = 2;
+  string fromNick = 3;
+  string content = 4;
+}
+
+message ChannelInfo {
+  string name = 1;
+  bool isPublic = 2;
+  int32 memberNum = 3;
 }

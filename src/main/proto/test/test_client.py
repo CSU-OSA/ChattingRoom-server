@@ -35,27 +35,27 @@ def Logout_bytes():
 
 def Join_Channel_bytes(ch, nick):
     join = Command_pb2.CommandPOJO()
-    join.operation = Command_pb2.CommandPOJO.Operation.JOIN_CHANNEL
+    join.operation = Command_pb2.CommandPOJO.Operation.JOIN_CHA
     join.channel.channel = ch
     join.channel.nick = nick
     return join.SerializeToString()
 
 def Quit_Channel_bytes(ch):
     q = Command_pb2.CommandPOJO()
-    q.operation = Command_pb2.CommandPOJO.Operation.QUIT_CHANNEL
+    q.operation = Command_pb2.CommandPOJO.Operation.QUIT_CHA
     q.channel.channel = ch
     return q.SerializeToString()
 
 def Send_bytes(ch, content):
     msg = Command_pb2.CommandPOJO()
-    msg.operation = Command_pb2.CommandPOJO.Operation.SEND
+    msg.operation = Command_pb2.CommandPOJO.Operation.SENDMSG
     msg.message.channel = ch
     msg.message.content = content
     return msg.SerializeToString()
 
 def Receive_bytes():
     op = Command_pb2.CommandPOJO()
-    op.operation = Command_pb2.CommandPOJO.Operation.RECEIVE
+    op.operation = Command_pb2.CommandPOJO.Operation.GETMSG
     return op.SerializeToString()
 
 if __name__ == "__main__":
