@@ -1,0 +1,37 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+package cn.csuosa.pojo.request;
+option java_package = "cn.csuosa.chatroom.proto";
+option java_outer_classname = "Request";
+
+message RequestPOJO
+{
+  enum Operation {
+    RETAIN = 0;
+    LOGOUT = 1;
+    JOIN_CHA = 2;
+    QUIT_CHA = 3;
+    CREATE_CHA = 4;
+    SENDMSG = 5;
+    GETMSG = 6;
+    HEARTBEAT = 7;
+    VERSION = 8;
+    GET_CHANNEL_LIST = 9;
+    GET_MEMBER_LIST = 10;
+  }
+
+  Operation operation = 1;
+  optional Message message = 2;
+  optional Channel channel = 3;
+}
+
+message Channel {
+  string channel = 1;
+  optional string ticket = 2;
+  optional string nick = 3;
+}
+
+message Message {
+  string channel = 1;
+  string content = 3;
+}
