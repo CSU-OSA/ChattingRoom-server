@@ -32,6 +32,8 @@ CSU-OSA 聊天室(服务端)
 
 ## 测试客户端
 
+"官方"客户端: [ChattingRoom-client](https://github.com/CSU-OSA/ChattingRoom-client), 由OctAutumn基于Qt(Cpp)框架编写
+
 `/src/proto/`下的批处理文件用于编译生成`Google Protobuf`类(服务端及测试客户端).
 
 运行前请确保你安装了`protobuf`库
