@@ -1,22 +1,27 @@
 package cn.csuosa.chatroom.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.google.protobuf.ByteString;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
+@Builder
+@AllArgsConstructor
 public class Message
 {
-    private String recTime;
+    private long timestamp;
     private String channel;
     private String fromNick;
-    private String content;
+    private MessageType type;
+    private ByteString content;
 
-    public Message(String recTime, String channel, String fromNick, String content)
+    public enum MessageType
     {
-        this.recTime = recTime;
-        this.channel = channel;
-        this.fromNick = fromNick;
-        this.content = content;
+        PLAIN_TEXT,
+        PICTURE,
+        RICH_TEXT,
+        HTML,
+        FILE
     }
 }

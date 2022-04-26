@@ -25,6 +25,11 @@ public final class Response
     private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_cn_csuosa_pojo_response_ChannelInfo_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_cn_csuosa_pojo_response_LoginUserInfo_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_cn_csuosa_pojo_response_LoginUserInfo_fieldAccessorTable;
     private static com.google.protobuf.Descriptors.FileDescriptor
             descriptor;
 
@@ -32,21 +37,27 @@ public final class Response
     {
         java.lang.String[] descriptorData = {
                 "\n\016Response.proto\022\027cn.csuosa.pojo.respons" +
-                        "e\"\324\002\n\014ResponsePOJO\0228\n\004type\030\001 \001(\0162*.cn.cs" +
-                        "uosa.pojo.response.ResponsePOJO.Type\0221\n\007" +
-                        "message\030\002 \003(\0132 .cn.csuosa.pojo.response." +
-                        "Message\0224\n\006result\030\003 \001(\0132\037.cn.csuosa.pojo" +
-                        ".response.ResultH\000\210\001\001\0229\n\013channelInfo\030\004 \003" +
-                        "(\0132$.cn.csuosa.pojo.response.ChannelInfo" +
-                        "\022\022\n\nmemberNick\030\005 \003(\t\"G\n\004Type\022\n\n\006RESULT\020\000" +
-                        "\022\013\n\007MESSAGE\020\001\022\017\n\013ChannelList\020\002\022\025\n\021Channe" +
-                        "lMemberList\020\003B\t\n\007_result\"%\n\006Result\022\016\n\006re" +
-                        "sult\030\001 \001(\010\022\013\n\003msg\030\002 \001(\t\"N\n\007Message\022\017\n\007re" +
-                        "cTime\030\001 \001(\t\022\017\n\007channel\030\002 \001(\t\022\020\n\010fromNick" +
-                        "\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\"@\n\013ChannelInfo\022\014" +
-                        "\n\004name\030\001 \001(\t\022\020\n\010isPublic\030\002 \001(\010\022\021\n\tmember" +
-                        "Num\030\003 \001(\005B&\n\030cn.csuosa.chatroom.protoB\010R" +
-                        "esponseH\001b\006proto3"
+                        "e\"\315\003\n\014ResponsePOJO\0228\n\004type\030\001 \001(\0162*.cn.cs" +
+                        "uosa.pojo.response.ResponsePOJO.Type\0224\n\006" +
+                        "result\030\002 \001(\0132\037.cn.csuosa.pojo.response.R" +
+                        "esultH\000\210\001\001\0226\n\007message\030\003 \001(\0132 .cn.csuosa." +
+                        "pojo.response.MessageH\001\210\001\001\0229\n\013channelInf" +
+                        "o\030\004 \003(\0132$.cn.csuosa.pojo.response.Channe" +
+                        "lInfo\022:\n\nmemberInfo\030\005 \003(\0132&.cn.csuosa.po" +
+                        "jo.response.LoginUserInfo\"\206\001\n\004Type\022\n\n\006RE" +
+                        "TAIN\020\000\022\n\n\006RESULT\020\001\022\014\n\010PUSH_MSG\020\002\022\021\n\rPUSH" +
+                        "_CHA_LIST\020\003\022\030\n\024PUSH_LOGIN_USER_LIST\020\004\022\030\n" +
+                        "\024PUSH_CHA_MEMBER_LIST\020\005\022\021\n\rPUSH_SYS_INFO" +
+                        "\020\006B\t\n\007_resultB\n\n\010_message\"2\n\006Result\022\016\n\006S" +
+                        "tCode\030\001 \001(\005\022\020\n\003msg\030\002 \001(\tH\000\210\001\001B\006\n\004_msg\"^\n" +
+                        "\007Message\022\017\n\007channel\030\001 \001(\t\022\020\n\010fromNick\030\002 " +
+                        "\001(\t\022\014\n\004type\030\003 \001(\005\022\021\n\ttimestamp\030\004 \001(\003\022\017\n\007" +
+                        "content\030\005 \001(\014\"N\n\013ChannelInfo\022\014\n\004name\030\001 \001" +
+                        "(\t\022\014\n\004isIN\030\002 \001(\010\022\020\n\010isPublic\030\003 \001(\010\022\021\n\tme" +
+                        "mberNum\030\004 \001(\005\";\n\rLoginUserInfo\022\017\n\002id\030\001 \001" +
+                        "(\tH\000\210\001\001\022\022\n\nmemberNick\030\002 \001(\tB\005\n\003_idB&\n\030cn" +
+                        ".csuosa.chatroom.protoB\010ResponseH\001b\006prot" +
+                        "o3"
         };
         descriptor = com.google.protobuf.Descriptors.FileDescriptor
                 .internalBuildGeneratedFileFrom(descriptorData,
@@ -57,28 +68,36 @@ public final class Response
         internal_static_cn_csuosa_pojo_response_ResponsePOJO_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_cn_csuosa_pojo_response_ResponsePOJO_descriptor,
-                new java.lang.String[]{"Type", "Message", "Result", "ChannelInfo", "MemberNick", "Result",});
+                new java.lang.String[]{"Type", "Result", "Message", "ChannelInfo", "MemberInfo", "Result", "Message",});
         internal_static_cn_csuosa_pojo_response_Result_descriptor =
                 getDescriptor().getMessageTypes().get(1);
         internal_static_cn_csuosa_pojo_response_Result_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_cn_csuosa_pojo_response_Result_descriptor,
-                new java.lang.String[]{"Result", "Msg",});
+                new java.lang.String[]{"StCode", "Msg", "Msg",});
         internal_static_cn_csuosa_pojo_response_Message_descriptor =
                 getDescriptor().getMessageTypes().get(2);
         internal_static_cn_csuosa_pojo_response_Message_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_cn_csuosa_pojo_response_Message_descriptor,
-                new java.lang.String[]{"RecTime", "Channel", "FromNick", "Content",});
+                new java.lang.String[]{"Channel", "FromNick", "Type", "Timestamp", "Content",});
         internal_static_cn_csuosa_pojo_response_ChannelInfo_descriptor =
                 getDescriptor().getMessageTypes().get(3);
         internal_static_cn_csuosa_pojo_response_ChannelInfo_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_cn_csuosa_pojo_response_ChannelInfo_descriptor,
-                new java.lang.String[]{"Name", "IsPublic", "MemberNum",});
+                new java.lang.String[]{"Name", "IsIN", "IsPublic", "MemberNum",});
+        internal_static_cn_csuosa_pojo_response_LoginUserInfo_descriptor =
+                getDescriptor().getMessageTypes().get(4);
+        internal_static_cn_csuosa_pojo_response_LoginUserInfo_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_cn_csuosa_pojo_response_LoginUserInfo_descriptor,
+                new java.lang.String[]{"Id", "MemberNick", "Id",});
     }
 
-    private Response() {}
+    private Response()
+    {
+    }
 
     public static void registerAllExtensions(
             com.google.protobuf.ExtensionRegistryLite registry)
@@ -118,51 +137,42 @@ public final class Response
         cn.csuosa.chatroom.proto.Response.ResponsePOJO.Type getType();
 
         /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        java.util.List<cn.csuosa.chatroom.proto.Response.Message>
-        getMessageList();
-
-        /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        cn.csuosa.chatroom.proto.Response.Message getMessage(int index);
-
-        /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        int getMessageCount();
-
-        /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        java.util.List<? extends cn.csuosa.chatroom.proto.Response.MessageOrBuilder>
-        getMessageOrBuilderList();
-
-        /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        cn.csuosa.chatroom.proto.Response.MessageOrBuilder getMessageOrBuilder(
-                int index);
-
-        /**
-         * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+         * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
          *
          * @return Whether the result field is set.
          */
         boolean hasResult();
 
         /**
-         * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+         * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
          *
          * @return The result.
          */
         cn.csuosa.chatroom.proto.Response.Result getResult();
 
         /**
-         * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+         * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
          */
         cn.csuosa.chatroom.proto.Response.ResultOrBuilder getResultOrBuilder();
+
+        /**
+         * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+         *
+         * @return Whether the message field is set.
+         */
+        boolean hasMessage();
+
+        /**
+         * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+         *
+         * @return The message.
+         */
+        cn.csuosa.chatroom.proto.Response.Message getMessage();
+
+        /**
+         * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+         */
+        cn.csuosa.chatroom.proto.Response.MessageOrBuilder getMessageOrBuilder();
 
         /**
          * <code>repeated .cn.csuosa.pojo.response.ChannelInfo channelInfo = 4;</code>
@@ -193,36 +203,32 @@ public final class Response
                 int index);
 
         /**
-         * <code>repeated string memberNick = 5;</code>
-         *
-         * @return A list containing the memberNick.
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
          */
-        java.util.List<java.lang.String>
-        getMemberNickList();
+        java.util.List<cn.csuosa.chatroom.proto.Response.LoginUserInfo>
+        getMemberInfoList();
 
         /**
-         * <code>repeated string memberNick = 5;</code>
-         *
-         * @return The count of memberNick.
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
          */
-        int getMemberNickCount();
+        cn.csuosa.chatroom.proto.Response.LoginUserInfo getMemberInfo(int index);
 
         /**
-         * <code>repeated string memberNick = 5;</code>
-         *
-         * @param index The index of the element to return.
-         * @return The memberNick at the given index.
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
          */
-        java.lang.String getMemberNick(int index);
+        int getMemberInfoCount();
 
         /**
-         * <code>repeated string memberNick = 5;</code>
-         *
-         * @param index The index of the value to return.
-         * @return The bytes of the memberNick at the given index.
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
          */
-        com.google.protobuf.ByteString
-        getMemberNickBytes(int index);
+        java.util.List<? extends cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder>
+        getMemberInfoOrBuilderList();
+
+        /**
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+         */
+        cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder getMemberInfoOrBuilder(
+                int index);
     }
 
     public interface ResultOrBuilder extends
@@ -231,21 +237,44 @@ public final class Response
     {
 
         /**
-         * <code>bool result = 1;</code>
+         * <pre>
+         * 状态码
+         * </pre>
          *
-         * @return The result.
+         * <code>int32 StCode = 1;</code>
+         *
+         * @return The stCode.
          */
-        boolean getResult();
+        int getStCode();
 
         /**
-         * <code>string msg = 2;</code>
+         * <pre>
+         * 反馈信息
+         * </pre>
+         *
+         * <code>optional string msg = 2;</code>
+         *
+         * @return Whether the msg field is set.
+         */
+        boolean hasMsg();
+
+        /**
+         * <pre>
+         * 反馈信息
+         * </pre>
+         *
+         * <code>optional string msg = 2;</code>
          *
          * @return The msg.
          */
         java.lang.String getMsg();
 
         /**
-         * <code>string msg = 2;</code>
+         * <pre>
+         * 反馈信息
+         * </pre>
+         *
+         * <code>optional string msg = 2;</code>
          *
          * @return The bytes for msg.
          */
@@ -259,29 +288,22 @@ public final class Response
     {
 
         /**
-         * <code>string recTime = 1;</code>
+         * <pre>
+         * 频道名
+         * </pre>
          *
-         * @return The recTime.
-         */
-        java.lang.String getRecTime();
-
-        /**
-         * <code>string recTime = 1;</code>
-         *
-         * @return The bytes for recTime.
-         */
-        com.google.protobuf.ByteString
-        getRecTimeBytes();
-
-        /**
-         * <code>string channel = 2;</code>
+         * <code>string channel = 1;</code>
          *
          * @return The channel.
          */
         java.lang.String getChannel();
 
         /**
-         * <code>string channel = 2;</code>
+         * <pre>
+         * 频道名
+         * </pre>
+         *
+         * <code>string channel = 1;</code>
          *
          * @return The bytes for channel.
          */
@@ -289,14 +311,22 @@ public final class Response
         getChannelBytes();
 
         /**
-         * <code>string fromNick = 3;</code>
+         * <pre>
+         * 消息发送者昵称
+         * </pre>
+         *
+         * <code>string fromNick = 2;</code>
          *
          * @return The fromNick.
          */
         java.lang.String getFromNick();
 
         /**
-         * <code>string fromNick = 3;</code>
+         * <pre>
+         * 消息发送者昵称
+         * </pre>
+         *
+         * <code>string fromNick = 2;</code>
          *
          * @return The bytes for fromNick.
          */
@@ -304,19 +334,37 @@ public final class Response
         getFromNickBytes();
 
         /**
-         * <code>string content = 4;</code>
+         * <pre>
+         * 消息类型
+         * </pre>
+         *
+         * <code>int32 type = 3;</code>
+         *
+         * @return The type.
+         */
+        int getType();
+
+        /**
+         * <pre>
+         * 消息发送时间戳
+         * </pre>
+         *
+         * <code>int64 timestamp = 4;</code>
+         *
+         * @return The timestamp.
+         */
+        long getTimestamp();
+
+        /**
+         * <pre>
+         * 消息内容
+         * </pre>
+         *
+         * <code>bytes content = 5;</code>
          *
          * @return The content.
          */
-        java.lang.String getContent();
-
-        /**
-         * <code>string content = 4;</code>
-         *
-         * @return The bytes for content.
-         */
-        com.google.protobuf.ByteString
-        getContentBytes();
+        com.google.protobuf.ByteString getContent();
     }
 
     public interface ChannelInfoOrBuilder extends
@@ -325,6 +373,10 @@ public final class Response
     {
 
         /**
+         * <pre>
+         * 频道名称
+         * </pre>
+         *
          * <code>string name = 1;</code>
          *
          * @return The name.
@@ -332,6 +384,10 @@ public final class Response
         java.lang.String getName();
 
         /**
+         * <pre>
+         * 频道名称
+         * </pre>
+         *
          * <code>string name = 1;</code>
          *
          * @return The bytes for name.
@@ -340,18 +396,80 @@ public final class Response
         getNameBytes();
 
         /**
-         * <code>bool isPublic = 2;</code>
+         * <pre>
+         * 用户是否在该频道中
+         * </pre>
+         *
+         * <code>bool isIN = 2;</code>
+         *
+         * @return The isIN.
+         */
+        boolean getIsIN();
+
+        /**
+         * <pre>
+         * 频道是否公开
+         * </pre>
+         *
+         * <code>bool isPublic = 3;</code>
          *
          * @return The isPublic.
          */
         boolean getIsPublic();
 
         /**
-         * <code>int32 memberNum = 3;</code>
+         * <pre>
+         * 频道中的成员数量
+         * </pre>
+         *
+         * <code>int32 memberNum = 4;</code>
          *
          * @return The memberNum.
          */
         int getMemberNum();
+    }
+
+    public interface LoginUserInfoOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:cn.csuosa.pojo.response.LoginUserInfo)
+            com.google.protobuf.MessageOrBuilder
+    {
+
+        /**
+         * <code>optional string id = 1;</code>
+         *
+         * @return Whether the id field is set.
+         */
+        boolean hasId();
+
+        /**
+         * <code>optional string id = 1;</code>
+         *
+         * @return The id.
+         */
+        java.lang.String getId();
+
+        /**
+         * <code>optional string id = 1;</code>
+         *
+         * @return The bytes for id.
+         */
+        com.google.protobuf.ByteString
+        getIdBytes();
+
+        /**
+         * <code>string memberNick = 2;</code>
+         *
+         * @return The memberNick.
+         */
+        java.lang.String getMemberNick();
+
+        /**
+         * <code>string memberNick = 2;</code>
+         *
+         * @return The bytes for memberNick.
+         */
+        com.google.protobuf.ByteString
+        getMemberNickBytes();
     }
 
     /**
@@ -363,10 +481,10 @@ public final class Response
             ResponsePOJOOrBuilder
     {
         public static final int TYPE_FIELD_NUMBER = 1;
-        public static final int MESSAGE_FIELD_NUMBER = 2;
-        public static final int RESULT_FIELD_NUMBER = 3;
+        public static final int RESULT_FIELD_NUMBER = 2;
+        public static final int MESSAGE_FIELD_NUMBER = 3;
         public static final int CHANNELINFO_FIELD_NUMBER = 4;
-        public static final int MEMBERNICK_FIELD_NUMBER = 5;
+        public static final int MEMBERINFO_FIELD_NUMBER = 5;
         private static final long serialVersionUID = 0L;
         // @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.ResponsePOJO)
         private static final cn.csuosa.chatroom.proto.Response.ResponsePOJO DEFAULT_INSTANCE;
@@ -390,10 +508,10 @@ public final class Response
 
         private int bitField0_;
         private int type_;
-        private java.util.List<cn.csuosa.chatroom.proto.Response.Message> message_;
         private cn.csuosa.chatroom.proto.Response.Result result_;
+        private cn.csuosa.chatroom.proto.Response.Message message_;
         private java.util.List<cn.csuosa.chatroom.proto.Response.ChannelInfo> channelInfo_;
-        private com.google.protobuf.LazyStringList memberNick_;
+        private java.util.List<cn.csuosa.chatroom.proto.Response.LoginUserInfo> memberInfo_;
         private byte memoizedIsInitialized = -1;
 
         // Use ResponsePOJO.newBuilder() to construct.
@@ -405,9 +523,8 @@ public final class Response
         private ResponsePOJO()
         {
             type_ = 0;
-            message_ = java.util.Collections.emptyList();
             channelInfo_ = java.util.Collections.emptyList();
-            memberNick_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+            memberInfo_ = java.util.Collections.emptyList();
         }
 
         private ResponsePOJO(
@@ -443,17 +560,6 @@ public final class Response
                         }
                         case 18:
                         {
-                            if (!((mutable_bitField0_ & 0x00000001) != 0))
-                            {
-                                message_ = new java.util.ArrayList<cn.csuosa.chatroom.proto.Response.Message>();
-                                mutable_bitField0_ |= 0x00000001;
-                            }
-                            message_.add(
-                                    input.readMessage(cn.csuosa.chatroom.proto.Response.Message.parser(), extensionRegistry));
-                            break;
-                        }
-                        case 26:
-                        {
                             cn.csuosa.chatroom.proto.Response.Result.Builder subBuilder = null;
                             if (((bitField0_ & 0x00000001) != 0))
                             {
@@ -466,6 +572,22 @@ public final class Response
                                 result_ = subBuilder.buildPartial();
                             }
                             bitField0_ |= 0x00000001;
+                            break;
+                        }
+                        case 26:
+                        {
+                            cn.csuosa.chatroom.proto.Response.Message.Builder subBuilder = null;
+                            if (((bitField0_ & 0x00000002) != 0))
+                            {
+                                subBuilder = message_.toBuilder();
+                            }
+                            message_ = input.readMessage(cn.csuosa.chatroom.proto.Response.Message.parser(), extensionRegistry);
+                            if (subBuilder != null)
+                            {
+                                subBuilder.mergeFrom(message_);
+                                message_ = subBuilder.buildPartial();
+                            }
+                            bitField0_ |= 0x00000002;
                             break;
                         }
                         case 34:
@@ -481,13 +603,13 @@ public final class Response
                         }
                         case 42:
                         {
-                            java.lang.String s = input.readStringRequireUtf8();
                             if (!((mutable_bitField0_ & 0x00000008) != 0))
                             {
-                                memberNick_ = new com.google.protobuf.LazyStringArrayList();
+                                memberInfo_ = new java.util.ArrayList<cn.csuosa.chatroom.proto.Response.LoginUserInfo>();
                                 mutable_bitField0_ |= 0x00000008;
                             }
-                            memberNick_.add(s);
+                            memberInfo_.add(
+                                    input.readMessage(cn.csuosa.chatroom.proto.Response.LoginUserInfo.parser(), extensionRegistry));
                             break;
                         }
                         default:
@@ -510,17 +632,13 @@ public final class Response
                         e).setUnfinishedMessage(this);
             } finally
             {
-                if (((mutable_bitField0_ & 0x00000001) != 0))
-                {
-                    message_ = java.util.Collections.unmodifiableList(message_);
-                }
                 if (((mutable_bitField0_ & 0x00000004) != 0))
                 {
                     channelInfo_ = java.util.Collections.unmodifiableList(channelInfo_);
                 }
                 if (((mutable_bitField0_ & 0x00000008) != 0))
                 {
-                    memberNick_ = memberNick_.getUnmodifiableView();
+                    memberInfo_ = java.util.Collections.unmodifiableList(memberInfo_);
                 }
                 this.unknownFields = unknownFields.build();
                 makeExtensionsImmutable();
@@ -695,54 +813,7 @@ public final class Response
         }
 
         /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        @java.lang.Override
-        public java.util.List<cn.csuosa.chatroom.proto.Response.Message> getMessageList()
-        {
-            return message_;
-        }
-
-        /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        @java.lang.Override
-        public java.util.List<? extends cn.csuosa.chatroom.proto.Response.MessageOrBuilder>
-        getMessageOrBuilderList()
-        {
-            return message_;
-        }
-
-        /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        @java.lang.Override
-        public int getMessageCount()
-        {
-            return message_.size();
-        }
-
-        /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        @java.lang.Override
-        public cn.csuosa.chatroom.proto.Response.Message getMessage(int index)
-        {
-            return message_.get(index);
-        }
-
-        /**
-         * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-         */
-        @java.lang.Override
-        public cn.csuosa.chatroom.proto.Response.MessageOrBuilder getMessageOrBuilder(
-                int index)
-        {
-            return message_.get(index);
-        }
-
-        /**
-         * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+         * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
          *
          * @return Whether the result field is set.
          */
@@ -753,7 +824,7 @@ public final class Response
         }
 
         /**
-         * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+         * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
          *
          * @return The result.
          */
@@ -764,12 +835,43 @@ public final class Response
         }
 
         /**
-         * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+         * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
          */
         @java.lang.Override
         public cn.csuosa.chatroom.proto.Response.ResultOrBuilder getResultOrBuilder()
         {
             return result_ == null ? cn.csuosa.chatroom.proto.Response.Result.getDefaultInstance() : result_;
+        }
+
+        /**
+         * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+         *
+         * @return Whether the message field is set.
+         */
+        @java.lang.Override
+        public boolean hasMessage()
+        {
+            return ((bitField0_ & 0x00000002) != 0);
+        }
+
+        /**
+         * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+         *
+         * @return The message.
+         */
+        @java.lang.Override
+        public cn.csuosa.chatroom.proto.Response.Message getMessage()
+        {
+            return message_ == null ? cn.csuosa.chatroom.proto.Response.Message.getDefaultInstance() : message_;
+        }
+
+        /**
+         * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+         */
+        @java.lang.Override
+        public cn.csuosa.chatroom.proto.Response.MessageOrBuilder getMessageOrBuilder()
+        {
+            return message_ == null ? cn.csuosa.chatroom.proto.Response.Message.getDefaultInstance() : message_;
         }
 
         /**
@@ -820,47 +922,50 @@ public final class Response
         }
 
         /**
-         * <code>repeated string memberNick = 5;</code>
-         *
-         * @return A list containing the memberNick.
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
          */
-        public com.google.protobuf.ProtocolStringList
-        getMemberNickList()
+        @java.lang.Override
+        public java.util.List<cn.csuosa.chatroom.proto.Response.LoginUserInfo> getMemberInfoList()
         {
-            return memberNick_;
+            return memberInfo_;
         }
 
         /**
-         * <code>repeated string memberNick = 5;</code>
-         *
-         * @return The count of memberNick.
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
          */
-        public int getMemberNickCount()
+        @java.lang.Override
+        public java.util.List<? extends cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder>
+        getMemberInfoOrBuilderList()
         {
-            return memberNick_.size();
+            return memberInfo_;
         }
 
         /**
-         * <code>repeated string memberNick = 5;</code>
-         *
-         * @param index The index of the element to return.
-         * @return The memberNick at the given index.
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
          */
-        public java.lang.String getMemberNick(int index)
+        @java.lang.Override
+        public int getMemberInfoCount()
         {
-            return memberNick_.get(index);
+            return memberInfo_.size();
         }
 
         /**
-         * <code>repeated string memberNick = 5;</code>
-         *
-         * @param index The index of the value to return.
-         * @return The bytes of the memberNick at the given index.
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
          */
-        public com.google.protobuf.ByteString
-        getMemberNickBytes(int index)
+        @java.lang.Override
+        public cn.csuosa.chatroom.proto.Response.LoginUserInfo getMemberInfo(int index)
         {
-            return memberNick_.getByteString(index);
+            return memberInfo_.get(index);
+        }
+
+        /**
+         * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+         */
+        @java.lang.Override
+        public cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder getMemberInfoOrBuilder(
+                int index)
+        {
+            return memberInfo_.get(index);
         }
 
         @java.lang.Override
@@ -878,25 +983,25 @@ public final class Response
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException
         {
-            if (type_ != cn.csuosa.chatroom.proto.Response.ResponsePOJO.Type.RESULT.getNumber())
+            if (type_ != cn.csuosa.chatroom.proto.Response.ResponsePOJO.Type.RETAIN.getNumber())
             {
                 output.writeEnum(1, type_);
             }
-            for (int i = 0; i < message_.size(); i++)
-            {
-                output.writeMessage(2, message_.get(i));
-            }
             if (((bitField0_ & 0x00000001) != 0))
             {
-                output.writeMessage(3, getResult());
+                output.writeMessage(2, getResult());
+            }
+            if (((bitField0_ & 0x00000002) != 0))
+            {
+                output.writeMessage(3, getMessage());
             }
             for (int i = 0; i < channelInfo_.size(); i++)
             {
                 output.writeMessage(4, channelInfo_.get(i));
             }
-            for (int i = 0; i < memberNick_.size(); i++)
+            for (int i = 0; i < memberInfo_.size(); i++)
             {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 5, memberNick_.getRaw(i));
+                output.writeMessage(5, memberInfo_.get(i));
             }
             unknownFields.writeTo(output);
         }
@@ -908,34 +1013,30 @@ public final class Response
             if (size != -1) return size;
 
             size = 0;
-            if (type_ != cn.csuosa.chatroom.proto.Response.ResponsePOJO.Type.RESULT.getNumber())
+            if (type_ != cn.csuosa.chatroom.proto.Response.ResponsePOJO.Type.RETAIN.getNumber())
             {
                 size += com.google.protobuf.CodedOutputStream
                         .computeEnumSize(1, type_);
             }
-            for (int i = 0; i < message_.size(); i++)
-            {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(2, message_.get(i));
-            }
             if (((bitField0_ & 0x00000001) != 0))
             {
                 size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(3, getResult());
+                        .computeMessageSize(2, getResult());
+            }
+            if (((bitField0_ & 0x00000002) != 0))
+            {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(3, getMessage());
             }
             for (int i = 0; i < channelInfo_.size(); i++)
             {
                 size += com.google.protobuf.CodedOutputStream
                         .computeMessageSize(4, channelInfo_.get(i));
             }
+            for (int i = 0; i < memberInfo_.size(); i++)
             {
-                int dataSize = 0;
-                for (int i = 0; i < memberNick_.size(); i++)
-                {
-                    dataSize += computeStringSizeNoTag(memberNick_.getRaw(i));
-                }
-                size += dataSize;
-                size += 1 * getMemberNickList().size();
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(5, memberInfo_.get(i));
             }
             size += unknownFields.getSerializedSize();
             memoizedSize = size;
@@ -956,18 +1057,22 @@ public final class Response
             cn.csuosa.chatroom.proto.Response.ResponsePOJO other = (cn.csuosa.chatroom.proto.Response.ResponsePOJO) obj;
 
             if (type_ != other.type_) return false;
-            if (!getMessageList()
-                    .equals(other.getMessageList())) return false;
             if (hasResult() != other.hasResult()) return false;
             if (hasResult())
             {
                 if (!getResult()
                         .equals(other.getResult())) return false;
             }
+            if (hasMessage() != other.hasMessage()) return false;
+            if (hasMessage())
+            {
+                if (!getMessage()
+                        .equals(other.getMessage())) return false;
+            }
             if (!getChannelInfoList()
                     .equals(other.getChannelInfoList())) return false;
-            if (!getMemberNickList()
-                    .equals(other.getMemberNickList())) return false;
+            if (!getMemberInfoList()
+                    .equals(other.getMemberInfoList())) return false;
             if (!unknownFields.equals(other.unknownFields)) return false;
             return true;
         }
@@ -983,25 +1088,25 @@ public final class Response
             hash = (19 * hash) + getDescriptor().hashCode();
             hash = (37 * hash) + TYPE_FIELD_NUMBER;
             hash = (53 * hash) + type_;
-            if (getMessageCount() > 0)
-            {
-                hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-                hash = (53 * hash) + getMessageList().hashCode();
-            }
             if (hasResult())
             {
                 hash = (37 * hash) + RESULT_FIELD_NUMBER;
                 hash = (53 * hash) + getResult().hashCode();
+            }
+            if (hasMessage())
+            {
+                hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+                hash = (53 * hash) + getMessage().hashCode();
             }
             if (getChannelInfoCount() > 0)
             {
                 hash = (37 * hash) + CHANNELINFO_FIELD_NUMBER;
                 hash = (53 * hash) + getChannelInfoList().hashCode();
             }
-            if (getMemberNickCount() > 0)
+            if (getMemberInfoCount() > 0)
             {
-                hash = (37 * hash) + MEMBERNICK_FIELD_NUMBER;
-                hash = (53 * hash) + getMemberNickList().hashCode();
+                hash = (37 * hash) + MEMBERINFO_FIELD_NUMBER;
+                hash = (53 * hash) + getMemberInfoList().hashCode();
             }
             hash = (29 * hash) + unknownFields.hashCode();
             memoizedHashCode = hash;
@@ -1009,7 +1114,10 @@ public final class Response
         }
 
         @java.lang.Override
-        public Builder newBuilderForType() {return newBuilder();}
+        public Builder newBuilderForType()
+        {
+            return newBuilder();
+        }
 
         @java.lang.Override
         public Builder toBuilder()
@@ -1045,40 +1153,120 @@ public final class Response
                 implements com.google.protobuf.ProtocolMessageEnum
         {
             /**
-             * <code>RESULT = 0;</code>
+             * <pre>
+             * 保留字
+             * </pre>
+             *
+             * <code>RETAIN = 0;</code>
              */
-            RESULT(0),
+            RETAIN(0),
             /**
-             * <code>MESSAGE = 1;</code>
+             * <pre>
+             * 反馈信息
+             * </pre>
+             *
+             * <code>RESULT = 1;</code>
              */
-            MESSAGE(1),
+            RESULT(1),
             /**
-             * <code>ChannelList = 2;</code>
+             * <pre>
+             * 消息推送
+             * </pre>
+             *
+             * <code>PUSH_MSG = 2;</code>
              */
-            ChannelList(2),
+            PUSH_MSG(2),
             /**
-             * <code>ChannelMemberList = 3;</code>
+             * <pre>
+             * 频道列表推送
+             * </pre>
+             *
+             * <code>PUSH_CHA_LIST = 3;</code>
              */
-            ChannelMemberList(3),
+            PUSH_CHA_LIST(3),
+            /**
+             * <pre>
+             * 成员列表推送
+             * </pre>
+             *
+             * <code>PUSH_LOGIN_USER_LIST = 4;</code>
+             */
+            PUSH_LOGIN_USER_LIST(4),
+            /**
+             * <pre>
+             * 成员列表推送
+             * </pre>
+             *
+             * <code>PUSH_CHA_MEMBER_LIST = 5;</code>
+             */
+            PUSH_CHA_MEMBER_LIST(5),
+            /**
+             * <pre>
+             * 系统信息推送
+             * </pre>
+             *
+             * <code>PUSH_SYS_INFO = 6;</code>
+             */
+            PUSH_SYS_INFO(6),
             UNRECOGNIZED(-1),
             ;
 
             /**
-             * <code>RESULT = 0;</code>
+             * <pre>
+             * 保留字
+             * </pre>
+             *
+             * <code>RETAIN = 0;</code>
              */
-            public static final int RESULT_VALUE = 0;
+            public static final int RETAIN_VALUE = 0;
             /**
-             * <code>MESSAGE = 1;</code>
+             * <pre>
+             * 反馈信息
+             * </pre>
+             *
+             * <code>RESULT = 1;</code>
              */
-            public static final int MESSAGE_VALUE = 1;
+            public static final int RESULT_VALUE = 1;
             /**
-             * <code>ChannelList = 2;</code>
+             * <pre>
+             * 消息推送
+             * </pre>
+             *
+             * <code>PUSH_MSG = 2;</code>
              */
-            public static final int ChannelList_VALUE = 2;
+            public static final int PUSH_MSG_VALUE = 2;
             /**
-             * <code>ChannelMemberList = 3;</code>
+             * <pre>
+             * 频道列表推送
+             * </pre>
+             *
+             * <code>PUSH_CHA_LIST = 3;</code>
              */
-            public static final int ChannelMemberList_VALUE = 3;
+            public static final int PUSH_CHA_LIST_VALUE = 3;
+            /**
+             * <pre>
+             * 成员列表推送
+             * </pre>
+             *
+             * <code>PUSH_LOGIN_USER_LIST = 4;</code>
+             */
+            public static final int PUSH_LOGIN_USER_LIST_VALUE = 4;
+            /**
+             * <pre>
+             * 成员列表推送
+             * </pre>
+             *
+             * <code>PUSH_CHA_MEMBER_LIST = 5;</code>
+             */
+            public static final int PUSH_CHA_MEMBER_LIST_VALUE = 5;
+            /**
+             * <pre>
+             * 系统信息推送
+             * </pre>
+             *
+             * <code>PUSH_SYS_INFO = 6;</code>
+             */
+            public static final int PUSH_SYS_INFO_VALUE = 6;
             private static final com.google.protobuf.Internal.EnumLiteMap<
                     Type> internalValueMap =
                     new com.google.protobuf.Internal.EnumLiteMap<Type>()
@@ -1116,13 +1304,19 @@ public final class Response
                 switch (value)
                 {
                     case 0:
-                        return RESULT;
+                        return RETAIN;
                     case 1:
-                        return MESSAGE;
+                        return RESULT;
                     case 2:
-                        return ChannelList;
+                        return PUSH_MSG;
                     case 3:
-                        return ChannelMemberList;
+                        return PUSH_CHA_LIST;
+                    case 4:
+                        return PUSH_LOGIN_USER_LIST;
+                    case 5:
+                        return PUSH_CHA_MEMBER_LIST;
+                    case 6:
+                        return PUSH_SYS_INFO;
                     default:
                         return null;
                 }
@@ -1195,18 +1389,20 @@ public final class Response
         {
             private int bitField0_;
             private int type_ = 0;
-            private java.util.List<cn.csuosa.chatroom.proto.Response.Message> message_ =
-                    java.util.Collections.emptyList();
-            private com.google.protobuf.RepeatedFieldBuilderV3<
-                    cn.csuosa.chatroom.proto.Response.Message, cn.csuosa.chatroom.proto.Response.Message.Builder, cn.csuosa.chatroom.proto.Response.MessageOrBuilder> messageBuilder_;
             private cn.csuosa.chatroom.proto.Response.Result result_;
             private com.google.protobuf.SingleFieldBuilderV3<
                     cn.csuosa.chatroom.proto.Response.Result, cn.csuosa.chatroom.proto.Response.Result.Builder, cn.csuosa.chatroom.proto.Response.ResultOrBuilder> resultBuilder_;
+            private cn.csuosa.chatroom.proto.Response.Message message_;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    cn.csuosa.chatroom.proto.Response.Message, cn.csuosa.chatroom.proto.Response.Message.Builder, cn.csuosa.chatroom.proto.Response.MessageOrBuilder> messageBuilder_;
             private java.util.List<cn.csuosa.chatroom.proto.Response.ChannelInfo> channelInfo_ =
                     java.util.Collections.emptyList();
             private com.google.protobuf.RepeatedFieldBuilderV3<
                     cn.csuosa.chatroom.proto.Response.ChannelInfo, cn.csuosa.chatroom.proto.Response.ChannelInfo.Builder, cn.csuosa.chatroom.proto.Response.ChannelInfoOrBuilder> channelInfoBuilder_;
-            private com.google.protobuf.LazyStringList memberNick_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+            private java.util.List<cn.csuosa.chatroom.proto.Response.LoginUserInfo> memberInfo_ =
+                    java.util.Collections.emptyList();
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                    cn.csuosa.chatroom.proto.Response.LoginUserInfo, cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder, cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder> memberInfoBuilder_;
 
             // Construct using cn.csuosa.chatroom.proto.Response.ResponsePOJO.newBuilder()
             private Builder()
@@ -1241,9 +1437,10 @@ public final class Response
                 if (com.google.protobuf.GeneratedMessageV3
                         .alwaysUseFieldBuilders)
                 {
-                    getMessageFieldBuilder();
                     getResultFieldBuilder();
+                    getMessageFieldBuilder();
                     getChannelInfoFieldBuilder();
+                    getMemberInfoFieldBuilder();
                 }
             }
 
@@ -1253,35 +1450,38 @@ public final class Response
                 super.clear();
                 type_ = 0;
 
-                if (messageBuilder_ == null)
-                {
-                    message_ = java.util.Collections.emptyList();
-                    bitField0_ = (bitField0_ & ~0x00000001);
-                }
-                else
-                {
-                    messageBuilder_.clear();
-                }
                 if (resultBuilder_ == null)
                 {
                     result_ = null;
-                }
-                else
+                } else
                 {
                     resultBuilder_.clear();
+                }
+                bitField0_ = (bitField0_ & ~0x00000001);
+                if (messageBuilder_ == null)
+                {
+                    message_ = null;
+                } else
+                {
+                    messageBuilder_.clear();
                 }
                 bitField0_ = (bitField0_ & ~0x00000002);
                 if (channelInfoBuilder_ == null)
                 {
                     channelInfo_ = java.util.Collections.emptyList();
                     bitField0_ = (bitField0_ & ~0x00000004);
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.clear();
                 }
-                memberNick_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000008);
+                if (memberInfoBuilder_ == null)
+                {
+                    memberInfo_ = java.util.Collections.emptyList();
+                    bitField0_ = (bitField0_ & ~0x00000008);
+                } else
+                {
+                    memberInfoBuilder_.clear();
+                }
                 return this;
             }
 
@@ -1316,30 +1516,27 @@ public final class Response
                 int from_bitField0_ = bitField0_;
                 int to_bitField0_ = 0;
                 result.type_ = type_;
-                if (messageBuilder_ == null)
-                {
-                    if (((bitField0_ & 0x00000001) != 0))
-                    {
-                        message_ = java.util.Collections.unmodifiableList(message_);
-                        bitField0_ = (bitField0_ & ~0x00000001);
-                    }
-                    result.message_ = message_;
-                }
-                else
-                {
-                    result.message_ = messageBuilder_.build();
-                }
-                if (((from_bitField0_ & 0x00000002) != 0))
+                if (((from_bitField0_ & 0x00000001) != 0))
                 {
                     if (resultBuilder_ == null)
                     {
                         result.result_ = result_;
-                    }
-                    else
+                    } else
                     {
                         result.result_ = resultBuilder_.build();
                     }
                     to_bitField0_ |= 0x00000001;
+                }
+                if (((from_bitField0_ & 0x00000002) != 0))
+                {
+                    if (messageBuilder_ == null)
+                    {
+                        result.message_ = message_;
+                    } else
+                    {
+                        result.message_ = messageBuilder_.build();
+                    }
+                    to_bitField0_ |= 0x00000002;
                 }
                 if (channelInfoBuilder_ == null)
                 {
@@ -1349,17 +1546,22 @@ public final class Response
                         bitField0_ = (bitField0_ & ~0x00000004);
                     }
                     result.channelInfo_ = channelInfo_;
-                }
-                else
+                } else
                 {
                     result.channelInfo_ = channelInfoBuilder_.build();
                 }
-                if (((bitField0_ & 0x00000008) != 0))
+                if (memberInfoBuilder_ == null)
                 {
-                    memberNick_ = memberNick_.getUnmodifiableView();
-                    bitField0_ = (bitField0_ & ~0x00000008);
+                    if (((bitField0_ & 0x00000008) != 0))
+                    {
+                        memberInfo_ = java.util.Collections.unmodifiableList(memberInfo_);
+                        bitField0_ = (bitField0_ & ~0x00000008);
+                    }
+                    result.memberInfo_ = memberInfo_;
+                } else
+                {
+                    result.memberInfo_ = memberInfoBuilder_.build();
                 }
-                result.memberNick_ = memberNick_;
                 result.bitField0_ = to_bitField0_;
                 onBuilt();
                 return result;
@@ -1415,8 +1617,7 @@ public final class Response
                 if (other instanceof cn.csuosa.chatroom.proto.Response.ResponsePOJO)
                 {
                     return mergeFrom((cn.csuosa.chatroom.proto.Response.ResponsePOJO) other);
-                }
-                else
+                } else
                 {
                     super.mergeFrom(other);
                     return this;
@@ -1430,46 +1631,13 @@ public final class Response
                 {
                     setTypeValue(other.getTypeValue());
                 }
-                if (messageBuilder_ == null)
-                {
-                    if (!other.message_.isEmpty())
-                    {
-                        if (message_.isEmpty())
-                        {
-                            message_ = other.message_;
-                            bitField0_ = (bitField0_ & ~0x00000001);
-                        }
-                        else
-                        {
-                            ensureMessageIsMutable();
-                            message_.addAll(other.message_);
-                        }
-                        onChanged();
-                    }
-                }
-                else
-                {
-                    if (!other.message_.isEmpty())
-                    {
-                        if (messageBuilder_.isEmpty())
-                        {
-                            messageBuilder_.dispose();
-                            messageBuilder_ = null;
-                            message_ = other.message_;
-                            bitField0_ = (bitField0_ & ~0x00000001);
-                            messageBuilder_ =
-                                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                                            getMessageFieldBuilder() : null;
-                        }
-                        else
-                        {
-                            messageBuilder_.addAllMessages(other.message_);
-                        }
-                    }
-                }
                 if (other.hasResult())
                 {
                     mergeResult(other.getResult());
+                }
+                if (other.hasMessage())
+                {
+                    mergeMessage(other.getMessage());
                 }
                 if (channelInfoBuilder_ == null)
                 {
@@ -1479,16 +1647,14 @@ public final class Response
                         {
                             channelInfo_ = other.channelInfo_;
                             bitField0_ = (bitField0_ & ~0x00000004);
-                        }
-                        else
+                        } else
                         {
                             ensureChannelInfoIsMutable();
                             channelInfo_.addAll(other.channelInfo_);
                         }
                         onChanged();
                     }
-                }
-                else
+                } else
                 {
                     if (!other.channelInfo_.isEmpty())
                     {
@@ -1501,26 +1667,45 @@ public final class Response
                             channelInfoBuilder_ =
                                     com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                                             getChannelInfoFieldBuilder() : null;
-                        }
-                        else
+                        } else
                         {
                             channelInfoBuilder_.addAllMessages(other.channelInfo_);
                         }
                     }
                 }
-                if (!other.memberNick_.isEmpty())
+                if (memberInfoBuilder_ == null)
                 {
-                    if (memberNick_.isEmpty())
+                    if (!other.memberInfo_.isEmpty())
                     {
-                        memberNick_ = other.memberNick_;
-                        bitField0_ = (bitField0_ & ~0x00000008);
+                        if (memberInfo_.isEmpty())
+                        {
+                            memberInfo_ = other.memberInfo_;
+                            bitField0_ = (bitField0_ & ~0x00000008);
+                        } else
+                        {
+                            ensureMemberInfoIsMutable();
+                            memberInfo_.addAll(other.memberInfo_);
+                        }
+                        onChanged();
                     }
-                    else
+                } else
+                {
+                    if (!other.memberInfo_.isEmpty())
                     {
-                        ensureMemberNickIsMutable();
-                        memberNick_.addAll(other.memberNick_);
+                        if (memberInfoBuilder_.isEmpty())
+                        {
+                            memberInfoBuilder_.dispose();
+                            memberInfoBuilder_ = null;
+                            memberInfo_ = other.memberInfo_;
+                            bitField0_ = (bitField0_ & ~0x00000008);
+                            memberInfoBuilder_ =
+                                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                                            getMemberInfoFieldBuilder() : null;
+                        } else
+                        {
+                            memberInfoBuilder_.addAllMessages(other.memberInfo_);
+                        }
                     }
-                    onChanged();
                 }
                 this.mergeUnknownFields(other.unknownFields);
                 onChanged();
@@ -1626,339 +1811,18 @@ public final class Response
                 return this;
             }
 
-            private void ensureMessageIsMutable()
-            {
-                if (!((bitField0_ & 0x00000001) != 0))
-                {
-                    message_ = new java.util.ArrayList<cn.csuosa.chatroom.proto.Response.Message>(message_);
-                    bitField0_ |= 0x00000001;
-                }
-            }
-
             /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public java.util.List<cn.csuosa.chatroom.proto.Response.Message> getMessageList()
-            {
-                if (messageBuilder_ == null)
-                {
-                    return java.util.Collections.unmodifiableList(message_);
-                }
-                else
-                {
-                    return messageBuilder_.getMessageList();
-                }
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public int getMessageCount()
-            {
-                if (messageBuilder_ == null)
-                {
-                    return message_.size();
-                }
-                else
-                {
-                    return messageBuilder_.getCount();
-                }
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public cn.csuosa.chatroom.proto.Response.Message getMessage(int index)
-            {
-                if (messageBuilder_ == null)
-                {
-                    return message_.get(index);
-                }
-                else
-                {
-                    return messageBuilder_.getMessage(index);
-                }
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder setMessage(
-                    int index, cn.csuosa.chatroom.proto.Response.Message value)
-            {
-                if (messageBuilder_ == null)
-                {
-                    if (value == null)
-                    {
-                        throw new NullPointerException();
-                    }
-                    ensureMessageIsMutable();
-                    message_.set(index, value);
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.setMessage(index, value);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder setMessage(
-                    int index, cn.csuosa.chatroom.proto.Response.Message.Builder builderForValue)
-            {
-                if (messageBuilder_ == null)
-                {
-                    ensureMessageIsMutable();
-                    message_.set(index, builderForValue.build());
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.setMessage(index, builderForValue.build());
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder addMessage(cn.csuosa.chatroom.proto.Response.Message value)
-            {
-                if (messageBuilder_ == null)
-                {
-                    if (value == null)
-                    {
-                        throw new NullPointerException();
-                    }
-                    ensureMessageIsMutable();
-                    message_.add(value);
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.addMessage(value);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder addMessage(
-                    int index, cn.csuosa.chatroom.proto.Response.Message value)
-            {
-                if (messageBuilder_ == null)
-                {
-                    if (value == null)
-                    {
-                        throw new NullPointerException();
-                    }
-                    ensureMessageIsMutable();
-                    message_.add(index, value);
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.addMessage(index, value);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder addMessage(
-                    cn.csuosa.chatroom.proto.Response.Message.Builder builderForValue)
-            {
-                if (messageBuilder_ == null)
-                {
-                    ensureMessageIsMutable();
-                    message_.add(builderForValue.build());
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.addMessage(builderForValue.build());
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder addMessage(
-                    int index, cn.csuosa.chatroom.proto.Response.Message.Builder builderForValue)
-            {
-                if (messageBuilder_ == null)
-                {
-                    ensureMessageIsMutable();
-                    message_.add(index, builderForValue.build());
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.addMessage(index, builderForValue.build());
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder addAllMessage(
-                    java.lang.Iterable<? extends cn.csuosa.chatroom.proto.Response.Message> values)
-            {
-                if (messageBuilder_ == null)
-                {
-                    ensureMessageIsMutable();
-                    com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                            values, message_);
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.addAllMessages(values);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder clearMessage()
-            {
-                if (messageBuilder_ == null)
-                {
-                    message_ = java.util.Collections.emptyList();
-                    bitField0_ = (bitField0_ & ~0x00000001);
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.clear();
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public Builder removeMessage(int index)
-            {
-                if (messageBuilder_ == null)
-                {
-                    ensureMessageIsMutable();
-                    message_.remove(index);
-                    onChanged();
-                }
-                else
-                {
-                    messageBuilder_.remove(index);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public cn.csuosa.chatroom.proto.Response.Message.Builder getMessageBuilder(
-                    int index)
-            {
-                return getMessageFieldBuilder().getBuilder(index);
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public cn.csuosa.chatroom.proto.Response.MessageOrBuilder getMessageOrBuilder(
-                    int index)
-            {
-                if (messageBuilder_ == null)
-                {
-                    return message_.get(index);
-                }
-                else
-                {
-                    return messageBuilder_.getMessageOrBuilder(index);
-                }
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public java.util.List<? extends cn.csuosa.chatroom.proto.Response.MessageOrBuilder>
-            getMessageOrBuilderList()
-            {
-                if (messageBuilder_ != null)
-                {
-                    return messageBuilder_.getMessageOrBuilderList();
-                }
-                else
-                {
-                    return java.util.Collections.unmodifiableList(message_);
-                }
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public cn.csuosa.chatroom.proto.Response.Message.Builder addMessageBuilder()
-            {
-                return getMessageFieldBuilder().addBuilder(
-                        cn.csuosa.chatroom.proto.Response.Message.getDefaultInstance());
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public cn.csuosa.chatroom.proto.Response.Message.Builder addMessageBuilder(
-                    int index)
-            {
-                return getMessageFieldBuilder().addBuilder(
-                        index, cn.csuosa.chatroom.proto.Response.Message.getDefaultInstance());
-            }
-
-            /**
-             * <code>repeated .cn.csuosa.pojo.response.Message message = 2;</code>
-             */
-            public java.util.List<cn.csuosa.chatroom.proto.Response.Message.Builder>
-            getMessageBuilderList()
-            {
-                return getMessageFieldBuilder().getBuilderList();
-            }
-
-            private com.google.protobuf.RepeatedFieldBuilderV3<
-                    cn.csuosa.chatroom.proto.Response.Message, cn.csuosa.chatroom.proto.Response.Message.Builder, cn.csuosa.chatroom.proto.Response.MessageOrBuilder>
-            getMessageFieldBuilder()
-            {
-                if (messageBuilder_ == null)
-                {
-                    messageBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                            cn.csuosa.chatroom.proto.Response.Message, cn.csuosa.chatroom.proto.Response.Message.Builder, cn.csuosa.chatroom.proto.Response.MessageOrBuilder>(
-                            message_,
-                            ((bitField0_ & 0x00000001) != 0),
-                            getParentForChildren(),
-                            isClean());
-                    message_ = null;
-                }
-                return messageBuilder_;
-            }
-
-            /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              *
              * @return Whether the result field is set.
              */
             public boolean hasResult()
             {
-                return ((bitField0_ & 0x00000002) != 0);
+                return ((bitField0_ & 0x00000001) != 0);
             }
 
             /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              *
              * @return The result.
              */
@@ -1967,15 +1831,14 @@ public final class Response
                 if (resultBuilder_ == null)
                 {
                     return result_ == null ? cn.csuosa.chatroom.proto.Response.Result.getDefaultInstance() : result_;
-                }
-                else
+                } else
                 {
                     return resultBuilder_.getMessage();
                 }
             }
 
             /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              */
             public Builder setResult(cn.csuosa.chatroom.proto.Response.Result value)
             {
@@ -1987,17 +1850,16 @@ public final class Response
                     }
                     result_ = value;
                     onChanged();
-                }
-                else
+                } else
                 {
                     resultBuilder_.setMessage(value);
                 }
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
                 return this;
             }
 
             /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              */
             public Builder setResult(
                     cn.csuosa.chatroom.proto.Response.Result.Builder builderForValue)
@@ -2006,45 +1868,42 @@ public final class Response
                 {
                     result_ = builderForValue.build();
                     onChanged();
-                }
-                else
+                } else
                 {
                     resultBuilder_.setMessage(builderForValue.build());
                 }
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
                 return this;
             }
 
             /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              */
             public Builder mergeResult(cn.csuosa.chatroom.proto.Response.Result value)
             {
                 if (resultBuilder_ == null)
                 {
-                    if (((bitField0_ & 0x00000002) != 0) &&
+                    if (((bitField0_ & 0x00000001) != 0) &&
                             result_ != null &&
                             result_ != cn.csuosa.chatroom.proto.Response.Result.getDefaultInstance())
                     {
                         result_ =
                                 cn.csuosa.chatroom.proto.Response.Result.newBuilder(result_).mergeFrom(value).buildPartial();
-                    }
-                    else
+                    } else
                     {
                         result_ = value;
                     }
                     onChanged();
-                }
-                else
+                } else
                 {
                     resultBuilder_.mergeFrom(value);
                 }
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
                 return this;
             }
 
             /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              */
             public Builder clearResult()
             {
@@ -2052,35 +1911,33 @@ public final class Response
                 {
                     result_ = null;
                     onChanged();
-                }
-                else
+                } else
                 {
                     resultBuilder_.clear();
                 }
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = (bitField0_ & ~0x00000001);
                 return this;
             }
 
             /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              */
             public cn.csuosa.chatroom.proto.Response.Result.Builder getResultBuilder()
             {
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
                 onChanged();
                 return getResultFieldBuilder().getBuilder();
             }
 
             /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              */
             public cn.csuosa.chatroom.proto.Response.ResultOrBuilder getResultOrBuilder()
             {
                 if (resultBuilder_ != null)
                 {
                     return resultBuilder_.getMessageOrBuilder();
-                }
-                else
+                } else
                 {
                     return result_ == null ?
                             cn.csuosa.chatroom.proto.Response.Result.getDefaultInstance() : result_;
@@ -2088,7 +1945,7 @@ public final class Response
             }
 
             /**
-             * <code>optional .cn.csuosa.pojo.response.Result result = 3;</code>
+             * <code>optional .cn.csuosa.pojo.response.Result result = 2;</code>
              */
             private com.google.protobuf.SingleFieldBuilderV3<
                     cn.csuosa.chatroom.proto.Response.Result, cn.csuosa.chatroom.proto.Response.Result.Builder, cn.csuosa.chatroom.proto.Response.ResultOrBuilder>
@@ -2104,6 +1961,158 @@ public final class Response
                     result_ = null;
                 }
                 return resultBuilder_;
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             *
+             * @return Whether the message field is set.
+             */
+            public boolean hasMessage()
+            {
+                return ((bitField0_ & 0x00000002) != 0);
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             *
+             * @return The message.
+             */
+            public cn.csuosa.chatroom.proto.Response.Message getMessage()
+            {
+                if (messageBuilder_ == null)
+                {
+                    return message_ == null ? cn.csuosa.chatroom.proto.Response.Message.getDefaultInstance() : message_;
+                } else
+                {
+                    return messageBuilder_.getMessage();
+                }
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             */
+            public Builder setMessage(cn.csuosa.chatroom.proto.Response.Message value)
+            {
+                if (messageBuilder_ == null)
+                {
+                    if (value == null)
+                    {
+                        throw new NullPointerException();
+                    }
+                    message_ = value;
+                    onChanged();
+                } else
+                {
+                    messageBuilder_.setMessage(value);
+                }
+                bitField0_ |= 0x00000002;
+                return this;
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             */
+            public Builder setMessage(
+                    cn.csuosa.chatroom.proto.Response.Message.Builder builderForValue)
+            {
+                if (messageBuilder_ == null)
+                {
+                    message_ = builderForValue.build();
+                    onChanged();
+                } else
+                {
+                    messageBuilder_.setMessage(builderForValue.build());
+                }
+                bitField0_ |= 0x00000002;
+                return this;
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             */
+            public Builder mergeMessage(cn.csuosa.chatroom.proto.Response.Message value)
+            {
+                if (messageBuilder_ == null)
+                {
+                    if (((bitField0_ & 0x00000002) != 0) &&
+                            message_ != null &&
+                            message_ != cn.csuosa.chatroom.proto.Response.Message.getDefaultInstance())
+                    {
+                        message_ =
+                                cn.csuosa.chatroom.proto.Response.Message.newBuilder(message_).mergeFrom(value).buildPartial();
+                    } else
+                    {
+                        message_ = value;
+                    }
+                    onChanged();
+                } else
+                {
+                    messageBuilder_.mergeFrom(value);
+                }
+                bitField0_ |= 0x00000002;
+                return this;
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             */
+            public Builder clearMessage()
+            {
+                if (messageBuilder_ == null)
+                {
+                    message_ = null;
+                    onChanged();
+                } else
+                {
+                    messageBuilder_.clear();
+                }
+                bitField0_ = (bitField0_ & ~0x00000002);
+                return this;
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             */
+            public cn.csuosa.chatroom.proto.Response.Message.Builder getMessageBuilder()
+            {
+                bitField0_ |= 0x00000002;
+                onChanged();
+                return getMessageFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             */
+            public cn.csuosa.chatroom.proto.Response.MessageOrBuilder getMessageOrBuilder()
+            {
+                if (messageBuilder_ != null)
+                {
+                    return messageBuilder_.getMessageOrBuilder();
+                } else
+                {
+                    return message_ == null ?
+                            cn.csuosa.chatroom.proto.Response.Message.getDefaultInstance() : message_;
+                }
+            }
+
+            /**
+             * <code>optional .cn.csuosa.pojo.response.Message message = 3;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    cn.csuosa.chatroom.proto.Response.Message, cn.csuosa.chatroom.proto.Response.Message.Builder, cn.csuosa.chatroom.proto.Response.MessageOrBuilder>
+            getMessageFieldBuilder()
+            {
+                if (messageBuilder_ == null)
+                {
+                    messageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            cn.csuosa.chatroom.proto.Response.Message, cn.csuosa.chatroom.proto.Response.Message.Builder, cn.csuosa.chatroom.proto.Response.MessageOrBuilder>(
+                            getMessage(),
+                            getParentForChildren(),
+                            isClean());
+                    message_ = null;
+                }
+                return messageBuilder_;
             }
 
             private void ensureChannelInfoIsMutable()
@@ -2123,8 +2132,7 @@ public final class Response
                 if (channelInfoBuilder_ == null)
                 {
                     return java.util.Collections.unmodifiableList(channelInfo_);
-                }
-                else
+                } else
                 {
                     return channelInfoBuilder_.getMessageList();
                 }
@@ -2138,8 +2146,7 @@ public final class Response
                 if (channelInfoBuilder_ == null)
                 {
                     return channelInfo_.size();
-                }
-                else
+                } else
                 {
                     return channelInfoBuilder_.getCount();
                 }
@@ -2153,8 +2160,7 @@ public final class Response
                 if (channelInfoBuilder_ == null)
                 {
                     return channelInfo_.get(index);
-                }
-                else
+                } else
                 {
                     return channelInfoBuilder_.getMessage(index);
                 }
@@ -2175,8 +2181,7 @@ public final class Response
                     ensureChannelInfoIsMutable();
                     channelInfo_.set(index, value);
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.setMessage(index, value);
                 }
@@ -2194,8 +2199,7 @@ public final class Response
                     ensureChannelInfoIsMutable();
                     channelInfo_.set(index, builderForValue.build());
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.setMessage(index, builderForValue.build());
                 }
@@ -2216,8 +2220,7 @@ public final class Response
                     ensureChannelInfoIsMutable();
                     channelInfo_.add(value);
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.addMessage(value);
                 }
@@ -2239,8 +2242,7 @@ public final class Response
                     ensureChannelInfoIsMutable();
                     channelInfo_.add(index, value);
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.addMessage(index, value);
                 }
@@ -2258,8 +2260,7 @@ public final class Response
                     ensureChannelInfoIsMutable();
                     channelInfo_.add(builderForValue.build());
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.addMessage(builderForValue.build());
                 }
@@ -2277,8 +2278,7 @@ public final class Response
                     ensureChannelInfoIsMutable();
                     channelInfo_.add(index, builderForValue.build());
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.addMessage(index, builderForValue.build());
                 }
@@ -2297,8 +2297,7 @@ public final class Response
                     com.google.protobuf.AbstractMessageLite.Builder.addAll(
                             values, channelInfo_);
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.addAllMessages(values);
                 }
@@ -2315,8 +2314,7 @@ public final class Response
                     channelInfo_ = java.util.Collections.emptyList();
                     bitField0_ = (bitField0_ & ~0x00000004);
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.clear();
                 }
@@ -2333,8 +2331,7 @@ public final class Response
                     ensureChannelInfoIsMutable();
                     channelInfo_.remove(index);
                     onChanged();
-                }
-                else
+                } else
                 {
                     channelInfoBuilder_.remove(index);
                 }
@@ -2359,8 +2356,7 @@ public final class Response
                 if (channelInfoBuilder_ == null)
                 {
                     return channelInfo_.get(index);
-                }
-                else
+                } else
                 {
                     return channelInfoBuilder_.getMessageOrBuilder(index);
                 }
@@ -2375,8 +2371,7 @@ public final class Response
                 if (channelInfoBuilder_ != null)
                 {
                     return channelInfoBuilder_.getMessageOrBuilderList();
-                }
-                else
+                } else
                 {
                     return java.util.Collections.unmodifiableList(channelInfo_);
                 }
@@ -2427,145 +2422,311 @@ public final class Response
                 return channelInfoBuilder_;
             }
 
-            private void ensureMemberNickIsMutable()
+            private void ensureMemberInfoIsMutable()
             {
                 if (!((bitField0_ & 0x00000008) != 0))
                 {
-                    memberNick_ = new com.google.protobuf.LazyStringArrayList(memberNick_);
+                    memberInfo_ = new java.util.ArrayList<cn.csuosa.chatroom.proto.Response.LoginUserInfo>(memberInfo_);
                     bitField0_ |= 0x00000008;
                 }
             }
 
             /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @return A list containing the memberNick.
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
              */
-            public com.google.protobuf.ProtocolStringList
-            getMemberNickList()
+            public java.util.List<cn.csuosa.chatroom.proto.Response.LoginUserInfo> getMemberInfoList()
             {
-                return memberNick_.getUnmodifiableView();
-            }
-
-            /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @return The count of memberNick.
-             */
-            public int getMemberNickCount()
-            {
-                return memberNick_.size();
-            }
-
-            /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @param index The index of the element to return.
-             * @return The memberNick at the given index.
-             */
-            public java.lang.String getMemberNick(int index)
-            {
-                return memberNick_.get(index);
-            }
-
-            /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @param index The index of the value to return.
-             * @return The bytes of the memberNick at the given index.
-             */
-            public com.google.protobuf.ByteString
-            getMemberNickBytes(int index)
-            {
-                return memberNick_.getByteString(index);
-            }
-
-            /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @param index The index to set the value at.
-             * @param value The memberNick to set.
-             * @return This builder for chaining.
-             */
-            public Builder setMemberNick(
-                    int index, java.lang.String value)
-            {
-                if (value == null)
+                if (memberInfoBuilder_ == null)
                 {
-                    throw new NullPointerException();
-                }
-                ensureMemberNickIsMutable();
-                memberNick_.set(index, value);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @param value The memberNick to add.
-             * @return This builder for chaining.
-             */
-            public Builder addMemberNick(
-                    java.lang.String value)
-            {
-                if (value == null)
+                    return java.util.Collections.unmodifiableList(memberInfo_);
+                } else
                 {
-                    throw new NullPointerException();
+                    return memberInfoBuilder_.getMessageList();
                 }
-                ensureMemberNickIsMutable();
-                memberNick_.add(value);
-                onChanged();
-                return this;
             }
 
             /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @param values The memberNick to add.
-             * @return This builder for chaining.
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
              */
-            public Builder addAllMemberNick(
-                    java.lang.Iterable<java.lang.String> values)
+            public int getMemberInfoCount()
             {
-                ensureMemberNickIsMutable();
-                com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                        values, memberNick_);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @return This builder for chaining.
-             */
-            public Builder clearMemberNick()
-            {
-                memberNick_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000008);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string memberNick = 5;</code>
-             *
-             * @param value The bytes of the memberNick to add.
-             * @return This builder for chaining.
-             */
-            public Builder addMemberNickBytes(
-                    com.google.protobuf.ByteString value)
-            {
-                if (value == null)
+                if (memberInfoBuilder_ == null)
                 {
-                    throw new NullPointerException();
+                    return memberInfo_.size();
+                } else
+                {
+                    return memberInfoBuilder_.getCount();
                 }
-                checkByteStringIsUtf8(value);
-                ensureMemberNickIsMutable();
-                memberNick_.add(value);
-                onChanged();
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public cn.csuosa.chatroom.proto.Response.LoginUserInfo getMemberInfo(int index)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    return memberInfo_.get(index);
+                } else
+                {
+                    return memberInfoBuilder_.getMessage(index);
+                }
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder setMemberInfo(
+                    int index, cn.csuosa.chatroom.proto.Response.LoginUserInfo value)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    if (value == null)
+                    {
+                        throw new NullPointerException();
+                    }
+                    ensureMemberInfoIsMutable();
+                    memberInfo_.set(index, value);
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.setMessage(index, value);
+                }
                 return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder setMemberInfo(
+                    int index, cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder builderForValue)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    ensureMemberInfoIsMutable();
+                    memberInfo_.set(index, builderForValue.build());
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.setMessage(index, builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder addMemberInfo(cn.csuosa.chatroom.proto.Response.LoginUserInfo value)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    if (value == null)
+                    {
+                        throw new NullPointerException();
+                    }
+                    ensureMemberInfoIsMutable();
+                    memberInfo_.add(value);
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.addMessage(value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder addMemberInfo(
+                    int index, cn.csuosa.chatroom.proto.Response.LoginUserInfo value)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    if (value == null)
+                    {
+                        throw new NullPointerException();
+                    }
+                    ensureMemberInfoIsMutable();
+                    memberInfo_.add(index, value);
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.addMessage(index, value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder addMemberInfo(
+                    cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder builderForValue)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    ensureMemberInfoIsMutable();
+                    memberInfo_.add(builderForValue.build());
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.addMessage(builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder addMemberInfo(
+                    int index, cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder builderForValue)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    ensureMemberInfoIsMutable();
+                    memberInfo_.add(index, builderForValue.build());
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.addMessage(index, builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder addAllMemberInfo(
+                    java.lang.Iterable<? extends cn.csuosa.chatroom.proto.Response.LoginUserInfo> values)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    ensureMemberInfoIsMutable();
+                    com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                            values, memberInfo_);
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.addAllMessages(values);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder clearMemberInfo()
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    memberInfo_ = java.util.Collections.emptyList();
+                    bitField0_ = (bitField0_ & ~0x00000008);
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.clear();
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public Builder removeMemberInfo(int index)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    ensureMemberInfoIsMutable();
+                    memberInfo_.remove(index);
+                    onChanged();
+                } else
+                {
+                    memberInfoBuilder_.remove(index);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder getMemberInfoBuilder(
+                    int index)
+            {
+                return getMemberInfoFieldBuilder().getBuilder(index);
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder getMemberInfoOrBuilder(
+                    int index)
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    return memberInfo_.get(index);
+                } else
+                {
+                    return memberInfoBuilder_.getMessageOrBuilder(index);
+                }
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public java.util.List<? extends cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder>
+            getMemberInfoOrBuilderList()
+            {
+                if (memberInfoBuilder_ != null)
+                {
+                    return memberInfoBuilder_.getMessageOrBuilderList();
+                } else
+                {
+                    return java.util.Collections.unmodifiableList(memberInfo_);
+                }
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder addMemberInfoBuilder()
+            {
+                return getMemberInfoFieldBuilder().addBuilder(
+                        cn.csuosa.chatroom.proto.Response.LoginUserInfo.getDefaultInstance());
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder addMemberInfoBuilder(
+                    int index)
+            {
+                return getMemberInfoFieldBuilder().addBuilder(
+                        index, cn.csuosa.chatroom.proto.Response.LoginUserInfo.getDefaultInstance());
+            }
+
+            /**
+             * <code>repeated .cn.csuosa.pojo.response.LoginUserInfo memberInfo = 5;</code>
+             */
+            public java.util.List<cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder>
+            getMemberInfoBuilderList()
+            {
+                return getMemberInfoFieldBuilder().getBuilderList();
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                    cn.csuosa.chatroom.proto.Response.LoginUserInfo, cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder, cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder>
+            getMemberInfoFieldBuilder()
+            {
+                if (memberInfoBuilder_ == null)
+                {
+                    memberInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                            cn.csuosa.chatroom.proto.Response.LoginUserInfo, cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder, cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder>(
+                            memberInfo_,
+                            ((bitField0_ & 0x00000008) != 0),
+                            getParentForChildren(),
+                            isClean());
+                    memberInfo_ = null;
+                }
+                return memberInfoBuilder_;
             }
 
             @java.lang.Override
@@ -2596,7 +2757,7 @@ public final class Response
             // @@protoc_insertion_point(message_implements:cn.csuosa.pojo.response.Result)
             ResultOrBuilder
     {
-        public static final int RESULT_FIELD_NUMBER = 1;
+        public static final int STCODE_FIELD_NUMBER = 1;
         public static final int MSG_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0L;
         // @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.Result)
@@ -2619,7 +2780,8 @@ public final class Response
             DEFAULT_INSTANCE = new cn.csuosa.chatroom.proto.Response.Result();
         }
 
-        private boolean result_;
+        private int bitField0_;
+        private int stCode_;
         private volatile java.lang.Object msg_;
         private byte memoizedIsInitialized = -1;
 
@@ -2644,6 +2806,7 @@ public final class Response
             {
                 throw new java.lang.NullPointerException();
             }
+            int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
                     com.google.protobuf.UnknownFieldSet.newBuilder();
             try
@@ -2660,13 +2823,13 @@ public final class Response
                         case 8:
                         {
 
-                            result_ = input.readBool();
+                            stCode_ = input.readInt32();
                             break;
                         }
                         case 18:
                         {
                             java.lang.String s = input.readStringRequireUtf8();
-
+                            bitField0_ |= 0x00000001;
                             msg_ = s;
                             break;
                         }
@@ -2839,18 +3002,41 @@ public final class Response
         }
 
         /**
-         * <code>bool result = 1;</code>
+         * <pre>
+         * 状态码
+         * </pre>
          *
-         * @return The result.
+         * <code>int32 StCode = 1;</code>
+         *
+         * @return The stCode.
          */
         @java.lang.Override
-        public boolean getResult()
+        public int getStCode()
         {
-            return result_;
+            return stCode_;
         }
 
         /**
-         * <code>string msg = 2;</code>
+         * <pre>
+         * 反馈信息
+         * </pre>
+         *
+         * <code>optional string msg = 2;</code>
+         *
+         * @return Whether the msg field is set.
+         */
+        @java.lang.Override
+        public boolean hasMsg()
+        {
+            return ((bitField0_ & 0x00000001) != 0);
+        }
+
+        /**
+         * <pre>
+         * 反馈信息
+         * </pre>
+         *
+         * <code>optional string msg = 2;</code>
          *
          * @return The msg.
          */
@@ -2861,8 +3047,7 @@ public final class Response
             if (ref instanceof java.lang.String)
             {
                 return (java.lang.String) ref;
-            }
-            else
+            } else
             {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
@@ -2873,7 +3058,11 @@ public final class Response
         }
 
         /**
-         * <code>string msg = 2;</code>
+         * <pre>
+         * 反馈信息
+         * </pre>
+         *
+         * <code>optional string msg = 2;</code>
          *
          * @return The bytes for msg.
          */
@@ -2889,8 +3078,7 @@ public final class Response
                                 (java.lang.String) ref);
                 msg_ = b;
                 return b;
-            }
-            else
+            } else
             {
                 return (com.google.protobuf.ByteString) ref;
             }
@@ -2911,11 +3099,11 @@ public final class Response
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException
         {
-            if (result_ != false)
+            if (stCode_ != 0)
             {
-                output.writeBool(1, result_);
+                output.writeInt32(1, stCode_);
             }
-            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msg_))
+            if (((bitField0_ & 0x00000001) != 0))
             {
                 com.google.protobuf.GeneratedMessageV3.writeString(output, 2, msg_);
             }
@@ -2929,12 +3117,12 @@ public final class Response
             if (size != -1) return size;
 
             size = 0;
-            if (result_ != false)
+            if (stCode_ != 0)
             {
                 size += com.google.protobuf.CodedOutputStream
-                        .computeBoolSize(1, result_);
+                        .computeInt32Size(1, stCode_);
             }
-            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msg_))
+            if (((bitField0_ & 0x00000001) != 0))
             {
                 size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, msg_);
             }
@@ -2956,10 +3144,14 @@ public final class Response
             }
             cn.csuosa.chatroom.proto.Response.Result other = (cn.csuosa.chatroom.proto.Response.Result) obj;
 
-            if (getResult()
-                    != other.getResult()) return false;
-            if (!getMsg()
-                    .equals(other.getMsg())) return false;
+            if (getStCode()
+                    != other.getStCode()) return false;
+            if (hasMsg() != other.hasMsg()) return false;
+            if (hasMsg())
+            {
+                if (!getMsg()
+                        .equals(other.getMsg())) return false;
+            }
             if (!unknownFields.equals(other.unknownFields)) return false;
             return true;
         }
@@ -2973,18 +3165,23 @@ public final class Response
             }
             int hash = 41;
             hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + RESULT_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                    getResult());
-            hash = (37 * hash) + MSG_FIELD_NUMBER;
-            hash = (53 * hash) + getMsg().hashCode();
+            hash = (37 * hash) + STCODE_FIELD_NUMBER;
+            hash = (53 * hash) + getStCode();
+            if (hasMsg())
+            {
+                hash = (37 * hash) + MSG_FIELD_NUMBER;
+                hash = (53 * hash) + getMsg().hashCode();
+            }
             hash = (29 * hash) + unknownFields.hashCode();
             memoizedHashCode = hash;
             return hash;
         }
 
         @java.lang.Override
-        public Builder newBuilderForType() {return newBuilder();}
+        public Builder newBuilderForType()
+        {
+            return newBuilder();
+        }
 
         @java.lang.Override
         public Builder toBuilder()
@@ -3021,7 +3218,8 @@ public final class Response
                 // @@protoc_insertion_point(builder_implements:cn.csuosa.pojo.response.Result)
                 cn.csuosa.chatroom.proto.Response.ResultOrBuilder
         {
-            private boolean result_;
+            private int bitField0_;
+            private int stCode_;
             private java.lang.Object msg_ = "";
 
             // Construct using cn.csuosa.chatroom.proto.Response.Result.newBuilder()
@@ -3064,10 +3262,10 @@ public final class Response
             public Builder clear()
             {
                 super.clear();
-                result_ = false;
+                stCode_ = 0;
 
                 msg_ = "";
-
+                bitField0_ = (bitField0_ & ~0x00000001);
                 return this;
             }
 
@@ -3099,8 +3297,15 @@ public final class Response
             public cn.csuosa.chatroom.proto.Response.Result buildPartial()
             {
                 cn.csuosa.chatroom.proto.Response.Result result = new cn.csuosa.chatroom.proto.Response.Result(this);
-                result.result_ = result_;
+                int from_bitField0_ = bitField0_;
+                int to_bitField0_ = 0;
+                result.stCode_ = stCode_;
+                if (((from_bitField0_ & 0x00000001) != 0))
+                {
+                    to_bitField0_ |= 0x00000001;
+                }
                 result.msg_ = msg_;
+                result.bitField0_ = to_bitField0_;
                 onBuilt();
                 return result;
             }
@@ -3155,8 +3360,7 @@ public final class Response
                 if (other instanceof cn.csuosa.chatroom.proto.Response.Result)
                 {
                     return mergeFrom((cn.csuosa.chatroom.proto.Response.Result) other);
-                }
-                else
+                } else
                 {
                     super.mergeFrom(other);
                     return this;
@@ -3166,12 +3370,13 @@ public final class Response
             public Builder mergeFrom(cn.csuosa.chatroom.proto.Response.Result other)
             {
                 if (other == cn.csuosa.chatroom.proto.Response.Result.getDefaultInstance()) return this;
-                if (other.getResult() != false)
+                if (other.getStCode() != 0)
                 {
-                    setResult(other.getResult());
+                    setStCode(other.getStCode());
                 }
-                if (!other.getMsg().isEmpty())
+                if (other.hasMsg())
                 {
+                    bitField0_ |= 0x00000001;
                     msg_ = other.msg_;
                     onChanged();
                 }
@@ -3211,45 +3416,75 @@ public final class Response
             }
 
             /**
-             * <code>bool result = 1;</code>
+             * <pre>
+             * 状态码
+             * </pre>
              *
-             * @return The result.
+             * <code>int32 StCode = 1;</code>
+             *
+             * @return The stCode.
              */
             @java.lang.Override
-            public boolean getResult()
+            public int getStCode()
             {
-                return result_;
+                return stCode_;
             }
 
             /**
-             * <code>bool result = 1;</code>
+             * <pre>
+             * 状态码
+             * </pre>
              *
-             * @param value The result to set.
+             * <code>int32 StCode = 1;</code>
+             *
+             * @param value The stCode to set.
              * @return This builder for chaining.
              */
-            public Builder setResult(boolean value)
+            public Builder setStCode(int value)
             {
 
-                result_ = value;
+                stCode_ = value;
                 onChanged();
                 return this;
             }
 
             /**
-             * <code>bool result = 1;</code>
+             * <pre>
+             * 状态码
+             * </pre>
+             *
+             * <code>int32 StCode = 1;</code>
              *
              * @return This builder for chaining.
              */
-            public Builder clearResult()
+            public Builder clearStCode()
             {
 
-                result_ = false;
+                stCode_ = 0;
                 onChanged();
                 return this;
             }
 
             /**
-             * <code>string msg = 2;</code>
+             * <pre>
+             * 反馈信息
+             * </pre>
+             *
+             * <code>optional string msg = 2;</code>
+             *
+             * @return Whether the msg field is set.
+             */
+            public boolean hasMsg()
+            {
+                return ((bitField0_ & 0x00000001) != 0);
+            }
+
+            /**
+             * <pre>
+             * 反馈信息
+             * </pre>
+             *
+             * <code>optional string msg = 2;</code>
              *
              * @return The msg.
              */
@@ -3263,15 +3498,18 @@ public final class Response
                     java.lang.String s = bs.toStringUtf8();
                     msg_ = s;
                     return s;
-                }
-                else
+                } else
                 {
                     return (java.lang.String) ref;
                 }
             }
 
             /**
-             * <code>string msg = 2;</code>
+             * <pre>
+             * 反馈信息
+             * </pre>
+             *
+             * <code>optional string msg = 2;</code>
              *
              * @param value The msg to set.
              * @return This builder for chaining.
@@ -3283,14 +3521,18 @@ public final class Response
                 {
                     throw new NullPointerException();
                 }
-
+                bitField0_ |= 0x00000001;
                 msg_ = value;
                 onChanged();
                 return this;
             }
 
             /**
-             * <code>string msg = 2;</code>
+             * <pre>
+             * 反馈信息
+             * </pre>
+             *
+             * <code>optional string msg = 2;</code>
              *
              * @return The bytes for msg.
              */
@@ -3305,15 +3547,18 @@ public final class Response
                                     (java.lang.String) ref);
                     msg_ = b;
                     return b;
-                }
-                else
+                } else
                 {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
 
             /**
-             * <code>string msg = 2;</code>
+             * <pre>
+             * 反馈信息
+             * </pre>
+             *
+             * <code>optional string msg = 2;</code>
              *
              * @param value The bytes for msg to set.
              * @return This builder for chaining.
@@ -3326,20 +3571,24 @@ public final class Response
                     throw new NullPointerException();
                 }
                 checkByteStringIsUtf8(value);
-
+                bitField0_ |= 0x00000001;
                 msg_ = value;
                 onChanged();
                 return this;
             }
 
             /**
-             * <code>string msg = 2;</code>
+             * <pre>
+             * 反馈信息
+             * </pre>
+             *
+             * <code>optional string msg = 2;</code>
              *
              * @return This builder for chaining.
              */
             public Builder clearMsg()
             {
-
+                bitField0_ = (bitField0_ & ~0x00000001);
                 msg_ = getDefaultInstance().getMsg();
                 onChanged();
                 return this;
@@ -3373,10 +3622,11 @@ public final class Response
             // @@protoc_insertion_point(message_implements:cn.csuosa.pojo.response.Message)
             MessageOrBuilder
     {
-        public static final int RECTIME_FIELD_NUMBER = 1;
-        public static final int CHANNEL_FIELD_NUMBER = 2;
-        public static final int FROMNICK_FIELD_NUMBER = 3;
-        public static final int CONTENT_FIELD_NUMBER = 4;
+        public static final int CHANNEL_FIELD_NUMBER = 1;
+        public static final int FROMNICK_FIELD_NUMBER = 2;
+        public static final int TYPE_FIELD_NUMBER = 3;
+        public static final int TIMESTAMP_FIELD_NUMBER = 4;
+        public static final int CONTENT_FIELD_NUMBER = 5;
         private static final long serialVersionUID = 0L;
         // @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.Message)
         private static final cn.csuosa.chatroom.proto.Response.Message DEFAULT_INSTANCE;
@@ -3398,10 +3648,11 @@ public final class Response
             DEFAULT_INSTANCE = new cn.csuosa.chatroom.proto.Response.Message();
         }
 
-        private volatile java.lang.Object recTime_;
         private volatile java.lang.Object channel_;
         private volatile java.lang.Object fromNick_;
-        private volatile java.lang.Object content_;
+        private int type_;
+        private long timestamp_;
+        private com.google.protobuf.ByteString content_;
         private byte memoizedIsInitialized = -1;
 
         // Use Message.newBuilder() to construct.
@@ -3412,10 +3663,9 @@ public final class Response
 
         private Message()
         {
-            recTime_ = "";
             channel_ = "";
             fromNick_ = "";
-            content_ = "";
+            content_ = com.google.protobuf.ByteString.EMPTY;
         }
 
         private Message(
@@ -3445,28 +3695,32 @@ public final class Response
                         {
                             java.lang.String s = input.readStringRequireUtf8();
 
-                            recTime_ = s;
+                            channel_ = s;
                             break;
                         }
                         case 18:
                         {
                             java.lang.String s = input.readStringRequireUtf8();
 
-                            channel_ = s;
-                            break;
-                        }
-                        case 26:
-                        {
-                            java.lang.String s = input.readStringRequireUtf8();
-
                             fromNick_ = s;
                             break;
                         }
-                        case 34:
+                        case 24:
                         {
-                            java.lang.String s = input.readStringRequireUtf8();
 
-                            content_ = s;
+                            type_ = input.readInt32();
+                            break;
+                        }
+                        case 32:
+                        {
+
+                            timestamp_ = input.readInt64();
+                            break;
+                        }
+                        case 42:
+                        {
+
+                            content_ = input.readBytes();
                             break;
                         }
                         default:
@@ -3638,54 +3892,11 @@ public final class Response
         }
 
         /**
-         * <code>string recTime = 1;</code>
+         * <pre>
+         * 频道名
+         * </pre>
          *
-         * @return The recTime.
-         */
-        @java.lang.Override
-        public java.lang.String getRecTime()
-        {
-            java.lang.Object ref = recTime_;
-            if (ref instanceof java.lang.String)
-            {
-                return (java.lang.String) ref;
-            }
-            else
-            {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                recTime_ = s;
-                return s;
-            }
-        }
-
-        /**
-         * <code>string recTime = 1;</code>
-         *
-         * @return The bytes for recTime.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-        getRecTimeBytes()
-        {
-            java.lang.Object ref = recTime_;
-            if (ref instanceof java.lang.String)
-            {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                recTime_ = b;
-                return b;
-            }
-            else
-            {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string channel = 2;</code>
+         * <code>string channel = 1;</code>
          *
          * @return The channel.
          */
@@ -3696,8 +3907,7 @@ public final class Response
             if (ref instanceof java.lang.String)
             {
                 return (java.lang.String) ref;
-            }
-            else
+            } else
             {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
@@ -3708,7 +3918,11 @@ public final class Response
         }
 
         /**
-         * <code>string channel = 2;</code>
+         * <pre>
+         * 频道名
+         * </pre>
+         *
+         * <code>string channel = 1;</code>
          *
          * @return The bytes for channel.
          */
@@ -3724,15 +3938,18 @@ public final class Response
                                 (java.lang.String) ref);
                 channel_ = b;
                 return b;
-            }
-            else
+            } else
             {
                 return (com.google.protobuf.ByteString) ref;
             }
         }
 
         /**
-         * <code>string fromNick = 3;</code>
+         * <pre>
+         * 消息发送者昵称
+         * </pre>
+         *
+         * <code>string fromNick = 2;</code>
          *
          * @return The fromNick.
          */
@@ -3743,8 +3960,7 @@ public final class Response
             if (ref instanceof java.lang.String)
             {
                 return (java.lang.String) ref;
-            }
-            else
+            } else
             {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
@@ -3755,7 +3971,11 @@ public final class Response
         }
 
         /**
-         * <code>string fromNick = 3;</code>
+         * <pre>
+         * 消息发送者昵称
+         * </pre>
+         *
+         * <code>string fromNick = 2;</code>
          *
          * @return The bytes for fromNick.
          */
@@ -3771,58 +3991,55 @@ public final class Response
                                 (java.lang.String) ref);
                 fromNick_ = b;
                 return b;
-            }
-            else
+            } else
             {
                 return (com.google.protobuf.ByteString) ref;
             }
         }
 
         /**
-         * <code>string content = 4;</code>
+         * <pre>
+         * 消息类型
+         * </pre>
+         *
+         * <code>int32 type = 3;</code>
+         *
+         * @return The type.
+         */
+        @java.lang.Override
+        public int getType()
+        {
+            return type_;
+        }
+
+        /**
+         * <pre>
+         * 消息发送时间戳
+         * </pre>
+         *
+         * <code>int64 timestamp = 4;</code>
+         *
+         * @return The timestamp.
+         */
+        @java.lang.Override
+        public long getTimestamp()
+        {
+            return timestamp_;
+        }
+
+        /**
+         * <pre>
+         * 消息内容
+         * </pre>
+         *
+         * <code>bytes content = 5;</code>
          *
          * @return The content.
          */
         @java.lang.Override
-        public java.lang.String getContent()
+        public com.google.protobuf.ByteString getContent()
         {
-            java.lang.Object ref = content_;
-            if (ref instanceof java.lang.String)
-            {
-                return (java.lang.String) ref;
-            }
-            else
-            {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                content_ = s;
-                return s;
-            }
-        }
-
-        /**
-         * <code>string content = 4;</code>
-         *
-         * @return The bytes for content.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-        getContentBytes()
-        {
-            java.lang.Object ref = content_;
-            if (ref instanceof java.lang.String)
-            {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                content_ = b;
-                return b;
-            }
-            else
-            {
-                return (com.google.protobuf.ByteString) ref;
-            }
+            return content_;
         }
 
         @java.lang.Override
@@ -3840,21 +4057,25 @@ public final class Response
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException
         {
-            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recTime_))
-            {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, recTime_);
-            }
             if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channel_))
             {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channel_);
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, channel_);
             }
             if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromNick_))
             {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fromNick_);
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fromNick_);
             }
-            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_))
+            if (type_ != 0)
             {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 4, content_);
+                output.writeInt32(3, type_);
+            }
+            if (timestamp_ != 0L)
+            {
+                output.writeInt64(4, timestamp_);
+            }
+            if (!content_.isEmpty())
+            {
+                output.writeBytes(5, content_);
             }
             unknownFields.writeTo(output);
         }
@@ -3866,21 +4087,28 @@ public final class Response
             if (size != -1) return size;
 
             size = 0;
-            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recTime_))
-            {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, recTime_);
-            }
             if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channel_))
             {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channel_);
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, channel_);
             }
             if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromNick_))
             {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fromNick_);
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fromNick_);
             }
-            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_))
+            if (type_ != 0)
             {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, content_);
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(3, type_);
+            }
+            if (timestamp_ != 0L)
+            {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(4, timestamp_);
+            }
+            if (!content_.isEmpty())
+            {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeBytesSize(5, content_);
             }
             size += unknownFields.getSerializedSize();
             memoizedSize = size;
@@ -3900,12 +4128,14 @@ public final class Response
             }
             cn.csuosa.chatroom.proto.Response.Message other = (cn.csuosa.chatroom.proto.Response.Message) obj;
 
-            if (!getRecTime()
-                    .equals(other.getRecTime())) return false;
             if (!getChannel()
                     .equals(other.getChannel())) return false;
             if (!getFromNick()
                     .equals(other.getFromNick())) return false;
+            if (getType()
+                    != other.getType()) return false;
+            if (getTimestamp()
+                    != other.getTimestamp()) return false;
             if (!getContent()
                     .equals(other.getContent())) return false;
             if (!unknownFields.equals(other.unknownFields)) return false;
@@ -3921,12 +4151,15 @@ public final class Response
             }
             int hash = 41;
             hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + RECTIME_FIELD_NUMBER;
-            hash = (53 * hash) + getRecTime().hashCode();
             hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
             hash = (53 * hash) + getChannel().hashCode();
             hash = (37 * hash) + FROMNICK_FIELD_NUMBER;
             hash = (53 * hash) + getFromNick().hashCode();
+            hash = (37 * hash) + TYPE_FIELD_NUMBER;
+            hash = (53 * hash) + getType();
+            hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                    getTimestamp());
             hash = (37 * hash) + CONTENT_FIELD_NUMBER;
             hash = (53 * hash) + getContent().hashCode();
             hash = (29 * hash) + unknownFields.hashCode();
@@ -3935,7 +4168,10 @@ public final class Response
         }
 
         @java.lang.Override
-        public Builder newBuilderForType() {return newBuilder();}
+        public Builder newBuilderForType()
+        {
+            return newBuilder();
+        }
 
         @java.lang.Override
         public Builder toBuilder()
@@ -3972,10 +4208,11 @@ public final class Response
                 // @@protoc_insertion_point(builder_implements:cn.csuosa.pojo.response.Message)
                 cn.csuosa.chatroom.proto.Response.MessageOrBuilder
         {
-            private java.lang.Object recTime_ = "";
             private java.lang.Object channel_ = "";
             private java.lang.Object fromNick_ = "";
-            private java.lang.Object content_ = "";
+            private int type_;
+            private long timestamp_;
+            private com.google.protobuf.ByteString content_ = com.google.protobuf.ByteString.EMPTY;
 
             // Construct using cn.csuosa.chatroom.proto.Response.Message.newBuilder()
             private Builder()
@@ -4017,13 +4254,15 @@ public final class Response
             public Builder clear()
             {
                 super.clear();
-                recTime_ = "";
-
                 channel_ = "";
 
                 fromNick_ = "";
 
-                content_ = "";
+                type_ = 0;
+
+                timestamp_ = 0L;
+
+                content_ = com.google.protobuf.ByteString.EMPTY;
 
                 return this;
             }
@@ -4056,9 +4295,10 @@ public final class Response
             public cn.csuosa.chatroom.proto.Response.Message buildPartial()
             {
                 cn.csuosa.chatroom.proto.Response.Message result = new cn.csuosa.chatroom.proto.Response.Message(this);
-                result.recTime_ = recTime_;
                 result.channel_ = channel_;
                 result.fromNick_ = fromNick_;
+                result.type_ = type_;
+                result.timestamp_ = timestamp_;
                 result.content_ = content_;
                 onBuilt();
                 return result;
@@ -4114,8 +4354,7 @@ public final class Response
                 if (other instanceof cn.csuosa.chatroom.proto.Response.Message)
                 {
                     return mergeFrom((cn.csuosa.chatroom.proto.Response.Message) other);
-                }
-                else
+                } else
                 {
                     super.mergeFrom(other);
                     return this;
@@ -4125,11 +4364,6 @@ public final class Response
             public Builder mergeFrom(cn.csuosa.chatroom.proto.Response.Message other)
             {
                 if (other == cn.csuosa.chatroom.proto.Response.Message.getDefaultInstance()) return this;
-                if (!other.getRecTime().isEmpty())
-                {
-                    recTime_ = other.recTime_;
-                    onChanged();
-                }
                 if (!other.getChannel().isEmpty())
                 {
                     channel_ = other.channel_;
@@ -4140,10 +4374,17 @@ public final class Response
                     fromNick_ = other.fromNick_;
                     onChanged();
                 }
-                if (!other.getContent().isEmpty())
+                if (other.getType() != 0)
                 {
-                    content_ = other.content_;
-                    onChanged();
+                    setType(other.getType());
+                }
+                if (other.getTimestamp() != 0L)
+                {
+                    setTimestamp(other.getTimestamp());
+                }
+                if (other.getContent() != com.google.protobuf.ByteString.EMPTY)
+                {
+                    setContent(other.getContent());
                 }
                 this.mergeUnknownFields(other.unknownFields);
                 onChanged();
@@ -4181,104 +4422,11 @@ public final class Response
             }
 
             /**
-             * <code>string recTime = 1;</code>
+             * <pre>
+             * 频道名
+             * </pre>
              *
-             * @return The recTime.
-             */
-            public java.lang.String getRecTime()
-            {
-                java.lang.Object ref = recTime_;
-                if (!(ref instanceof java.lang.String))
-                {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    recTime_ = s;
-                    return s;
-                }
-                else
-                {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string recTime = 1;</code>
-             *
-             * @param value The recTime to set.
-             * @return This builder for chaining.
-             */
-            public Builder setRecTime(
-                    java.lang.String value)
-            {
-                if (value == null)
-                {
-                    throw new NullPointerException();
-                }
-
-                recTime_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string recTime = 1;</code>
-             *
-             * @return The bytes for recTime.
-             */
-            public com.google.protobuf.ByteString
-            getRecTimeBytes()
-            {
-                java.lang.Object ref = recTime_;
-                if (ref instanceof String)
-                {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    recTime_ = b;
-                    return b;
-                }
-                else
-                {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string recTime = 1;</code>
-             *
-             * @param value The bytes for recTime to set.
-             * @return This builder for chaining.
-             */
-            public Builder setRecTimeBytes(
-                    com.google.protobuf.ByteString value)
-            {
-                if (value == null)
-                {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                recTime_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string recTime = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
-            public Builder clearRecTime()
-            {
-
-                recTime_ = getDefaultInstance().getRecTime();
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string channel = 2;</code>
+             * <code>string channel = 1;</code>
              *
              * @return The channel.
              */
@@ -4292,15 +4440,18 @@ public final class Response
                     java.lang.String s = bs.toStringUtf8();
                     channel_ = s;
                     return s;
-                }
-                else
+                } else
                 {
                     return (java.lang.String) ref;
                 }
             }
 
             /**
-             * <code>string channel = 2;</code>
+             * <pre>
+             * 频道名
+             * </pre>
+             *
+             * <code>string channel = 1;</code>
              *
              * @param value The channel to set.
              * @return This builder for chaining.
@@ -4319,7 +4470,11 @@ public final class Response
             }
 
             /**
-             * <code>string channel = 2;</code>
+             * <pre>
+             * 频道名
+             * </pre>
+             *
+             * <code>string channel = 1;</code>
              *
              * @return The bytes for channel.
              */
@@ -4334,15 +4489,18 @@ public final class Response
                                     (java.lang.String) ref);
                     channel_ = b;
                     return b;
-                }
-                else
+                } else
                 {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
 
             /**
-             * <code>string channel = 2;</code>
+             * <pre>
+             * 频道名
+             * </pre>
+             *
+             * <code>string channel = 1;</code>
              *
              * @param value The bytes for channel to set.
              * @return This builder for chaining.
@@ -4362,7 +4520,11 @@ public final class Response
             }
 
             /**
-             * <code>string channel = 2;</code>
+             * <pre>
+             * 频道名
+             * </pre>
+             *
+             * <code>string channel = 1;</code>
              *
              * @return This builder for chaining.
              */
@@ -4375,7 +4537,11 @@ public final class Response
             }
 
             /**
-             * <code>string fromNick = 3;</code>
+             * <pre>
+             * 消息发送者昵称
+             * </pre>
+             *
+             * <code>string fromNick = 2;</code>
              *
              * @return The fromNick.
              */
@@ -4389,15 +4555,18 @@ public final class Response
                     java.lang.String s = bs.toStringUtf8();
                     fromNick_ = s;
                     return s;
-                }
-                else
+                } else
                 {
                     return (java.lang.String) ref;
                 }
             }
 
             /**
-             * <code>string fromNick = 3;</code>
+             * <pre>
+             * 消息发送者昵称
+             * </pre>
+             *
+             * <code>string fromNick = 2;</code>
              *
              * @param value The fromNick to set.
              * @return This builder for chaining.
@@ -4416,7 +4585,11 @@ public final class Response
             }
 
             /**
-             * <code>string fromNick = 3;</code>
+             * <pre>
+             * 消息发送者昵称
+             * </pre>
+             *
+             * <code>string fromNick = 2;</code>
              *
              * @return The bytes for fromNick.
              */
@@ -4431,15 +4604,18 @@ public final class Response
                                     (java.lang.String) ref);
                     fromNick_ = b;
                     return b;
-                }
-                else
+                } else
                 {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
 
             /**
-             * <code>string fromNick = 3;</code>
+             * <pre>
+             * 消息发送者昵称
+             * </pre>
+             *
+             * <code>string fromNick = 2;</code>
              *
              * @param value The bytes for fromNick to set.
              * @return This builder for chaining.
@@ -4459,7 +4635,11 @@ public final class Response
             }
 
             /**
-             * <code>string fromNick = 3;</code>
+             * <pre>
+             * 消息发送者昵称
+             * </pre>
+             *
+             * <code>string fromNick = 2;</code>
              *
              * @return This builder for chaining.
              */
@@ -4472,35 +4652,131 @@ public final class Response
             }
 
             /**
-             * <code>string content = 4;</code>
+             * <pre>
+             * 消息类型
+             * </pre>
              *
-             * @return The content.
+             * <code>int32 type = 3;</code>
+             *
+             * @return The type.
              */
-            public java.lang.String getContent()
+            @java.lang.Override
+            public int getType()
             {
-                java.lang.Object ref = content_;
-                if (!(ref instanceof java.lang.String))
-                {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    content_ = s;
-                    return s;
-                }
-                else
-                {
-                    return (java.lang.String) ref;
-                }
+                return type_;
             }
 
             /**
-             * <code>string content = 4;</code>
+             * <pre>
+             * 消息类型
+             * </pre>
+             *
+             * <code>int32 type = 3;</code>
+             *
+             * @param value The type to set.
+             * @return This builder for chaining.
+             */
+            public Builder setType(int value)
+            {
+
+                type_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 消息类型
+             * </pre>
+             *
+             * <code>int32 type = 3;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearType()
+            {
+
+                type_ = 0;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 消息发送时间戳
+             * </pre>
+             *
+             * <code>int64 timestamp = 4;</code>
+             *
+             * @return The timestamp.
+             */
+            @java.lang.Override
+            public long getTimestamp()
+            {
+                return timestamp_;
+            }
+
+            /**
+             * <pre>
+             * 消息发送时间戳
+             * </pre>
+             *
+             * <code>int64 timestamp = 4;</code>
+             *
+             * @param value The timestamp to set.
+             * @return This builder for chaining.
+             */
+            public Builder setTimestamp(long value)
+            {
+
+                timestamp_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 消息发送时间戳
+             * </pre>
+             *
+             * <code>int64 timestamp = 4;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearTimestamp()
+            {
+
+                timestamp_ = 0L;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 消息内容
+             * </pre>
+             *
+             * <code>bytes content = 5;</code>
+             *
+             * @return The content.
+             */
+            @java.lang.Override
+            public com.google.protobuf.ByteString getContent()
+            {
+                return content_;
+            }
+
+            /**
+             * <pre>
+             * 消息内容
+             * </pre>
+             *
+             * <code>bytes content = 5;</code>
              *
              * @param value The content to set.
              * @return This builder for chaining.
              */
-            public Builder setContent(
-                    java.lang.String value)
+            public Builder setContent(com.google.protobuf.ByteString value)
             {
                 if (value == null)
                 {
@@ -4513,50 +4789,11 @@ public final class Response
             }
 
             /**
-             * <code>string content = 4;</code>
+             * <pre>
+             * 消息内容
+             * </pre>
              *
-             * @return The bytes for content.
-             */
-            public com.google.protobuf.ByteString
-            getContentBytes()
-            {
-                java.lang.Object ref = content_;
-                if (ref instanceof String)
-                {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    content_ = b;
-                    return b;
-                }
-                else
-                {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string content = 4;</code>
-             *
-             * @param value The bytes for content to set.
-             * @return This builder for chaining.
-             */
-            public Builder setContentBytes(
-                    com.google.protobuf.ByteString value)
-            {
-                if (value == null)
-                {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                content_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string content = 4;</code>
+             * <code>bytes content = 5;</code>
              *
              * @return This builder for chaining.
              */
@@ -4597,8 +4834,9 @@ public final class Response
             ChannelInfoOrBuilder
     {
         public static final int NAME_FIELD_NUMBER = 1;
-        public static final int ISPUBLIC_FIELD_NUMBER = 2;
-        public static final int MEMBERNUM_FIELD_NUMBER = 3;
+        public static final int ISIN_FIELD_NUMBER = 2;
+        public static final int ISPUBLIC_FIELD_NUMBER = 3;
+        public static final int MEMBERNUM_FIELD_NUMBER = 4;
         private static final long serialVersionUID = 0L;
         // @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.ChannelInfo)
         private static final cn.csuosa.chatroom.proto.Response.ChannelInfo DEFAULT_INSTANCE;
@@ -4621,6 +4859,7 @@ public final class Response
         }
 
         private volatile java.lang.Object name_;
+        private boolean isIN_;
         private boolean isPublic_;
         private int memberNum_;
         private byte memoizedIsInitialized = -1;
@@ -4669,10 +4908,16 @@ public final class Response
                         case 16:
                         {
 
-                            isPublic_ = input.readBool();
+                            isIN_ = input.readBool();
                             break;
                         }
                         case 24:
+                        {
+
+                            isPublic_ = input.readBool();
+                            break;
+                        }
+                        case 32:
                         {
 
                             memberNum_ = input.readInt32();
@@ -4847,6 +5092,10 @@ public final class Response
         }
 
         /**
+         * <pre>
+         * 频道名称
+         * </pre>
+         *
          * <code>string name = 1;</code>
          *
          * @return The name.
@@ -4858,8 +5107,7 @@ public final class Response
             if (ref instanceof java.lang.String)
             {
                 return (java.lang.String) ref;
-            }
-            else
+            } else
             {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
@@ -4870,6 +5118,10 @@ public final class Response
         }
 
         /**
+         * <pre>
+         * 频道名称
+         * </pre>
+         *
          * <code>string name = 1;</code>
          *
          * @return The bytes for name.
@@ -4886,15 +5138,33 @@ public final class Response
                                 (java.lang.String) ref);
                 name_ = b;
                 return b;
-            }
-            else
+            } else
             {
                 return (com.google.protobuf.ByteString) ref;
             }
         }
 
         /**
-         * <code>bool isPublic = 2;</code>
+         * <pre>
+         * 用户是否在该频道中
+         * </pre>
+         *
+         * <code>bool isIN = 2;</code>
+         *
+         * @return The isIN.
+         */
+        @java.lang.Override
+        public boolean getIsIN()
+        {
+            return isIN_;
+        }
+
+        /**
+         * <pre>
+         * 频道是否公开
+         * </pre>
+         *
+         * <code>bool isPublic = 3;</code>
          *
          * @return The isPublic.
          */
@@ -4905,7 +5175,11 @@ public final class Response
         }
 
         /**
-         * <code>int32 memberNum = 3;</code>
+         * <pre>
+         * 频道中的成员数量
+         * </pre>
+         *
+         * <code>int32 memberNum = 4;</code>
          *
          * @return The memberNum.
          */
@@ -4934,13 +5208,17 @@ public final class Response
             {
                 com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
             }
+            if (isIN_ != false)
+            {
+                output.writeBool(2, isIN_);
+            }
             if (isPublic_ != false)
             {
-                output.writeBool(2, isPublic_);
+                output.writeBool(3, isPublic_);
             }
             if (memberNum_ != 0)
             {
-                output.writeInt32(3, memberNum_);
+                output.writeInt32(4, memberNum_);
             }
             unknownFields.writeTo(output);
         }
@@ -4956,15 +5234,20 @@ public final class Response
             {
                 size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
             }
+            if (isIN_ != false)
+            {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeBoolSize(2, isIN_);
+            }
             if (isPublic_ != false)
             {
                 size += com.google.protobuf.CodedOutputStream
-                        .computeBoolSize(2, isPublic_);
+                        .computeBoolSize(3, isPublic_);
             }
             if (memberNum_ != 0)
             {
                 size += com.google.protobuf.CodedOutputStream
-                        .computeInt32Size(3, memberNum_);
+                        .computeInt32Size(4, memberNum_);
             }
             size += unknownFields.getSerializedSize();
             memoizedSize = size;
@@ -4986,6 +5269,8 @@ public final class Response
 
             if (!getName()
                     .equals(other.getName())) return false;
+            if (getIsIN()
+                    != other.getIsIN()) return false;
             if (getIsPublic()
                     != other.getIsPublic()) return false;
             if (getMemberNum()
@@ -5005,6 +5290,9 @@ public final class Response
             hash = (19 * hash) + getDescriptor().hashCode();
             hash = (37 * hash) + NAME_FIELD_NUMBER;
             hash = (53 * hash) + getName().hashCode();
+            hash = (37 * hash) + ISIN_FIELD_NUMBER;
+            hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                    getIsIN());
             hash = (37 * hash) + ISPUBLIC_FIELD_NUMBER;
             hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
                     getIsPublic());
@@ -5016,7 +5304,10 @@ public final class Response
         }
 
         @java.lang.Override
-        public Builder newBuilderForType() {return newBuilder();}
+        public Builder newBuilderForType()
+        {
+            return newBuilder();
+        }
 
         @java.lang.Override
         public Builder toBuilder()
@@ -5054,6 +5345,7 @@ public final class Response
                 cn.csuosa.chatroom.proto.Response.ChannelInfoOrBuilder
         {
             private java.lang.Object name_ = "";
+            private boolean isIN_;
             private boolean isPublic_;
             private int memberNum_;
 
@@ -5099,6 +5391,8 @@ public final class Response
                 super.clear();
                 name_ = "";
 
+                isIN_ = false;
+
                 isPublic_ = false;
 
                 memberNum_ = 0;
@@ -5135,6 +5429,7 @@ public final class Response
             {
                 cn.csuosa.chatroom.proto.Response.ChannelInfo result = new cn.csuosa.chatroom.proto.Response.ChannelInfo(this);
                 result.name_ = name_;
+                result.isIN_ = isIN_;
                 result.isPublic_ = isPublic_;
                 result.memberNum_ = memberNum_;
                 onBuilt();
@@ -5191,8 +5486,7 @@ public final class Response
                 if (other instanceof cn.csuosa.chatroom.proto.Response.ChannelInfo)
                 {
                     return mergeFrom((cn.csuosa.chatroom.proto.Response.ChannelInfo) other);
-                }
-                else
+                } else
                 {
                     super.mergeFrom(other);
                     return this;
@@ -5206,6 +5500,10 @@ public final class Response
                 {
                     name_ = other.name_;
                     onChanged();
+                }
+                if (other.getIsIN() != false)
+                {
+                    setIsIN(other.getIsIN());
                 }
                 if (other.getIsPublic() != false)
                 {
@@ -5251,6 +5549,10 @@ public final class Response
             }
 
             /**
+             * <pre>
+             * 频道名称
+             * </pre>
+             *
              * <code>string name = 1;</code>
              *
              * @return The name.
@@ -5265,14 +5567,17 @@ public final class Response
                     java.lang.String s = bs.toStringUtf8();
                     name_ = s;
                     return s;
-                }
-                else
+                } else
                 {
                     return (java.lang.String) ref;
                 }
             }
 
             /**
+             * <pre>
+             * 频道名称
+             * </pre>
+             *
              * <code>string name = 1;</code>
              *
              * @param value The name to set.
@@ -5292,6 +5597,10 @@ public final class Response
             }
 
             /**
+             * <pre>
+             * 频道名称
+             * </pre>
+             *
              * <code>string name = 1;</code>
              *
              * @return The bytes for name.
@@ -5307,14 +5616,17 @@ public final class Response
                                     (java.lang.String) ref);
                     name_ = b;
                     return b;
-                }
-                else
+                } else
                 {
                     return (com.google.protobuf.ByteString) ref;
                 }
             }
 
             /**
+             * <pre>
+             * 频道名称
+             * </pre>
+             *
              * <code>string name = 1;</code>
              *
              * @param value The bytes for name to set.
@@ -5335,6 +5647,10 @@ public final class Response
             }
 
             /**
+             * <pre>
+             * 频道名称
+             * </pre>
+             *
              * <code>string name = 1;</code>
              *
              * @return This builder for chaining.
@@ -5348,7 +5664,61 @@ public final class Response
             }
 
             /**
-             * <code>bool isPublic = 2;</code>
+             * <pre>
+             * 用户是否在该频道中
+             * </pre>
+             *
+             * <code>bool isIN = 2;</code>
+             *
+             * @return The isIN.
+             */
+            @java.lang.Override
+            public boolean getIsIN()
+            {
+                return isIN_;
+            }
+
+            /**
+             * <pre>
+             * 用户是否在该频道中
+             * </pre>
+             *
+             * <code>bool isIN = 2;</code>
+             *
+             * @param value The isIN to set.
+             * @return This builder for chaining.
+             */
+            public Builder setIsIN(boolean value)
+            {
+
+                isIN_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 用户是否在该频道中
+             * </pre>
+             *
+             * <code>bool isIN = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearIsIN()
+            {
+
+                isIN_ = false;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 频道是否公开
+             * </pre>
+             *
+             * <code>bool isPublic = 3;</code>
              *
              * @return The isPublic.
              */
@@ -5359,7 +5729,11 @@ public final class Response
             }
 
             /**
-             * <code>bool isPublic = 2;</code>
+             * <pre>
+             * 频道是否公开
+             * </pre>
+             *
+             * <code>bool isPublic = 3;</code>
              *
              * @param value The isPublic to set.
              * @return This builder for chaining.
@@ -5373,7 +5747,11 @@ public final class Response
             }
 
             /**
-             * <code>bool isPublic = 2;</code>
+             * <pre>
+             * 频道是否公开
+             * </pre>
+             *
+             * <code>bool isPublic = 3;</code>
              *
              * @return This builder for chaining.
              */
@@ -5386,7 +5764,11 @@ public final class Response
             }
 
             /**
-             * <code>int32 memberNum = 3;</code>
+             * <pre>
+             * 频道中的成员数量
+             * </pre>
+             *
+             * <code>int32 memberNum = 4;</code>
              *
              * @return The memberNum.
              */
@@ -5397,7 +5779,11 @@ public final class Response
             }
 
             /**
-             * <code>int32 memberNum = 3;</code>
+             * <pre>
+             * 频道中的成员数量
+             * </pre>
+             *
+             * <code>int32 memberNum = 4;</code>
              *
              * @param value The memberNum to set.
              * @return This builder for chaining.
@@ -5411,7 +5797,11 @@ public final class Response
             }
 
             /**
-             * <code>int32 memberNum = 3;</code>
+             * <pre>
+             * 频道中的成员数量
+             * </pre>
+             *
+             * <code>int32 memberNum = 4;</code>
              *
              * @return This builder for chaining.
              */
@@ -5439,6 +5829,912 @@ public final class Response
 
 
             // @@protoc_insertion_point(builder_scope:cn.csuosa.pojo.response.ChannelInfo)
+        }
+
+    }
+
+    /**
+     * Protobuf type {@code cn.csuosa.pojo.response.LoginUserInfo}
+     */
+    public static final class LoginUserInfo extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:cn.csuosa.pojo.response.LoginUserInfo)
+            LoginUserInfoOrBuilder
+    {
+        public static final int ID_FIELD_NUMBER = 1;
+        public static final int MEMBERNICK_FIELD_NUMBER = 2;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.LoginUserInfo)
+        private static final cn.csuosa.chatroom.proto.Response.LoginUserInfo DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<LoginUserInfo>
+                PARSER = new com.google.protobuf.AbstractParser<LoginUserInfo>()
+        {
+            @java.lang.Override
+            public LoginUserInfo parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException
+            {
+                return new LoginUserInfo(input, extensionRegistry);
+            }
+        };
+
+        static
+        {
+            DEFAULT_INSTANCE = new cn.csuosa.chatroom.proto.Response.LoginUserInfo();
+        }
+
+        private int bitField0_;
+        private volatile java.lang.Object id_;
+        private volatile java.lang.Object memberNick_;
+        private byte memoizedIsInitialized = -1;
+
+        // Use LoginUserInfo.newBuilder() to construct.
+        private LoginUserInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder)
+        {
+            super(builder);
+        }
+
+        private LoginUserInfo()
+        {
+            id_ = "";
+            memberNick_ = "";
+        }
+
+        private LoginUserInfo(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException
+        {
+            this();
+            if (extensionRegistry == null)
+            {
+                throw new java.lang.NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try
+            {
+                boolean done = false;
+                while (!done)
+                {
+                    int tag = input.readTag();
+                    switch (tag)
+                    {
+                        case 0:
+                            done = true;
+                            break;
+                        case 10:
+                        {
+                            java.lang.String s = input.readStringRequireUtf8();
+                            bitField0_ |= 0x00000001;
+                            id_ = s;
+                            break;
+                        }
+                        case 18:
+                        {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            memberNick_ = s;
+                            break;
+                        }
+                        default:
+                        {
+                            if (!parseUnknownField(
+                                    input, unknownFields, extensionRegistry, tag))
+                            {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e)
+            {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e)
+            {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally
+            {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor()
+        {
+            return cn.csuosa.chatroom.proto.Response.internal_static_cn_csuosa_pojo_response_LoginUserInfo_descriptor;
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException
+        {
+            return PARSER.parseFrom(data);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException
+        {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException
+        {
+            return PARSER.parseFrom(data);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException
+        {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException
+        {
+            return PARSER.parseFrom(data);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException
+        {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(java.io.InputStream input)
+                throws java.io.IOException
+        {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException
+        {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException
+        {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException
+        {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException
+        {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException
+        {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder()
+        {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(cn.csuosa.chatroom.proto.Response.LoginUserInfo prototype)
+        {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static cn.csuosa.chatroom.proto.Response.LoginUserInfo getDefaultInstance()
+        {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<LoginUserInfo> parser()
+        {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        @SuppressWarnings({"unused"})
+        protected java.lang.Object newInstance(
+                UnusedPrivateParameter unused)
+        {
+            return new LoginUserInfo();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields()
+        {
+            return this.unknownFields;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable()
+        {
+            return cn.csuosa.chatroom.proto.Response.internal_static_cn_csuosa_pojo_response_LoginUserInfo_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            cn.csuosa.chatroom.proto.Response.LoginUserInfo.class, cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder.class);
+        }
+
+        /**
+         * <code>optional string id = 1;</code>
+         *
+         * @return Whether the id field is set.
+         */
+        @java.lang.Override
+        public boolean hasId()
+        {
+            return ((bitField0_ & 0x00000001) != 0);
+        }
+
+        /**
+         * <code>optional string id = 1;</code>
+         *
+         * @return The id.
+         */
+        @java.lang.Override
+        public java.lang.String getId()
+        {
+            java.lang.Object ref = id_;
+            if (ref instanceof java.lang.String)
+            {
+                return (java.lang.String) ref;
+            } else
+            {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                id_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>optional string id = 1;</code>
+         *
+         * @return The bytes for id.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getIdBytes()
+        {
+            java.lang.Object ref = id_;
+            if (ref instanceof java.lang.String)
+            {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                id_ = b;
+                return b;
+            } else
+            {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string memberNick = 2;</code>
+         *
+         * @return The memberNick.
+         */
+        @java.lang.Override
+        public java.lang.String getMemberNick()
+        {
+            java.lang.Object ref = memberNick_;
+            if (ref instanceof java.lang.String)
+            {
+                return (java.lang.String) ref;
+            } else
+            {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                memberNick_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string memberNick = 2;</code>
+         *
+         * @return The bytes for memberNick.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+        getMemberNickBytes()
+        {
+            java.lang.Object ref = memberNick_;
+            if (ref instanceof java.lang.String)
+            {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                memberNick_ = b;
+                return b;
+            } else
+            {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized()
+        {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException
+        {
+            if (((bitField0_ & 0x00000001) != 0))
+            {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memberNick_))
+            {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, memberNick_);
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize()
+        {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (((bitField0_ & 0x00000001) != 0))
+            {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+            }
+            if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memberNick_))
+            {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, memberNick_);
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj)
+        {
+            if (obj == this)
+            {
+                return true;
+            }
+            if (!(obj instanceof cn.csuosa.chatroom.proto.Response.LoginUserInfo))
+            {
+                return super.equals(obj);
+            }
+            cn.csuosa.chatroom.proto.Response.LoginUserInfo other = (cn.csuosa.chatroom.proto.Response.LoginUserInfo) obj;
+
+            if (hasId() != other.hasId()) return false;
+            if (hasId())
+            {
+                if (!getId()
+                        .equals(other.getId())) return false;
+            }
+            if (!getMemberNick()
+                    .equals(other.getMemberNick())) return false;
+            if (!unknownFields.equals(other.unknownFields)) return false;
+            return true;
+        }
+
+        @java.lang.Override
+        public int hashCode()
+        {
+            if (memoizedHashCode != 0)
+            {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            if (hasId())
+            {
+                hash = (37 * hash) + ID_FIELD_NUMBER;
+                hash = (53 * hash) + getId().hashCode();
+            }
+            hash = (37 * hash) + MEMBERNICK_FIELD_NUMBER;
+            hash = (53 * hash) + getMemberNick().hashCode();
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType()
+        {
+            return newBuilder();
+        }
+
+        @java.lang.Override
+        public Builder toBuilder()
+        {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent)
+        {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<LoginUserInfo> getParserForType()
+        {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public cn.csuosa.chatroom.proto.Response.LoginUserInfo getDefaultInstanceForType()
+        {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code cn.csuosa.pojo.response.LoginUserInfo}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:cn.csuosa.pojo.response.LoginUserInfo)
+                cn.csuosa.chatroom.proto.Response.LoginUserInfoOrBuilder
+        {
+            private int bitField0_;
+            private java.lang.Object id_ = "";
+            private java.lang.Object memberNick_ = "";
+
+            // Construct using cn.csuosa.chatroom.proto.Response.LoginUserInfo.newBuilder()
+            private Builder()
+            {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent)
+            {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor()
+            {
+                return cn.csuosa.chatroom.proto.Response.internal_static_cn_csuosa_pojo_response_LoginUserInfo_descriptor;
+            }
+
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable()
+            {
+                return cn.csuosa.chatroom.proto.Response.internal_static_cn_csuosa_pojo_response_LoginUserInfo_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                cn.csuosa.chatroom.proto.Response.LoginUserInfo.class, cn.csuosa.chatroom.proto.Response.LoginUserInfo.Builder.class);
+            }
+
+            private void maybeForceBuilderInitialization()
+            {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders)
+                {
+                }
+            }
+
+            @java.lang.Override
+            public Builder clear()
+            {
+                super.clear();
+                id_ = "";
+                bitField0_ = (bitField0_ & ~0x00000001);
+                memberNick_ = "";
+
+                return this;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType()
+            {
+                return cn.csuosa.chatroom.proto.Response.internal_static_cn_csuosa_pojo_response_LoginUserInfo_descriptor;
+            }
+
+            @java.lang.Override
+            public cn.csuosa.chatroom.proto.Response.LoginUserInfo getDefaultInstanceForType()
+            {
+                return cn.csuosa.chatroom.proto.Response.LoginUserInfo.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public cn.csuosa.chatroom.proto.Response.LoginUserInfo build()
+            {
+                cn.csuosa.chatroom.proto.Response.LoginUserInfo result = buildPartial();
+                if (!result.isInitialized())
+                {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @java.lang.Override
+            public cn.csuosa.chatroom.proto.Response.LoginUserInfo buildPartial()
+            {
+                cn.csuosa.chatroom.proto.Response.LoginUserInfo result = new cn.csuosa.chatroom.proto.Response.LoginUserInfo(this);
+                int from_bitField0_ = bitField0_;
+                int to_bitField0_ = 0;
+                if (((from_bitField0_ & 0x00000001) != 0))
+                {
+                    to_bitField0_ |= 0x00000001;
+                }
+                result.id_ = id_;
+                result.memberNick_ = memberNick_;
+                result.bitField0_ = to_bitField0_;
+                onBuilt();
+                return result;
+            }
+
+            @java.lang.Override
+            public Builder clone()
+            {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value)
+            {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field)
+            {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof)
+            {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value)
+            {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value)
+            {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other)
+            {
+                if (other instanceof cn.csuosa.chatroom.proto.Response.LoginUserInfo)
+                {
+                    return mergeFrom((cn.csuosa.chatroom.proto.Response.LoginUserInfo) other);
+                } else
+                {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(cn.csuosa.chatroom.proto.Response.LoginUserInfo other)
+            {
+                if (other == cn.csuosa.chatroom.proto.Response.LoginUserInfo.getDefaultInstance()) return this;
+                if (other.hasId())
+                {
+                    bitField0_ |= 0x00000001;
+                    id_ = other.id_;
+                    onChanged();
+                }
+                if (!other.getMemberNick().isEmpty())
+                {
+                    memberNick_ = other.memberNick_;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized()
+            {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException
+            {
+                cn.csuosa.chatroom.proto.Response.LoginUserInfo parsedMessage = null;
+                try
+                {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e)
+                {
+                    parsedMessage = (cn.csuosa.chatroom.proto.Response.LoginUserInfo) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally
+                {
+                    if (parsedMessage != null)
+                    {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            /**
+             * <code>optional string id = 1;</code>
+             *
+             * @return Whether the id field is set.
+             */
+            public boolean hasId()
+            {
+                return ((bitField0_ & 0x00000001) != 0);
+            }
+
+            /**
+             * <code>optional string id = 1;</code>
+             *
+             * @return The id.
+             */
+            public java.lang.String getId()
+            {
+                java.lang.Object ref = id_;
+                if (!(ref instanceof java.lang.String))
+                {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    id_ = s;
+                    return s;
+                } else
+                {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>optional string id = 1;</code>
+             *
+             * @param value The id to set.
+             * @return This builder for chaining.
+             */
+            public Builder setId(
+                    java.lang.String value)
+            {
+                if (value == null)
+                {
+                    throw new NullPointerException();
+                }
+                bitField0_ |= 0x00000001;
+                id_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional string id = 1;</code>
+             *
+             * @return The bytes for id.
+             */
+            public com.google.protobuf.ByteString
+            getIdBytes()
+            {
+                java.lang.Object ref = id_;
+                if (ref instanceof String)
+                {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    id_ = b;
+                    return b;
+                } else
+                {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>optional string id = 1;</code>
+             *
+             * @param value The bytes for id to set.
+             * @return This builder for chaining.
+             */
+            public Builder setIdBytes(
+                    com.google.protobuf.ByteString value)
+            {
+                if (value == null)
+                {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+                bitField0_ |= 0x00000001;
+                id_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>optional string id = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearId()
+            {
+                bitField0_ = (bitField0_ & ~0x00000001);
+                id_ = getDefaultInstance().getId();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string memberNick = 2;</code>
+             *
+             * @return The memberNick.
+             */
+            public java.lang.String getMemberNick()
+            {
+                java.lang.Object ref = memberNick_;
+                if (!(ref instanceof java.lang.String))
+                {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    memberNick_ = s;
+                    return s;
+                } else
+                {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <code>string memberNick = 2;</code>
+             *
+             * @param value The memberNick to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMemberNick(
+                    java.lang.String value)
+            {
+                if (value == null)
+                {
+                    throw new NullPointerException();
+                }
+
+                memberNick_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string memberNick = 2;</code>
+             *
+             * @return The bytes for memberNick.
+             */
+            public com.google.protobuf.ByteString
+            getMemberNickBytes()
+            {
+                java.lang.Object ref = memberNick_;
+                if (ref instanceof String)
+                {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    memberNick_ = b;
+                    return b;
+                } else
+                {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string memberNick = 2;</code>
+             *
+             * @param value The bytes for memberNick to set.
+             * @return This builder for chaining.
+             */
+            public Builder setMemberNickBytes(
+                    com.google.protobuf.ByteString value)
+            {
+                if (value == null)
+                {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                memberNick_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string memberNick = 2;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearMemberNick()
+            {
+
+                memberNick_ = getDefaultInstance().getMemberNick();
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields)
+            {
+                return super.setUnknownFields(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields)
+            {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:cn.csuosa.pojo.response.LoginUserInfo)
         }
 
     }

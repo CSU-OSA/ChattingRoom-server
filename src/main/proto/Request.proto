@@ -7,31 +7,43 @@ option java_outer_classname = "Request";
 message RequestPOJO
 {
   enum Operation {
-    RETAIN = 0;
-    LOGOUT = 1;
-    JOIN_CHA = 2;
-    QUIT_CHA = 3;
-    CREATE_CHA = 4;
-    SENDMSG = 5;
-    GETMSG = 6;
-    HEARTBEAT = 7;
-    VERSION = 8;
-    GET_CHANNEL_LIST = 9;
-    GET_MEMBER_LIST = 10;
+    RETAIN = 0;           //保留字
+    REGISTER = 1;         //注册
+    LOGIN = 2;            //登入
+    LOGOUT = 3;           //登出
+    UPDATE_INFO = 4;      //更新用户信息
+    JOIN_CHA = 5;         //加入频道（与Channel配套使用）
+    QUIT_CHA = 6;         //退出频道（与Channel配套使用）
+    CREATE_CHA = 7;       //创建频道（与Channel配套使用）
+    SEND_MSG = 8;         //发送消息（与Message配套使用）
+    HEARTBEAT = 9;        //心跳信号
   }
 
-  Operation operation = 1;
-  optional Message message = 2;
-  optional Channel channel = 3;
+  Operation operation = 1; //标识位
+  optional User user = 2;       //（可选）用户信息位
+  optional Channel channel = 3; //（可选）频道信息位
+  optional Message message = 4; //（可选）消息内容位
 }
 
+//用于注册、登录
+message User {
+  optional int64 uid = 1;  //（可选，仅在登录时）账号
+  optional string email = 2;  //（注册时必须）邮箱
+  optional string defaultNick = 3; //（可选，仅在注册时）默认昵称
+  bytes pwd = 4; //密码
+  optional bytes pwd_old = 5; //（可选，仅在修改密码时）旧密码
+}
+
+//用于加入、退出、创建频道，以及发送消息
 message Channel {
-  string channel = 1;
-  optional string ticket = 2;
-  optional string nick = 3;
+  string          name = 1;  //频道名
+  optional string nick = 2;  //（加入频道时必须）使用昵称
+  optional string ticket = 3;  //（加入私有频道时必须）频道密钥
 }
 
+//用于发送消息
 message Message {
-  string channel = 1;
-  string content = 3;
+  int32   type = 1;  //消息类型
+  int64   timestamp = 2;  //消息发送时间戳
+  bytes   content = 3;  //消息内容
 }

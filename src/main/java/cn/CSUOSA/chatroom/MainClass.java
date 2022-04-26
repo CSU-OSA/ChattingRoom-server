@@ -1,7 +1,9 @@
 package cn.csuosa.chatroom;
 
+import cn.csuosa.chatroom.config.ConfigOperation;
 import cn.csuosa.chatroom.handlers.RequestHandler;
 import cn.csuosa.chatroom.proto.Request;
+import cn.csuosa.chatroom.serivce.DatabaseConnectService;
 import cn.csuosa.chatroom.terminal.TerminalProcessor;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -11,38 +13,22 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.timeout.IdleStateHandler;
+import lombok.extern.slf4j.Slf4j;
 import org.jline.reader.LineReader;
 
 import java.util.concurrent.TimeUnit;
 
-public class Main
+@Slf4j
+public class MainClass
 {
     public static final TerminalProcessor terminalProcessor = new TerminalProcessor();
     public static LineReader lineReader;
 
-    private static final String host = "127.0.0.1";
+    private static String host = "0.0.0.0";
     private static int port = 8080;
 
     public static void main(String[] args) throws Exception
     {
-        if (args.length != 0)
-        {
-            if (args.length >= 2)
-            {
-                switch (args[0])
-                {
-                    case "-p", "--port":
-                        if ((Integer.parseInt(args[1]) > 0) && (Integer.parseInt(args[1]) < 65536))
-                        {
-                            port = Integer.parseInt(args[1]);
-                        }
-                        break;
-                    default:
-                        System.out.println("Error Arg: Illegal port number. Server will try to start at port 8080");
-                }
-            }
-        }
-
         System.out.println("""
                 \033[34m
                       _____  _____ _    _        _           _   _   _
@@ -59,11 +45,17 @@ public class Main
                 """);
 
         new Thread(terminalProcessor).start();
+        Thread.sleep(1000);
 
-        Core.addCha("PublicChannel", "");
-        Thread.sleep(500);
+        ConfigOperation.readConfig();
+        port = ConfigOperation.getConfiguration().getServerPort();
+        host = ConfigOperation.getConfiguration().getServerURL();
+
+        DatabaseConnectService.connectDatabase();
 
         startServer();
+        Out.ConsoleOut.info("Server started on [" + host + "] at Port " + port);
+        Core.addCha("PublicChannel", "", false);
     }
 
     private static void startServer() throws InterruptedException
@@ -80,12 +72,12 @@ public class Main
                     {
                         socketChannel.pipeline().addLast("decoder", new ProtobufDecoder(Request.RequestPOJO.getDefaultInstance()));
                         socketChannel.pipeline().addLast("encoder", new ProtobufEncoder());
-                        socketChannel.pipeline().addLast("idle", new IdleStateHandler(10, 10, 10, TimeUnit.SECONDS));
+                        socketChannel.pipeline().addLast("idle", new IdleStateHandler(10, 5, 10, TimeUnit.SECONDS));
                         socketChannel.pipeline().addLast(new RequestHandler());
                     }
                 })
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
-                .childOption(ChannelOption.TCP_NODELAY, true);
+                .childOption(ChannelOption.TCP_NODELAY, false);
         Channel channel = bootstrap.bind(host, port).sync().channel();
         channel.closeFuture().addListener((ChannelFutureListener) channelFuture -> {
             boss.shutdownGracefully();

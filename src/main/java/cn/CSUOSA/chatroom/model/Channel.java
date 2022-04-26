@@ -1,5 +1,6 @@
 package cn.csuosa.chatroom.model;
 
+import cn.csuosa.chatroom.Core;
 import cn.csuosa.chatroom.Out;
 
 import java.util.Map;
@@ -10,12 +11,14 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Channel
 {
+    public final Map<String, OnlineUser> memberMap = new ConcurrentHashMap<>();
     public final String name;
     public final String ticket;
-    public final Map<String, User> memberMap = new ConcurrentHashMap<>();
+    public boolean closeable;
 
-    public Channel(String name, String ticket)
+    public Channel(String name, String ticket, boolean closeable)
     {
+        this.closeable = closeable;
         this.name = name;
         this.ticket = ticket;
     }
@@ -25,19 +28,25 @@ public class Channel
         return ticket.equals(t);
     }
 
-    public void addMember(String nick, User user)
+    public void addMember(String nick, OnlineUser onlineUser)
     {
-        memberMap.put(nick, user);
-        Out.ConsoleOut.info("User " + user.getUUID() + " join the channel <" + name + ">, using nick name <" + nick + ">");
+        memberMap.put(nick, onlineUser);
+        Out.ConsoleOut.info("User " + onlineUser.getUUID() + " join the channel <" + name + ">, using nick name <" + nick + ">");
+        Core.infoPushService.pushChannelList();
     }
 
     public void removeMember(String nick)
     {
         Out.ConsoleOut.info("User " + memberMap.get(nick).getUUID() + " quit the channel <" + name + ">");
         memberMap.remove(nick);
+
+        if (memberMap.isEmpty() && closeable)
+            Core.removeCha(name);
+
+        Core.infoPushService.pushChannelList();
     }
 
-    public Map<String, User> getMemberMap()
+    public Map<String, OnlineUser> getMemberMap()
     {
         return memberMap;
     }

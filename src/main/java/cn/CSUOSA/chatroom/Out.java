@@ -9,8 +9,8 @@ public class Out
     {
         private static void print(String str)
         {
-            if (Main.lineReader != null)
-                Main.lineReader.printAbove(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + " " + str);
+            if (MainClass.lineReader != null)
+                MainClass.lineReader.printAbove(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + " " + str);
         }
 
         public static void info(String info)

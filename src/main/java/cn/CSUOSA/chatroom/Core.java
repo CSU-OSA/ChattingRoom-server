@@ -2,7 +2,9 @@ package cn.csuosa.chatroom;
 
 import cn.csuosa.chatroom.model.Channel;
 import cn.csuosa.chatroom.model.Message;
-import cn.csuosa.chatroom.model.User;
+import cn.csuosa.chatroom.model.OnlineUser;
+import cn.csuosa.chatroom.serivce.InfoPushService;
+import io.netty.channel.ChannelHandlerContext;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,25 +13,26 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 核心类
  * <p>
- * 包含两个核心实例：
+ * 包含三个核心实例：
  * <p>
- * userMap - uuid->用户实例 映射表
+ * onlineUserMap - uuid->在线用户实例 映射表
  * <p>
  * chaMap  - 频道名->频道实例 映射表
  */
 public class Core
 {
-    private static final Map<String, User> userMap = new ConcurrentHashMap<>();
+    private static final Map<String, OnlineUser> onlineUserMap = new ConcurrentHashMap<>();
+    public static InfoPushService infoPushService = new InfoPushService();
     private static final Map<String, Channel> chaMap = new ConcurrentHashMap<>();
 
     /**
-     * 获取 uuid->用户实例 映射表
+     * 获取 uuid->在线用户实例 映射表
      *
-     * @return 返回userMap
+     * @return 返回onlineUserMap
      */
-    public static Map<String, User> getUserMap()
+    public static Map<String, OnlineUser> getOnlineUserMap()
     {
-        return userMap;
+        return onlineUserMap;
     }
 
     /**
@@ -43,43 +46,45 @@ public class Core
     }
 
     /**
-     * 新建用户 - 新建用户实例, 并将之添加到 uuid->用户实例 映射表中
+     * 新建在线用户 - 新建在线用户实例, 并将之添加到 uuid->在线用户实例 映射表中
      *
-     * @return 返回新建的用户实例
+     * @return 返回新建的在线用户实例
      */
-    public static User addNewUser()
+    public static OnlineUser addNewOnlineUser(ChannelHandlerContext ctx)
     {
-        User newUser = new User();
-        userMap.put(newUser.getUUID(), newUser);
-        Out.ConsoleOut.info("User " + newUser.getUUID() + " login successfully");
-
-        return newUser;
+        OnlineUser newOnlineUser = new OnlineUser(ctx);
+        onlineUserMap.put(newOnlineUser.getUUID(), newOnlineUser);
+        Out.ConsoleOut.info("Socket {" + newOnlineUser.getUUID() + "} connected successfully");
+        return newOnlineUser;
     }
 
     /**
-     * 移除用户 - 从 uuid->用户实例 映射表中移除指定uuid的用户实例 (不会从频道实例的 nick->用户实例 映射表中移除)
+     * 移除用户 - 从 uuid->用户实例 映射表中移除指定uuid的用户实例
+     * <p>
+     * (注意：不会从频道实例的 nick->用户实例 映射表中移除)
      *
      * @param uuid 要删除的用户实例的uuid
      */
-    public static void removeUser(String uuid)
+    public static void removeOnlineUser(String uuid)
     {
-        userMap.remove(uuid);
-        Out.ConsoleOut.info("User " + uuid + " logout successfully");
+        onlineUserMap.remove(uuid);
+        Out.ConsoleOut.info("Socket {" + uuid + "} disconnected successfully");
     }
 
     /**
      * 创建频道 - 创建指定名称和ticket(可选)的频道实例, 并将之添加到 频道名->频道实例 映射表中
      *
-     * @param name   频道名称
-     * @param ticket 准入ticket, 如果为公共频道, 则置为空串("")
-     * @return 返回新建的频道实例
+     * @param name      频道名称
+     * @param ticket    准入ticket, 如果为公共频道, 则置为空串("")
+     * @param closeable 是否可自动关闭, 如果是, 则当频道内人数为零时频道会自动关闭
+     * @return 执行结果
      */
-    public static int addCha(String name, String ticket)
+    public static int addCha(String name, String ticket, boolean closeable)
     {
         if (!chaMap.containsKey(name))
         {
-            chaMap.put(name, new Channel(name, ticket));
-            Out.ConsoleOut.info("Channel [" + name + "] created.");
+            chaMap.put(name, new Channel(name, ticket, closeable));
+            Out.ConsoleOut.info("Channel [" + name + "] created. Closeable:" + closeable);
             return 0;
         }
         return -1;
@@ -88,18 +93,18 @@ public class Core
     /**
      * 移除频道 - 从 频道名->频道实例 映射表中移除指定频道名陈的频道实例
      *
-     * @param name 要移除的频道实例的频道名称
+     * @param chaName 要移除的频道实例的频道名称
      * @return 结果代码
      */
-    public static int removeCha(String name)
+    public static boolean removeCha(String chaName)
     {
-        if (chaMap.containsKey(name))
+        if (chaMap.containsKey(chaName))
         {
-            chaMap.remove(name);
-            Out.ConsoleOut.info("Channel [" + name + "] closed.");
-            return 0;
+            chaMap.remove(chaName);
+            Out.ConsoleOut.info("Channel [" + chaName + "] closed.");
+            return true;
         }
-        return -1;
+        return false;
     }
 
     /**
@@ -109,7 +114,7 @@ public class Core
      * @param ticket 用户输入的准入ticket
      * @return 结果代码
      */
-    public static int chkCha(String name, String ticket)
+    public static int checkChannelTicket(String name, String ticket)
     {
         if (chaMap.containsKey(name))
         {
@@ -121,15 +126,16 @@ public class Core
     }
 
     /**
-     * 向频道中添加消息 -
+     * 向频道中发送消息
      *
      * @param message 消息实例
      */
     public static void addMessage(Message message)
     {
-        chaMap.get(message.getChannel()).getMemberMap().forEach((nick, user) -> {
-            if (!nick.equals(message.getFromNick()))
-                user.receive(message);
-        });
+        chaMap.get(message.getChannel()).getMemberMap()
+                .forEach((nick, onlineUser) -> {
+                    if (!nick.equals(message.getFromNick()))
+                        onlineUser.receive(message);
+                });
     }
 }

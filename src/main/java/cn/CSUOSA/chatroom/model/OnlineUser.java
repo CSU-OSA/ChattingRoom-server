@@ -1,23 +1,46 @@
 package cn.csuosa.chatroom.model;
 
+import cn.csuosa.chatroom.model.pojo.User;
+import cn.csuosa.chatroom.proto.Response;
 import com.fasterxml.uuid.Generators;
+import io.netty.channel.ChannelHandlerContext;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class User
+@Getter
+public class OnlineUser
 {
-    private final String uuid;  //用户的唯一身份标识符
+    /**
+     * 链接的唯一标识符
+     */
+    private final String uuid;
+    /**
+     * Socket链接实例
+     */
+    private final ChannelHandlerContext ctx;
+    /**
+     * 用户的频道与昵称映射
+     */
+    private final Map<String, String> nickNames = new HashMap<>();
+    /**
+     * 用户实例
+     * （登录后生成）
+     */
+    @Setter
+    private User user = null;
 
-    private final Map<String, String> nickNames = new HashMap<>();  //用户的频道与昵称映射
-    private final List<Message> messageList = new ArrayList<>();    //用户的消息队列
-
-    //创建用户
-    public User()
+    /**
+     * 创建在线用户实例
+     *
+     * @param ctx
+     */
+    public OnlineUser(ChannelHandlerContext ctx)
     {
         uuid = Generators.timeBasedGenerator().generate().toString();
+        this.ctx = ctx;
     }
 
     /**
@@ -85,25 +108,46 @@ public class User
     }
 
     /**
-     * 收取消息
+     * 收取消息，将其推送至客户端
      *
      * @param msg 消息实例
      */
     public void receive(Message msg)
     {
-        messageList.add(msg);
+        getCtx().writeAndFlush(Response.ResponsePOJO.newBuilder()
+                .setType(Response.ResponsePOJO.Type.PUSH_MSG)
+                .setMessage(Response.Message.newBuilder()
+                        .setType(msg.getType().ordinal())
+                        .setChannel(msg.getChannel())
+                        .setFromNick(msg.getFromNick())
+                        .setContent(msg.getContent())
+                        .setTimestamp(msg.getTimestamp())));
     }
 
     /**
-     * 获取消息列表
+     * 注册用户登录，将 用户实例 绑定到 在线用户实例
      *
-     * @return 消息列表
+     * @param user 用户实例
      */
-    public List<Message> getMessageList()
+    public void login(User user)
     {
-        List<Message> ret = new ArrayList<>(messageList);
-        messageList.clear();
-        return ret;
+        this.user = user;
+    }
+
+    /**
+     * 注册用户登出，将 用户实例 与 在线用户实例 解绑
+     */
+    public void logout()
+    {
+        this.user = null;
+    }
+
+    /**
+     * 是否为登录的注册用户
+     */
+    public boolean isLoginUser()
+    {
+        return (this.user == null);
     }
 
     @Override

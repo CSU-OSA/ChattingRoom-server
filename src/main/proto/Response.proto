@@ -7,33 +7,43 @@ option java_outer_classname = "Response";
 message ResponsePOJO
 {
   enum Type {
-    RESULT = 0;
-    MESSAGE = 1;
-    ChannelList = 2;
-    ChannelMemberList = 3;
+    RETAIN = 0;  //保留字
+    RESULT = 1;  //反馈信息
+    PUSH_MSG = 2;  //消息推送
+    PUSH_CHA_LIST = 3;  //频道列表推送
+    PUSH_LOGIN_USER_LIST = 4;    //成员列表推送
+    PUSH_CHA_MEMBER_LIST = 5;    //成员列表推送
+    PUSH_SYS_INFO = 6;  //系统信息推送
   }
 
   Type type = 1;
-  repeated Message message = 2;
-  optional Result result = 3;
+  optional Result result = 2;
+  optional Message message = 3;
   repeated ChannelInfo channelInfo = 4;
-  repeated string memberNick = 5;
+  repeated LoginUserInfo memberInfo = 5;
 }
 
 message Result {
-  bool result = 1;
-  string msg = 2;
+  int32           StCode = 1;  //状态码
+  optional string msg = 2;  //反馈信息
 }
 
 message Message {
-  string recTime = 1;
-  string channel = 2;
-  string fromNick = 3;
-  string content = 4;
+  string  channel = 1;  //频道名
+  string  fromNick = 2;  //消息发送者昵称
+  int32   type = 3;  //消息类型
+  int64   timestamp = 4;  //消息发送时间戳
+  bytes   content = 5;  //消息内容
 }
 
 message ChannelInfo {
-  string name = 1;
-  bool isPublic = 2;
-  int32 memberNum = 3;
+  string  name = 1;  //频道名称
+  bool    isIN = 2;  //用户是否在该频道中
+  bool    isPublic = 3;  //频道是否公开
+  int32   memberNum = 4;  //频道中的成员数量
+}
+
+message LoginUserInfo {
+  optional string id = 1;
+  string memberNick = 2;
 }
