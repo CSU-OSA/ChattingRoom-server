@@ -1,11 +1,10 @@
 package cn.csuosa.chatroom.model;
 
-import cn.csuosa.chatroom.model.pojo.User;
+import cn.csuosa.chatroom.model.pojo.RegUser;
 import cn.csuosa.chatroom.proto.Response;
 import com.fasterxml.uuid.Generators;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +13,7 @@ import java.util.Map;
 public class OnlineUser
 {
     /**
-     * 链接的唯一标识符
+     * 该在线用户（链接）的唯一标识符
      */
     private final String uuid;
     /**
@@ -27,10 +26,9 @@ public class OnlineUser
     private final Map<String, String> nickNames = new HashMap<>();
     /**
      * 用户实例
-     * （登录后生成）
+     * （作为注册用户登录后生成）
      */
-    @Setter
-    private User user = null;
+    private RegUser regUser = null;
 
     /**
      * 创建在线用户实例
@@ -70,7 +68,7 @@ public class OnlineUser
      * @param chaName 要退出的频道的频道名
      */
     public void quit(String chaName)
-    {//退出<channel>频道
+    {
         nickNames.remove(chaName);
     }
 
@@ -127,11 +125,11 @@ public class OnlineUser
     /**
      * 注册用户登录，将 用户实例 绑定到 在线用户实例
      *
-     * @param user 用户实例
+     * @param regUser 用户实例
      */
-    public void login(User user)
+    public void login(RegUser regUser)
     {
-        this.user = user;
+        this.regUser = regUser;
     }
 
     /**
@@ -139,7 +137,7 @@ public class OnlineUser
      */
     public void logout()
     {
-        this.user = null;
+        this.regUser = null;
     }
 
     /**
@@ -147,7 +145,7 @@ public class OnlineUser
      */
     public boolean isLoginUser()
     {
-        return (this.user == null);
+        return (this.regUser != null);
     }
 
     @Override

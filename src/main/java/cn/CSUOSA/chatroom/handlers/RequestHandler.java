@@ -1,27 +1,33 @@
 package cn.csuosa.chatroom.handlers;
 
-import cn.csuosa.chatroom.Core;
+import cn.csuosa.chatroom.CoreResources;
 import cn.csuosa.chatroom.Out;
-import cn.csuosa.chatroom.common.RandGenerator;
 import cn.csuosa.chatroom.common.SHA;
-import cn.csuosa.chatroom.mapper.UserMapper;
 import cn.csuosa.chatroom.model.Message;
 import cn.csuosa.chatroom.model.OnlineUser;
-import cn.csuosa.chatroom.model.pojo.User;
+import cn.csuosa.chatroom.model.pojo.RegUser;
 import cn.csuosa.chatroom.proto.Request;
 import cn.csuosa.chatroom.proto.Response;
 import cn.csuosa.chatroom.serivce.InfoPushService;
+import cn.csuosa.chatroom.serivce.OnlineUserService;
+import cn.csuosa.chatroom.serivce.RegUserService;
+import cn.csuosa.chatroom.serivce.TalkChannelService;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.util.AttributeKey;
 
+/**
+ * RequestHandler - 请求处理类
+ * <p>
+ * 接收来自客户端的请求，进行信息校验后交给业务逻辑
+ */
 public class RequestHandler extends ChannelInboundHandlerAdapter
 {
-    private final UserMapper userMapper = new UserMapper();
-    private final InfoPushService infoPushService = Core.infoPushService;
-    private final NioEventLoopGroup worker = new NioEventLoopGroup();
+    public final OnlineUserService onlineUserService = CoreResources.onlineUserService;
+    public final RegUserService regUserService = CoreResources.regUserService;
+    public final TalkChannelService talkChannelService = CoreResources.talkChannelService;
+    private final InfoPushService infoPushService = CoreResources.infoPushService;
 
     /**
      * 构造Result型回复
@@ -56,12 +62,12 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
                 {
                     AttributeKey<OnlineUser> key = AttributeKey.valueOf("user");
                     OnlineUser onlineUser = ctx.channel().attr(key).get();
-                    Out.ConsoleOut.info("User " + onlineUser.getUUID() + " is InActive");
+                    Out.ConsoleOut.info("Socket " + onlineUser.getUUID() + " is InActive");
                     ctx.channel().close();
                 }
                 case WRITER_IDLE ->
                 {
-                }//infoPushService.pushChannelList(ctx);
+                }
             }
         } else
         {
@@ -73,9 +79,9 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
     public void channelActive(final ChannelHandlerContext ctx)
     {
         AttributeKey<OnlineUser> key = AttributeKey.valueOf("user");
-        OnlineUser onlineUser = Core.addNewOnlineUser(ctx);
+        OnlineUser onlineUser = onlineUserService.addNewOnlineUser(ctx);
         ctx.channel().attr(key).set(onlineUser);
-        worker.execute(() -> {
+        CoreResources.worker.execute(() -> {
             try
             {
                 Thread.sleep(400);
@@ -83,8 +89,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
             {
                 e.printStackTrace();
             }
-            ctx.writeAndFlush(buildResponse(0, "VERSION|Server-version:1.0.0-beta;API-edition:1.0.0-beta"));
-            infoPushService.pushChannelList();
+            ctx.writeAndFlush(buildResponse(0, "CONNECT|Server-version:1.0.0-beta;API-edition:1.0.0-beta"));
         });
     }
 
@@ -93,8 +98,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
     {
         AttributeKey<OnlineUser> key = AttributeKey.valueOf("user");
         OnlineUser onlineUser = ctx.channel().attr(key).get();
-        onlineUser.getNickNames().forEach((chaName, nick) -> Core.getChaMap().get(chaName).removeMember(nick));
-        Core.removeOnlineUser(onlineUser.getUUID());
+        onlineUserService.removeOnlineUser(onlineUser.getUUID());
         super.channelInactive(ctx);
     }
 
@@ -112,7 +116,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
                 //检查参数完整性
                 if (!request.hasUser() || !request.getUser().hasEmail())
                 {
-                    ctx.channel().writeAndFlush(buildResponse(101, "REGISTER|Missing user information."));
+                    ctx.channel().writeAndFlush(buildResponse(200, "REGISTER|Missing user information."));
                     return;
                 }
 
@@ -120,9 +124,9 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
                 if (userInfoLegalityCheck("REGISTER", request.getUser(), ctx)) return;
 
                 //检查Email是否被占用
-                if (userMapper.findUserByEmail(request.getUser().getEmail()) != null)
+                if (regUserService.findUserByEmail(request.getUser().getEmail()) != null)
                 {
-                    ctx.channel().writeAndFlush(buildResponse(101, "REGISTER|Email has been taken."));
+                    ctx.channel().writeAndFlush(buildResponse(411, "REGISTER|Email has been taken."));
                     return;
                 }
 
@@ -135,62 +139,75 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
                     return;
                 }
 
-                String salt = RandGenerator.randSalt(); //生成随机Salt
+                regUserService.newRegisterUser(
+                        request.getUser().getEmail(),
+                        request.getUser().getPwd().toByteArray(),
+                        request.getUser().getDefaultNick());
 
-                User newUserInst = User.builder()
-                        .e_mail(request.getUser().getEmail())
-                        .password(SHA.getSHA_256(SHA.byte2Hex(request.getUser().getPwd().toByteArray()) + salt))
-                        .salt(salt)
-                        .default_nick(request.getUser().hasDefaultNick() ? request.getUser().getDefaultNick() : null)
-                        .build();
+                long uid = regUserService.findUserByEmail(request.getUser().getEmail()).getUid();
 
-                userMapper.newUser(newUserInst);
-                onlineUser.setUser(newUserInst);
-
-                ctx.channel().writeAndFlush(buildResponse(0, "REGISTER|" + newUserInst.getUid()));
+                ctx.channel().writeAndFlush(buildResponse(0, "REGISTER|" + uid));
             }
             case LOGIN ->
             {
-                //检查参数完整性
-                if (!request.hasUser() || (!request.getUser().hasEmail() && !request.getUser().hasUid()))
+                OnlineUser onlineUser = ctx.channel().attr(AttributeKey.<OnlineUser>valueOf("user")).get();
+
+                if (!request.hasUser())
                 {
-                    ctx.channel().writeAndFlush(buildResponse(101, "LOGIN|Missing user information."));
+                    ctx.channel().writeAndFlush(buildResponse(0, "LOGIN|Welcome, Nobody."));
+                    infoPushService.pushChannelList(onlineUser);
+                    return;
+                }
+
+                //检查参数完整性
+                if (!request.getUser().hasEmail() && !request.getUser().hasUid())
+                {
+                    ctx.channel().writeAndFlush(buildResponse(200, "LOGIN|Missing user information."));
                     return;
                 }
 
                 //检查参数合法性
                 if (userInfoLegalityCheck("LOGIN", request.getUser(), ctx)) return;
 
-                OnlineUser onlineUser = ctx.channel().attr(AttributeKey.<OnlineUser>valueOf("user")).get();
-
                 //检查用户是否已登录（若已登录，想要切换用户则必须重新连接服务器）
                 if (onlineUser.isLoginUser())
                 {
-                    ctx.channel().writeAndFlush(buildResponse(2, "LOGIN|You are already logged in."));
+                    ctx.channel().writeAndFlush(buildResponse(200, "LOGIN|You are already logged in."));
                     return;
                 }
 
-                User userInst = null;
+                RegUser regUserInst = null;
                 if (request.getUser().hasEmail())
-                    userInst = userMapper.findUserByEmail(request.getUser().getEmail());
+                    regUserInst = regUserService.findUserByEmail(request.getUser().getEmail());
                 if (request.getUser().hasUid())
-                    userInst = userMapper.findUserByUid(request.getUser().getUid());
+                    regUserInst = regUserService.findUserByUid(request.getUser().getUid());
 
-                if (userInst == null
-                        || !SHA.getSHA_256(SHA.byte2Hex(request.getUser().getPwd().toByteArray()) + userInst.getSalt())
-                        .equals(userInst.getPassword()))
+                if (regUserInst == null
+                        || !SHA.getSHA_256(SHA.byte2Hex(request.getUser().getPwd().toByteArray()) + regUserInst.getSalt())
+                        .equals(regUserInst.getAuthentication_field()))
                 {
-                    ctx.channel().writeAndFlush(buildResponse(201, "LOGIN|Wrong UID/Email/Password."));
+                    ctx.channel().writeAndFlush(buildResponse(421, "LOGIN|Wrong UID/Email/Password."));
                     return;
                 }
 
+                //检查注册用户是否已登录（若已登录，则将把已登录的账号踢下线）
+                if (onlineUserService.getOnlineUserByUID(regUserInst.getUid()) != null)
+                {
+                    onlineUserService.regUserLogout(onlineUserService.getOnlineUserByUID(regUserInst.getUid()).getUUID());
+                    onlineUserService.getOnlineUserByUID(regUserInst.getUid()).getCtx()
+                            .writeAndFlush(buildResponse(421, "SYSTEM|Your account is logged in elsewhere."));
+                }
 
-                ctx.channel().writeAndFlush(buildResponse(0, "LOGIN|Success."));
+                onlineUserService.regUserLogin(regUserInst, onlineUser.getUUID());
+
+                ctx.channel().writeAndFlush(buildResponse(0, String.format("LOGIN|Welcome user-%s.", regUserInst.getUid())));
+
+                infoPushService.pushChannelList(onlineUser);
             }
             case LOGOUT ->
             {//用户主动断开与服务器的连接
                 OnlineUser onlineUser = ctx.channel().attr(AttributeKey.<OnlineUser>valueOf("user")).get();
-                Out.ConsoleOut.info("User " + onlineUser.getUUID() + " request to logout");
+                Out.ConsoleOut.info("Socket {" + onlineUser.getUUID() + "} request to disconnect");
                 ctx.channel().close();
             }
             case UPDATE_INFO ->
@@ -199,7 +216,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
 
                 if (!onlineUser.isLoginUser())
                 {
-                    ctx.channel().writeAndFlush(buildResponse(2, "UPDATE_INFO|You haven't logged in."));
+                    ctx.channel().writeAndFlush(buildResponse(2, "UPDATE_INFO|You are not a registered user."));
                     return;
                 }
 
@@ -213,58 +230,35 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
                 //检查参数合法性
                 if (userInfoLegalityCheck("UPDATE_INFO", request.getUser(), ctx)) return;
 
-                if (request.getUser().hasDefaultNick())
+                if (request.getUser().hasPwdOld()
+                        && !SHA.getSHA_256(SHA.byte2Hex(request.getUser().getPwd().toByteArray()) + onlineUser.getRegUser().getSalt())
+                        .equals(onlineUser.getRegUser().getAuthentication_field()))
                 {
-                    onlineUser.getUser().setDefault_nick(request.getUser().getDefaultNick());
-                    userMapper.updateUserDefaultNick(onlineUser.getUser().getUid(), request.getUser().getDefaultNick());
+                    ctx.channel().writeAndFlush(buildResponse(201, "UPDATE_INFO|Wrong Password."));
+                    return;
                 }
 
-                if (request.getUser().hasPwdOld())
-                {
-                    if (!SHA.getSHA_256(SHA.byte2Hex(request.getUser().getPwd().toByteArray()) + onlineUser.getUser().getSalt())
-                            .equals(onlineUser.getUser().getPassword()))
-                    {
-                        ctx.channel().writeAndFlush(buildResponse(201, "UPDATE_INFO|Wrong Password."));
-                        return;
-                    } else
-                    {
-                        String salt = RandGenerator.randSalt(); //生成随机Salt
-                        //TODO 更新密码
-                        SHA.getSHA_256(SHA.byte2Hex(request.getUser().getPwd().toByteArray()) + salt);
-                    }
-                }
+                ctx.channel().writeAndFlush(buildResponse(0, "UPDATE_INFO|Success."));
             }
             case JOIN_CHA ->
             {//用户加入频道
                 //检查参数完整性
-                if (!request.hasChannel() || request.getChannel().getName().length() > 128 || request.getChannel().getName().length() < 4)
+                if (!request.hasChannel() || !request.getChannel().hasNick())
                 {
                     ctx.channel().writeAndFlush(buildResponse(101, "JOIN_CHA|Missing user information."));
                     return;
                 }
 
+                //检查参数合法性
+                if (channelInfoLegalityCheck("SEND_MSG", request.getChannel(), ctx)) return;
+
                 OnlineUser onlineUser = ctx.channel().attr(AttributeKey.<OnlineUser>valueOf("user")).get();
 
                 String chaName = request.getChannel().getName();
-
-                String nick = onlineUser.isLoginUser() ? onlineUser.getUser().getDefault_nick() : null;
-                if (request.getChannel().hasNick())
-                {
-                    if (request.getChannel().getNick().matches("^[A-Za-z]\\w{3,63}$"))
-                        nick = request.getChannel().getNick();
-                    else
-                    {
-                        ctx.channel().writeAndFlush(buildResponse(101, "JOIN_CHA|Illegal nick."));
-                        return;
-                    }
-                } else if (nick == null)
-                {
-                    ctx.channel().writeAndFlush(buildResponse(101, "JOIN_CHA|Missing nick."));
-                    return;
-                }
+                String nick = request.getChannel().getNick();
 
                 //检查频道是否存在, ticket是否正确.
-                if (Core.checkChannelTicket(chaName, request.getChannel().hasTicket() ? request.getChannel().getTicket() : "") != 0)
+                if (!talkChannelService.checkChannelTicket(chaName, request.getChannel().hasTicket() ? request.getChannel().getTicket() : ""))
                 {
                     ctx.channel().writeAndFlush(buildResponse(301, "JOIN_CHA|Channel check failed."));
                     return;
@@ -275,25 +269,27 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
                     ctx.channel().writeAndFlush(buildResponse(2, "JOIN_CHA|You are already in this channel."));
                     return;
                 }
+
                 //检查nick是否被占用
-                if (Core.getChaMap().get(chaName).getMemberMap().containsKey(nick))
+                if (talkChannelService.getTalkChannel(chaName).getMemberMap().containsKey(nick))
                 {
-                    if (Core.getChaMap().get(chaName).getMemberMap().get(nick).isLoginUser())
+                    if (talkChannelService.getTalkChannel(chaName).getMemberMap().get(nick).isLoginUser())
                     {
                         ctx.channel().writeAndFlush(buildResponse(202, "JOIN_CHA|Unavailable nick."));
                         return;
                     } else
                     {
-                        Core.getChaMap().get(chaName).getMemberMap().get(nick).getCtx().channel()
+                        talkChannelService.getTalkChannel(chaName).getMemberMap().get(nick).getCtx().channel()
                                 .writeAndFlush(buildResponse(303, "SYSTEM|You are kicked out."));
+                        talkChannelService.getTalkChannel(chaName).getMemberMap().get(nick).quit(chaName);
+                        talkChannelService.getTalkChannel(chaName).getMemberMap().remove(nick);
                     }
                 }
 
                 onlineUser.join(chaName, nick);
-                Core.getChaMap().get(chaName).addMember(nick, onlineUser);
+                talkChannelService.getTalkChannel(chaName).addMember(nick, onlineUser);
 
-                ctx.writeAndFlush(buildResponse(0, "JOIN_CHA|" + chaName + " " + nick));
-                infoPushService.pushChannelList();
+                ctx.writeAndFlush(buildResponse(0, "JOIN_CHA|Success."));
             }
             case QUIT_CHA ->
             {//用户退出频道
@@ -304,101 +300,115 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
                 //检查用户是否在频道中
                 if (!onlineUser.isInChannel(chaName))
                 {
-                    ctx.channel().writeAndFlush(buildResponse(2, "QUIT_CHA|You are not in this channel."));
+                    ctx.channel().writeAndFlush(buildResponse(200, "QUIT_CHA|You are not in this channel."));
                     return;
                 }
 
-                String nick = onlineUser.getNick(chaName);
-                Core.getChaMap().get(chaName).removeMember(nick);
-                onlineUser.quit(chaName);
+                CoreResources.userQuitCha(onlineUser, chaName);
 
-                ctx.writeAndFlush(buildResponse(0, "QUIT_CHA|" + chaName + " " + nick));
+                ctx.writeAndFlush(buildResponse(0, "QUIT_CHA|Success."));
             }
             case CREATE_CHA ->
             {//用户创建频道
-                AttributeKey<OnlineUser> key = AttributeKey.valueOf("user");
-                OnlineUser onlineUser = ctx.channel().attr(key).get();
+                OnlineUser onlineUser = ctx.channel().attr(AttributeKey.<OnlineUser>valueOf("user")).get();
+
+                //不是登录用户，不能创建频道
+                if (!onlineUser.isLoginUser())
+                {
+                    ctx.channel().writeAndFlush(buildResponse(2, "CREATE_CHA|You are not a registered user."));
+                    return;
+                }
 
                 String chaName = request.getChannel().getName();
                 String nick = request.getChannel().getNick();
 
-                //检查两个保留字与换行符
-                if (chaName.equals("System") || chaName.equals("Default") || chaName.matches("^.{4,128}$"))
+                //检查两个保留字 检查频道是否已存在
+                if (chaName.equals("System")
+                        || chaName.equals("Default"))
                 {
                     ctx.writeAndFlush(buildResponse(202, "CREATE_CHA|Unavailable channel name."));
                     return;
                 }
 
-                if (Core.getChaMap().containsKey(chaName))
+                if (talkChannelService.getTalkChannel(chaName) != null)
                 {
-                    if (chaName.equals(nick))
-                    {
-                        ctx.writeAndFlush(buildResponse(202, "CREATE_CHA|Unavailable nick."));
-                        ctx.close();
-                    }
-                    ctx.writeAndFlush(buildResponse(202, "CREATE_CHA|Unavailable nick."));
+                    ctx.writeAndFlush(buildResponse(202, "CREATE_CHA|Unavailable channel name."));
+                    return;
                 }
 
-                Core.addCha(chaName,
+                if (chaName.matches("^<Pvt>\\d{6,10}\\.\\d{6,10}$"))
+                {
+                    String[] uid_str = chaName.substring(4).split("\\.");
+                    OnlineUser onlineUser2 = onlineUserService.getOnlineUserByUID(Long.parseLong(uid_str[1]));
+                    if (onlineUser.getRegUser().getUid() != Integer.parseInt(uid_str[0]))
+                    {
+                        ctx.writeAndFlush(buildResponse(202, "CREATE_CHA|You are not allowed to create this pvt channel."));
+                        return;
+                    }
+                    if (onlineUser2 == null)
+                    {
+                        ctx.writeAndFlush(buildResponse(202, "CREATE_CHA|User does not exist."));
+                        return;
+                    }
+
+                    talkChannelService.addCha(chaName,
+                            request.getChannel().hasTicket() ? request.getChannel().getTicket() : "*",
+                            true);
+
+                    String nick2 = onlineUser2.getRegUser().getDefault_nick() == null ?
+                            String.valueOf(onlineUser2.getRegUser().getUid()) : onlineUser2.getRegUser().getDefault_nick();
+
+                    CoreResources.userJoinCha(onlineUser, nick, chaName);
+                    CoreResources.userJoinCha(onlineUser2, nick2, chaName);
+
+                    ctx.writeAndFlush(buildResponse(0, "CREATE_CHA|Success."));
+                    return;
+                }
+
+                talkChannelService.addCha(chaName,
                         request.getChannel().hasTicket() ? request.getChannel().getTicket() : "",
                         true);
 
-                onlineUser.join(chaName, nick);
-                Core.getChaMap().get(chaName).addMember(nick, onlineUser);
+                CoreResources.userJoinCha(onlineUser, nick, chaName);
 
-                ctx.writeAndFlush(buildResponse(0, "CREATE_CHA|" + chaName + " " + nick));
+                ctx.writeAndFlush(buildResponse(0, "CREATE_CHA|Success."));
             }
             case SEND_MSG ->
             {
-                AttributeKey<OnlineUser> key = AttributeKey.valueOf("user");
-                OnlineUser onlineUser = ctx.channel().attr(key).get();
+                OnlineUser onlineUser = ctx.channel().attr(AttributeKey.<OnlineUser>valueOf("user")).get();
+
+                //不是登录用户，不能发送消息
+                if (!onlineUser.isLoginUser())
+                {
+                    ctx.channel().writeAndFlush(buildResponse(200, "SEND_MSG|You are not a registered user."));
+                    return;
+                }
+
+                //检查参数合法性
+                if (channelInfoLegalityCheck("SEND_MSG", request.getChannel(), ctx)) return;
 
                 String channel = request.getChannel().getName();
                 if (!onlineUser.isInChannel(channel))
                 {
-                    ctx.channel().writeAndFlush(buildResponse(2, "QUIT_CHA|You are not in this channel."));
+                    ctx.channel().writeAndFlush(buildResponse(200, "SEND_MSG|You are not in this channel."));
                     return;
                 }
 
-                Core.addMessage(new Message(
+                CoreResources.addMessage(new Message(
                         request.getMessage().getTimestamp(),
                         request.getChannel().getName(),
                         request.getChannel().getNick(),
                         Message.MessageType.values()[request.getMessage().getType()],
                         request.getMessage().getContent()
                 ));
-                ctx.writeAndFlush(buildResponse(0, "SEND_MSG|copy"));
+                ctx.writeAndFlush(buildResponse(0, "SEND_MSG|copy."));
             }
-            /*
-            case GETMSG -> {
-                AttributeKey<User> key = AttributeKey.valueOf("user");
-                User user = ctx.channel().attr(key).get();
-                List<Message> messages = user.getMessageList();
-                Response.ResponsePOJO.Builder ret = Response.ResponsePOJO.newBuilder();
-                ret.setType(Response.ResponsePOJO.Type.MESSAGE);
-                messages.forEach((m) -> ret.addMessage(Response.Message.newBuilder()
-                        .setRecTime(m.getRecTime())
-                        .setChannel(m.getChannel())
-                        .setFromNick(m.getFromNick())
-                        .setContent(m.getContent())
-                        .build()));
-                ctx.writeAndFlush(ret.build());
-            }
-            */
             case HEARTBEAT ->
             {
-            }//ctx.writeAndFlush(buildResponse(0, "HEARTBEAT|Heartbeat echo"));
-            /*
-            case GET_MEMBER_LIST -> {
-                Response.ResponsePOJO.Builder ret = Response.ResponsePOJO.newBuilder();
-                ret.setType(Response.ResponsePOJO.Type.ChannelMemberList);
-                Core.getChaMap().get(request.getChannel().getChannel()).memberMap.forEach((nick, userInst) -> {
-                    ret.addMemberNick(nick);
-                });
-                ctx.writeAndFlush(ret.build());
-            }*/
+            }
             case UNRECOGNIZED ->
             {
+                ctx.writeAndFlush(buildResponse(100, "Unsupported method."));
             }
             default -> ctx.writeAndFlush(buildResponse(100, "Unsupported method."));
         }
@@ -444,7 +454,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
             return true;
         }
         //检查密码长度
-        if (userInfo_request.getPwd().size() < 64)
+        if (userInfo_request.getPwd().size() < 6)
         {
             ctx.channel().writeAndFlush(buildResponse(201, requestType + "|Insufficient password length."));
             return true;
@@ -456,6 +466,41 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
             return true;
         }
 
+
+        return false;
+    }
+
+    /**
+     * 检查请求中的频道信息合法性
+     *
+     * @param requestType     请求类型（将被附在异常中返回给客户端）
+     * @param channel_request 请求内容实例
+     * @param ctx             用户Socket上下文
+     * @return true表示存在问题
+     */
+    private boolean channelInfoLegalityCheck(String requestType, Request.Channel channel_request, ChannelHandlerContext ctx)
+    {
+        //检查nick合法性
+        if (channel_request.hasNick()
+                && !channel_request.getNick().matches("^[A-Za-z]\\w{3,63}$"))
+        {
+            ctx.channel().writeAndFlush(buildResponse(200, requestType + "|Illegal nick."));
+            return true;
+        }
+        //检查ticket合法性
+        if (channel_request.hasTicket()
+                && !channel_request.getTicket().matches("^[A-Za-z\\d]{4,63}$"))
+        {
+            ctx.channel().writeAndFlush(buildResponse(201, requestType + "|Illegal ticket."));
+            return true;
+        }
+        //检查频道名
+        if (!channel_request.getName().matches("^[\\u4E00-\\u9FA5A-Za-z\\d_ ]{1,32}$")
+                && !channel_request.getName().matches("^<Pvt>\\d{6,10}\\.\\d{6,10}$"))
+        {
+            ctx.channel().writeAndFlush(buildResponse(201, requestType + "|Illegal channel name."));
+            return true;
+        }
 
         return false;
     }

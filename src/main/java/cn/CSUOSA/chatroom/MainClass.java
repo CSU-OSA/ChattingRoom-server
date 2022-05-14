@@ -55,7 +55,7 @@ public class MainClass
 
         startServer();
         Out.ConsoleOut.info("Server started on [" + host + "] at Port " + port);
-        Core.addCha("PublicChannel", "", false);
+        CoreResources.talkChannelService.addCha("PublicChannel", "", false);
     }
 
     private static void startServer() throws InterruptedException

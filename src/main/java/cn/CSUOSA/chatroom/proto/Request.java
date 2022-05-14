@@ -5,10 +5,6 @@ package cn.csuosa.chatroom.proto;
 
 public final class Request
 {
-    private Request()
-    {
-    }
-
     private static final com.google.protobuf.Descriptors.Descriptor
             internal_static_cn_csuosa_pojo_request_RequestPOJO_descriptor;
     private static final
@@ -85,7 +81,11 @@ public final class Request
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_cn_csuosa_pojo_request_Message_descriptor,
                 new java.lang.String[]{"Type", "Timestamp", "Content",});
-  }
+    }
+
+    private Request()
+    {
+    }
 
     public static void registerAllExtensions(
             com.google.protobuf.ExtensionRegistryLite registry)
@@ -123,10 +123,11 @@ public final class Request
 
         /**
          * <pre>
-         *标识位
+         * 标识位
          * </pre>
          *
          * <code>.cn.csuosa.pojo.request.RequestPOJO.Operation operation = 1;</code>
+         *
          * @return The operation.
          */
         cn.csuosa.chatroom.proto.Request.RequestPOJO.Operation getOperation();
@@ -164,10 +165,11 @@ public final class Request
 
         /**
          * <pre>
-         *（可选）频道信息位
+         * （可选）频道信息位
          * </pre>
          *
          * <code>optional .cn.csuosa.pojo.request.Channel channel = 3;</code>
+         *
          * @return Whether the channel field is set.
          */
         boolean hasChannel();
@@ -417,20 +419,22 @@ public final class Request
 
         /**
          * <pre>
-         *（加入私有频道时必须）频道密钥
+         * （加入私有频道时必须）频道密钥
          * </pre>
          *
          * <code>optional string ticket = 3;</code>
+         *
          * @return Whether the ticket field is set.
          */
         boolean hasTicket();
 
         /**
          * <pre>
-         *（加入私有频道时必须）频道密钥
+         * （加入私有频道时必须）频道密钥
          * </pre>
          *
          * <code>optional string ticket = 3;</code>
+         *
          * @return The ticket.
          */
         java.lang.String getTicket();
@@ -787,10 +791,11 @@ public final class Request
 
         /**
          * <pre>
-         *标识位
+         * 标识位
          * </pre>
          *
          * <code>.cn.csuosa.pojo.request.RequestPOJO.Operation operation = 1;</code>
+         *
          * @return The enum numeric value on the wire for operation.
          */
         @java.lang.Override
@@ -801,10 +806,11 @@ public final class Request
 
         /**
          * <pre>
-         *标识位
+         * 标识位
          * </pre>
          *
          * <code>.cn.csuosa.pojo.request.RequestPOJO.Operation operation = 1;</code>
+         *
          * @return The operation.
          */
         @java.lang.Override
@@ -817,10 +823,11 @@ public final class Request
 
         /**
          * <pre>
-         *（可选）用户信息位
+         * （可选）用户信息位
          * </pre>
          *
          * <code>optional .cn.csuosa.pojo.request.User user = 2;</code>
+         *
          * @return Whether the user field is set.
          */
         @java.lang.Override
@@ -902,10 +909,11 @@ public final class Request
 
         /**
          * <pre>
-         *（可选）消息内容位
+         * （可选）消息内容位
          * </pre>
          *
          * <code>optional .cn.csuosa.pojo.request.Message message = 4;</code>
+         *
          * @return Whether the message field is set.
          */
         @java.lang.Override
@@ -1116,7 +1124,7 @@ public final class Request
         {
             /**
              * <pre>
-             *保留字
+             * 保留字
              * </pre>
              *
              * <code>RETAIN = 0;</code>
@@ -1124,7 +1132,7 @@ public final class Request
             RETAIN(0),
             /**
              * <pre>
-             *注册
+             * 注册
              * </pre>
              *
              * <code>REGISTER = 1;</code>
@@ -1132,7 +1140,7 @@ public final class Request
             REGISTER(1),
             /**
              * <pre>
-             *登入
+             * 登入
              * </pre>
              *
              * <code>LOGIN = 2;</code>
@@ -1140,7 +1148,7 @@ public final class Request
             LOGIN(2),
             /**
              * <pre>
-             *登出
+             * 登出
              * </pre>
              *
              * <code>LOGOUT = 3;</code>
@@ -1148,7 +1156,7 @@ public final class Request
             LOGOUT(3),
             /**
              * <pre>
-             *更新用户信息
+             * 更新用户信息
              * </pre>
              *
              * <code>UPDATE_INFO = 4;</code>
@@ -1156,7 +1164,7 @@ public final class Request
             UPDATE_INFO(4),
             /**
              * <pre>
-             *加入频道（与Channel配套使用）
+             * 加入频道（与Channel配套使用）
              * </pre>
              *
              * <code>JOIN_CHA = 5;</code>
@@ -1164,7 +1172,7 @@ public final class Request
             JOIN_CHA(5),
             /**
              * <pre>
-             *退出频道（与Channel配套使用）
+             * 退出频道（与Channel配套使用）
              * </pre>
              *
              * <code>QUIT_CHA = 6;</code>
@@ -1172,7 +1180,7 @@ public final class Request
             QUIT_CHA(6),
             /**
              * <pre>
-             *创建频道（与Channel配套使用）
+             * 创建频道（与Channel配套使用）
              * </pre>
              *
              * <code>CREATE_CHA = 7;</code>
@@ -1180,7 +1188,7 @@ public final class Request
             CREATE_CHA(7),
             /**
              * <pre>
-             *发送消息（与Message配套使用）
+             * 发送消息（与Message配套使用）
              * </pre>
              *
              * <code>SEND_MSG = 8;</code>
@@ -1188,7 +1196,7 @@ public final class Request
             SEND_MSG(8),
             /**
              * <pre>
-             *心跳信号
+             * 心跳信号
              * </pre>
              *
              * <code>HEARTBEAT = 9;</code>
@@ -1199,7 +1207,7 @@ public final class Request
 
             /**
              * <pre>
-             *保留字
+             * 保留字
              * </pre>
              *
              * <code>RETAIN = 0;</code>
@@ -1207,7 +1215,7 @@ public final class Request
             public static final int RETAIN_VALUE = 0;
             /**
              * <pre>
-             *注册
+             * 注册
              * </pre>
              *
              * <code>REGISTER = 1;</code>
@@ -1215,7 +1223,7 @@ public final class Request
             public static final int REGISTER_VALUE = 1;
             /**
              * <pre>
-             *登入
+             * 登入
              * </pre>
              *
              * <code>LOGIN = 2;</code>
@@ -1223,7 +1231,7 @@ public final class Request
             public static final int LOGIN_VALUE = 2;
             /**
              * <pre>
-             *登出
+             * 登出
              * </pre>
              *
              * <code>LOGOUT = 3;</code>
@@ -1231,7 +1239,7 @@ public final class Request
             public static final int LOGOUT_VALUE = 3;
             /**
              * <pre>
-             *更新用户信息
+             * 更新用户信息
              * </pre>
              *
              * <code>UPDATE_INFO = 4;</code>
@@ -1331,8 +1339,10 @@ public final class Request
                         return CREATE_CHA;
                     case 8:
                         return SEND_MSG;
-                    case 9: return HEARTBEAT;
-                    default: return null;
+                    case 9:
+                        return HEARTBEAT;
+                    default:
+                        return null;
                 }
             }
 
@@ -1603,7 +1613,7 @@ public final class Request
             {
                 if (other instanceof cn.csuosa.chatroom.proto.Request.RequestPOJO)
                 {
-                    return mergeFrom((cn.csuosa.chatroom.proto.Request.RequestPOJO)other);
+                    return mergeFrom((cn.csuosa.chatroom.proto.Request.RequestPOJO) other);
                 } else
                 {
                     super.mergeFrom(other);
@@ -1682,10 +1692,11 @@ public final class Request
 
             /**
              * <pre>
-             *标识位
+             * 标识位
              * </pre>
              *
              * <code>.cn.csuosa.pojo.request.RequestPOJO.Operation operation = 1;</code>
+             *
              * @param value The enum numeric value on the wire for operation to set.
              * @return This builder for chaining.
              */
@@ -1699,10 +1710,11 @@ public final class Request
 
             /**
              * <pre>
-             *标识位
+             * 标识位
              * </pre>
              *
              * <code>.cn.csuosa.pojo.request.RequestPOJO.Operation operation = 1;</code>
+             *
              * @return The operation.
              */
             @java.lang.Override
@@ -1754,10 +1766,11 @@ public final class Request
 
             /**
              * <pre>
-             *（可选）用户信息位
+             * （可选）用户信息位
              * </pre>
              *
              * <code>optional .cn.csuosa.pojo.request.User user = 2;</code>
+             *
              * @return Whether the user field is set.
              */
             public boolean hasUser()
@@ -1834,7 +1847,7 @@ public final class Request
 
             /**
              * <pre>
-             *（可选）用户信息位
+             * （可选）用户信息位
              * </pre>
              *
              * <code>optional .cn.csuosa.pojo.request.User user = 2;</code>
@@ -1864,7 +1877,7 @@ public final class Request
 
             /**
              * <pre>
-             *（可选）用户信息位
+             * （可选）用户信息位
              * </pre>
              *
              * <code>optional .cn.csuosa.pojo.request.User user = 2;</code>
@@ -1885,7 +1898,7 @@ public final class Request
 
             /**
              * <pre>
-             *（可选）用户信息位
+             * （可选）用户信息位
              * </pre>
              *
              * <code>optional .cn.csuosa.pojo.request.User user = 2;</code>
@@ -3822,7 +3835,8 @@ public final class Request
                             nick_ = s;
                             break;
                         }
-                        case 26: {
+                        case 26:
+                        {
                             java.lang.String s = input.readStringRequireUtf8();
                             bitField0_ |= 0x00000002;
                             ticket_ = s;
@@ -4134,10 +4148,11 @@ public final class Request
 
         /**
          * <pre>
-         *（加入私有频道时必须）频道密钥
+         * （加入私有频道时必须）频道密钥
          * </pre>
          *
          * <code>optional string ticket = 3;</code>
+         *
          * @return The ticket.
          */
         @java.lang.Override
@@ -4343,12 +4358,13 @@ public final class Request
             private int bitField0_;
             private java.lang.Object name_ = "";
             private java.lang.Object nick_ = "";
-      private java.lang.Object ticket_ = "";
-      // Construct using cn.csuosa.chatroom.proto.Request.Channel.newBuilder()
-      private Builder()
-      {
-          maybeForceBuilderInitialization();
-      }
+            private java.lang.Object ticket_ = "";
+
+            // Construct using cn.csuosa.chatroom.proto.Request.Channel.newBuilder()
+            private Builder()
+            {
+                maybeForceBuilderInitialization();
+            }
 
             private Builder(
                     com.google.protobuf.GeneratedMessageV3.BuilderParent parent)
@@ -4369,7 +4385,7 @@ public final class Request
             {
                 return cn.csuosa.chatroom.proto.Request.internal_static_cn_csuosa_pojo_request_Channel_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
-                cn.csuosa.chatroom.proto.Request.Channel.class, cn.csuosa.chatroom.proto.Request.Channel.Builder.class);
+                                cn.csuosa.chatroom.proto.Request.Channel.class, cn.csuosa.chatroom.proto.Request.Channel.Builder.class);
             }
 
             private void maybeForceBuilderInitialization()
@@ -4522,7 +4538,8 @@ public final class Request
             }
 
             @java.lang.Override
-            public final boolean isInitialized() {
+            public final boolean isInitialized()
+            {
                 return true;
             }
 
@@ -4552,10 +4569,11 @@ public final class Request
 
             /**
              * <pre>
-             *频道名
+             * 频道名
              * </pre>
              *
              * <code>string name = 1;</code>
+             *
              * @return The name.
              */
             public java.lang.String getName()
@@ -4666,10 +4684,11 @@ public final class Request
 
             /**
              * <pre>
-             *（加入频道时必须）使用昵称
+             * （加入频道时必须）使用昵称
              * </pre>
              *
              * <code>optional string nick = 2;</code>
+             *
              * @return Whether the nick field is set.
              */
             public boolean hasNick()
@@ -4679,10 +4698,11 @@ public final class Request
 
             /**
              * <pre>
-             *（加入频道时必须）使用昵称
+             * （加入频道时必须）使用昵称
              * </pre>
              *
              * <code>optional string nick = 2;</code>
+             *
              * @return The nick.
              */
             public java.lang.String getNick()
@@ -4698,30 +4718,31 @@ public final class Request
                 } else
                 {
                     return (java.lang.String) ref;
-        }
-      }
+                }
+            }
 
-      /**
-       * <pre>
-       *（加入频道时必须）使用昵称
-       * </pre>
-       *
-       * <code>optional string nick = 2;</code>
-       * @param value The nick to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNick(
-              java.lang.String value)
-      {
-          if (value == null)
-          {
-              throw new NullPointerException();
-          }
-          bitField0_ |= 0x00000001;
-          nick_ = value;
-          onChanged();
-          return this;
-      }
+            /**
+             * <pre>
+             * （加入频道时必须）使用昵称
+             * </pre>
+             *
+             * <code>optional string nick = 2;</code>
+             *
+             * @param value The nick to set.
+             * @return This builder for chaining.
+             */
+            public Builder setNick(
+                    java.lang.String value)
+            {
+                if (value == null)
+                {
+                    throw new NullPointerException();
+                }
+                bitField0_ |= 0x00000001;
+                nick_ = value;
+                onChanged();
+                return this;
+            }
 
             /**
              * <pre>
@@ -4854,10 +4875,11 @@ public final class Request
 
             /**
              * <pre>
-             *（加入私有频道时必须）频道密钥
+             * （加入私有频道时必须）频道密钥
              * </pre>
              *
              * <code>optional string ticket = 3;</code>
+             *
              * @return The bytes for ticket.
              */
             public com.google.protobuf.ByteString
@@ -4879,10 +4901,11 @@ public final class Request
 
             /**
              * <pre>
-             *（加入私有频道时必须）频道密钥
+             * （加入私有频道时必须）频道密钥
              * </pre>
              *
              * <code>optional string ticket = 3;</code>
+             *
              * @param value The bytes for ticket to set.
              * @return This builder for chaining.
              */
@@ -4902,10 +4925,11 @@ public final class Request
 
             /**
              * <pre>
-             *（加入私有频道时必须）频道密钥
+             * （加入私有频道时必须）频道密钥
              * </pre>
              *
              * <code>optional string ticket = 3;</code>
+             *
              * @return This builder for chaining.
              */
             public Builder clearTicket()
@@ -4938,9 +4962,9 @@ public final class Request
 
     /**
      * <pre>
-   *用于发送消息
+     * 用于发送消息
      * </pre>
-     *
+     * <p>
      * Protobuf type {@code cn.csuosa.pojo.request.Message}
      */
     public static final class Message extends
@@ -4994,7 +5018,8 @@ public final class Request
                 throws com.google.protobuf.InvalidProtocolBufferException
         {
             this();
-            if (extensionRegistry == null) {
+            if (extensionRegistry == null)
+            {
                 throw new java.lang.NullPointerException();
             }
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -5227,11 +5252,10 @@ public final class Request
 
         /**
          * <pre>
-         * 消息内容
+         *消息内容
          * </pre>
          *
          * <code>bytes content = 3;</code>
-         *
          * @return The content.
          */
         @java.lang.Override
@@ -5277,7 +5301,8 @@ public final class Request
             if (size != -1) return size;
 
             size = 0;
-            if (type_ != 0) {
+            if (type_ != 0)
+            {
                 size += com.google.protobuf.CodedOutputStream
                         .computeInt32Size(1, type_);
             }
@@ -5375,9 +5400,9 @@ public final class Request
 
         /**
          * <pre>
-         * 用于发送消息
+         *用于发送消息
          * </pre>
-         * <p>
+         *
          * Protobuf type {@code cn.csuosa.pojo.request.Message}
          */
         public static final class Builder extends
@@ -5474,48 +5499,32 @@ public final class Request
             }
 
             @java.lang.Override
-            public Builder clone()
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof)
             {
-                return super.clone();
+                return super.clearOneof(oneof);
             }
 
             @java.lang.Override
-            public Builder setField(
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value)
+            {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
                     java.lang.Object value)
             {
-                return super.setField(field, value);
+                return super.addRepeatedField(field, value);
             }
 
             @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof cn.csuosa.chatroom.proto.Request.Message) {
+            public Builder mergeFrom(com.google.protobuf.Message other)
+            {
+                if (other instanceof cn.csuosa.chatroom.proto.Request.Message) {
           return mergeFrom((cn.csuosa.chatroom.proto.Request.Message)other);
         } else {
           super.mergeFrom(other);
@@ -5548,76 +5557,107 @@ public final class Request
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        cn.csuosa.chatroom.proto.Request.Message parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cn.csuosa.chatroom.proto.Request.Message) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
+              throws java.io.IOException {
+          cn.csuosa.chatroom.proto.Request.Message parsedMessage = null;
+          try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e)
+          {
+              parsedMessage = (cn.csuosa.chatroom.proto.Request.Message) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+          } finally
+          {
+              if (parsedMessage != null)
+              {
+                  mergeFrom(parsedMessage);
+              }
           }
-        }
-        return this;
+          return this;
       }
 
-      /**
-       * <pre>
-       *消息类型
-       * </pre>
-       *
-       * <code>int32 type = 1;</code>
-       * @return The type.
-       */
-      @java.lang.Override
-      public int getType() {
-        return type_;
-      }
+            @java.lang.Override
+            public Builder clone()
+            {
+                return super.clone();
+            }
 
-      /**
-       * <pre>
-       *消息类型
-       * </pre>
-       *
-       * <code>int32 type = 1;</code>
-       * @param value The type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setType(int value) {
+            /**
+             * <pre>
+             * 消息类型
+             * </pre>
+             *
+             * <code>int32 type = 1;</code>
+             *
+             * @return The type.
+             */
+            @java.lang.Override
+            public int getType()
+            {
+                return type_;
+            }
 
-        type_ = value;
-        onChanged();
-        return this;
-      }
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value)
+            {
+                return super.setField(field, value);
+            }
 
-      /**
-       * <pre>
-       *消息类型
-       * </pre>
-       *
-       * <code>int32 type = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearType() {
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field)
+            {
+                return super.clearField(field);
+            }
+
+            /**
+             * <pre>
+             * 消息类型
+             * </pre>
+             *
+             * <code>int32 type = 1;</code>
+             *
+             * @param value The type to set.
+             * @return This builder for chaining.
+             */
+            public Builder setType(int value)
+            {
+
+                type_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 消息发送时间戳
+             * </pre>
+             *
+             * <code>int64 timestamp = 2;</code>
+             *
+             * @return The timestamp.
+             */
+            @java.lang.Override
+            public long getTimestamp()
+            {
+                return timestamp_;
+            }
+
+            /**
+             * <pre>
+             * 消息类型
+             * </pre>
+             *
+             * <code>int32 type = 1;</code>
+             *
+             * @return This builder for chaining.
+             */
+            public Builder clearType() {
 
         type_ = 0;
         onChanged();
         return this;
-      }
-
-      /**
-       * <pre>
-       *消息发送时间戳
-       * </pre>
-       *
-       * <code>int64 timestamp = 2;</code>
-       * @return The timestamp.
-       */
-      @java.lang.Override
-      public long getTimestamp() {
-        return timestamp_;
       }
 
       /**
@@ -5650,7 +5690,6 @@ public final class Request
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        *消息内容
@@ -5663,6 +5702,7 @@ public final class Request
       public com.google.protobuf.ByteString getContent() {
         return content_;
       }
+
       /**
        * <pre>
        *消息内容

@@ -14,7 +14,8 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0eResponse.proto\x12\x17\x63n.csuosa.pojo.response\"\xcd\x03\n\x0cResponsePOJO\x12\x38\n\x04type\x18\x01 \x01(\x0e\x32*.cn.csuosa.pojo.response.ResponsePOJO.Type\x12\x34\n\x06result\x18\x02 \x01(\x0b\x32\x1f.cn.csuosa.pojo.response.ResultH\x00\x88\x01\x01\x12\x36\n\x07message\x18\x03 \x01(\x0b\x32 .cn.csuosa.pojo.response.MessageH\x01\x88\x01\x01\x12\x39\n\x0b\x63hannelInfo\x18\x04 \x03(\x0b\x32$.cn.csuosa.pojo.response.ChannelInfo\x12:\n\nmemberInfo\x18\x05 \x03(\x0b\x32&.cn.csuosa.pojo.response.LoginUserInfo\"\x86\x01\n\x04Type\x12\n\n\x06RETAIN\x10\x00\x12\n\n\x06RESULT\x10\x01\x12\x0c\n\x08PUSH_MSG\x10\x02\x12\x11\n\rPUSH_CHA_LIST\x10\x03\x12\x18\n\x14PUSH_LOGIN_USER_LIST\x10\x04\x12\x18\n\x14PUSH_CHA_MEMBER_LIST\x10\x05\x12\x11\n\rPUSH_SYS_INFO\x10\x06\x42\t\n\x07_resultB\n\n\x08_message\"2\n\x06Result\x12\x0e\n\x06StCode\x18\x01 \x01(\x05\x12\x10\n\x03msg\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x06\n\x04_msg\"^\n\x07Message\x12\x0f\n\x07\x63hannel\x18\x01 \x01(\t\x12\x10\n\x08\x66romNick\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x12\x0f\n\x07\x63ontent\x18\x05 \x01(\x0c\"N\n\x0b\x43hannelInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04isIN\x18\x02 \x01(\x08\x12\x10\n\x08isPublic\x18\x03 \x01(\x08\x12\x11\n\tmemberNum\x18\x04 \x01(\x05\";\n\rLoginUserInfo\x12\x0f\n\x02id\x18\x01 \x01(\tH\x00\x88\x01\x01\x12\x12\n\nmemberNick\x18\x02 \x01(\tB\x05\n\x03_idB&\n\x18\x63n.csuosa.chatroom.protoB\x08ResponseH\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n\x0eResponse.proto\x12\x17\x63n.csuosa.pojo.response\"\xc6\x03\n\x0cResponsePOJO\x12\x38\n\x04type\x18\x01 \x01(\x0e\x32*.cn.csuosa.pojo.response.ResponsePOJO.Type\x12\x34\n\x06result\x18\x02 \x01(\x0b\x32\x1f.cn.csuosa.pojo.response.ResultH\x00\x88\x01\x01\x12\x36\n\x07message\x18\x03 \x01(\x0b\x32 .cn.csuosa.pojo.response.MessageH\x01\x88\x01\x01\x12\x39\n\x0b\x63hannelInfo\x18\x04 \x03(\x0b\x32$.cn.csuosa.pojo.response.ChannelInfo\x12\x33\n\x08userInfo\x18\x05 \x03(\x0b\x32!.cn.csuosa.pojo.response.UserInfo\"\x86\x01\n\x04Type\x12\n\n\x06RETAIN\x10\x00\x12\n\n\x06RESULT\x10\x01\x12\x0c\n\x08PUSH_MSG\x10\x02\x12\x11\n\rPUSH_CHA_LIST\x10\x03\x12\x18\n\x14PUSH_LOGIN_USER_LIST\x10\x04\x12\x18\n\x14PUSH_CHA_MEMBER_LIST\x10\x05\x12\x11\n\rPUSH_SYS_INFO\x10\x06\x42\t\n\x07_resultB\n\n\x08_message\"2\n\x06Result\x12\x0e\n\x06StCode\x18\x01 \x01(\x05\x12\x10\n\x03msg\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x06\n\x04_msg\"^\n\x07Message\x12\x0f\n\x07\x63hannel\x18\x01 \x01(\t\x12\x10\n\x08\x66romNick\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\x05\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x12\x0f\n\x07\x63ontent\x18\x05 \x01(\x0c\"N\n\x0b\x43hannelInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04isIN\x18\x02 \x01(\x08\x12\x10\n\x08isPublic\x18\x03 \x01(\x08\x12\x11\n\tmemberNum\x18\x04 \x01(\x05\"8\n\x08UserInfo\x12\x10\n\x03uid\x18\x01 \x01(\x03H\x00\x88\x01\x01\x12\x12\n\nmemberNick\x18\x02 \x01(\tB\x06\n\x04_uidB&\n\x18\x63n.csuosa.chatroom.protoB\x08ResponseH\x01\x62\x06proto3')
 
 
 
@@ -22,7 +23,7 @@ _RESPONSEPOJO = DESCRIPTOR.message_types_by_name['ResponsePOJO']
 _RESULT = DESCRIPTOR.message_types_by_name['Result']
 _MESSAGE = DESCRIPTOR.message_types_by_name['Message']
 _CHANNELINFO = DESCRIPTOR.message_types_by_name['ChannelInfo']
-_LOGINUSERINFO = DESCRIPTOR.message_types_by_name['LoginUserInfo']
+_USERINFO = DESCRIPTOR.message_types_by_name['UserInfo']
 _RESPONSEPOJO_TYPE = _RESPONSEPOJO.enum_types_by_name['Type']
 ResponsePOJO = _reflection.GeneratedProtocolMessageType('ResponsePOJO', (_message.Message,), {
   'DESCRIPTOR' : _RESPONSEPOJO,
@@ -42,37 +43,36 @@ Message = _reflection.GeneratedProtocolMessageType('Message', (_message.Message,
   'DESCRIPTOR' : _MESSAGE,
   '__module__' : 'Response_pb2'
   # @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.Message)
-  })
+})
 _sym_db.RegisterMessage(Message)
 
 ChannelInfo = _reflection.GeneratedProtocolMessageType('ChannelInfo', (_message.Message,), {
-  'DESCRIPTOR' : _CHANNELINFO,
-  '__module__' : 'Response_pb2'
-  # @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.ChannelInfo)
-  })
+    'DESCRIPTOR': _CHANNELINFO,
+    '__module__': 'Response_pb2'
+    # @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.ChannelInfo)
+})
 _sym_db.RegisterMessage(ChannelInfo)
 
-LoginUserInfo = _reflection.GeneratedProtocolMessageType('LoginUserInfo', (_message.Message,), {
-  'DESCRIPTOR' : _LOGINUSERINFO,
-  '__module__' : 'Response_pb2'
-  # @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.LoginUserInfo)
-  })
-_sym_db.RegisterMessage(LoginUserInfo)
+UserInfo = _reflection.GeneratedProtocolMessageType('UserInfo', (_message.Message,), {
+    'DESCRIPTOR': _USERINFO,
+    '__module__': 'Response_pb2'
+    # @@protoc_insertion_point(class_scope:cn.csuosa.pojo.response.UserInfo)
+})
+_sym_db.RegisterMessage(UserInfo)
 
 if _descriptor._USE_C_DESCRIPTORS == False:
-
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\030cn.csuosa.chatroom.protoB\010ResponseH\001'
-  _RESPONSEPOJO._serialized_start=44
-  _RESPONSEPOJO._serialized_end=505
-  _RESPONSEPOJO_TYPE._serialized_start=348
-  _RESPONSEPOJO_TYPE._serialized_end=482
-  _RESULT._serialized_start=507
-  _RESULT._serialized_end=557
-  _MESSAGE._serialized_start=559
-  _MESSAGE._serialized_end=653
-  _CHANNELINFO._serialized_start=655
-  _CHANNELINFO._serialized_end=733
-  _LOGINUSERINFO._serialized_start=735
-  _LOGINUSERINFO._serialized_end=794
+    DESCRIPTOR._options = None
+    DESCRIPTOR._serialized_options = b'\n\030cn.csuosa.chatroom.protoB\010ResponseH\001'
+    _RESPONSEPOJO._serialized_start = 44
+    _RESPONSEPOJO._serialized_end = 498
+    _RESPONSEPOJO_TYPE._serialized_start = 341
+    _RESPONSEPOJO_TYPE._serialized_end = 475
+    _RESULT._serialized_start = 500
+    _RESULT._serialized_end = 550
+    _MESSAGE._serialized_start = 552
+    _MESSAGE._serialized_end = 646
+    _CHANNELINFO._serialized_start = 648
+    _CHANNELINFO._serialized_end = 726
+    _USERINFO._serialized_start = 728
+    _USERINFO._serialized_end = 784
 # @@protoc_insertion_point(module_scope)

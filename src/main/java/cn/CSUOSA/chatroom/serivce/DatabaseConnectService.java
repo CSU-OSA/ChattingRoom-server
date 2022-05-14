@@ -29,6 +29,31 @@ public class DatabaseConnectService
             System.exit(-1);
         }
         Out.ConsoleOut.info("Connected to the database.");
+        new Thread(() -> {
+            try
+            {
+                Thread.sleep(60000);
+            } catch (InterruptedException e)
+            {
+                throw new RuntimeException(e);
+            }
+            try
+            {
+                if (connection.isClosed())
+                {
+                    Out.ConsoleOut.warn("Connection with mysql Database is closed. Reconnecting...");
+                    connection = DriverManager.getConnection(ConfigOperation.getConfiguration().getDataBaseURL(),
+                            ConfigOperation.getConfiguration().getDataBaseUser(),
+                            ConfigOperation.getConfiguration().getDataBasePassword()
+                    );
+                }
+            } catch (SQLException e)
+            {
+                e.printStackTrace();
+                Out.ConsoleOut.err("Failed to connect to the database. Program exit.");
+                System.exit(-1);
+            }
+        });
         return true;
     }
 }

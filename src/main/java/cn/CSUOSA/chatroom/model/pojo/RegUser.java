@@ -4,9 +4,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
+import java.util.Date;
+
 @Data
 @Builder
-public class User
+public class RegUser
 {
     /**
      * 用户ID
@@ -23,7 +25,7 @@ public class User
      * 加密后的用户密码
      */
     @NonNull
-    String password;
+    String authentication_field;
 
     @NonNull
     String salt;
@@ -32,4 +34,28 @@ public class User
      * 用户默认昵称
      */
     String default_nick;
+
+    /**
+     * 创建时间
+     */
+    @NonNull
+    Date create_time;
+
+    /**
+     * 创建者
+     */
+    @NonNull
+    String creator;
+
+    /**
+     * 上次编辑时间
+     */
+    @NonNull
+    Date last_edit;
+
+    /**
+     * 上次编辑者
+     */
+    @NonNull
+    String last_editor;
 }

@@ -70,12 +70,12 @@ public class TerminalProcessor implements Runnable
                     {
                         Out.ConsoleOut.info("""
                                 kick指令用于将某用户从频道中踢出, 或直接中断其与服务器的连接.
-                                用法：kick [opt] [channel] [nick]
+                                用法：kick [opt] [talkChannel] [nick]
                                     opt:
                                         -h,--help   命令帮助
                                         -k,--kill   从频道中踢出
                                         -K,--KILL   断开与服务器的连接
-                                    channel:
+                                    talkChannel:
                                         频道名
                                     nick:
                                         昵称

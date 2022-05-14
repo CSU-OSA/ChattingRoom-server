@@ -20,7 +20,7 @@ message ResponsePOJO
   optional Result result = 2;
   optional Message message = 3;
   repeated ChannelInfo channelInfo = 4;
-  repeated LoginUserInfo memberInfo = 5;
+  repeated UserInfo userInfo = 5;
 }
 
 message Result {
@@ -43,7 +43,7 @@ message ChannelInfo {
   int32   memberNum = 4;  //频道中的成员数量
 }
 
-message LoginUserInfo {
-  optional string id = 1;
+message UserInfo {
+  optional int64 uid = 1;
   string memberNick = 2;
 }
