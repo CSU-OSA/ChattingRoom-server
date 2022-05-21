@@ -154,7 +154,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
 
                 if (!request.hasUser())
                 {
-                    ctx.channel().writeAndFlush(buildResponse(0, "LOGIN|Welcome, Nobody."));
+                    ctx.channel().writeAndFlush(buildResponse(0, "LOGIN|Welcome.*.Nobody"));
                     infoPushService.pushChannelList(onlineUser);
                     return;
                 }
@@ -200,7 +200,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter
 
                 onlineUserService.regUserLogin(regUserInst, onlineUser.getUUID());
 
-                ctx.channel().writeAndFlush(buildResponse(0, String.format("LOGIN|Welcome user-%s.", regUserInst.getUid())));
+                ctx.channel().writeAndFlush(buildResponse(0, "LOGIN|Welcome." + regUserInst.getUid() + "-\"" + regUserInst.getE_mail() + "\"-" + regUserInst.getDefault_nick()));
 
                 infoPushService.pushChannelList(onlineUser);
             }
